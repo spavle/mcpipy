@@ -141,8 +141,11 @@ csx
 AppPackages/
 
 # Others
+.git*
 mcpi/
 burnaron*
+mcpipy/
+Minepy/
 NeuroPy/
 sql/
 *.Cache
