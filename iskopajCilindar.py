@@ -36,3 +36,4 @@ def iskopajCilindar ( iX, iZ, iY ,radius = 6 ):
 if __name__ == "__main__":    #direktan poziv
    iskopajCilindar ( 15, 0, 0 ,radius = 12 )
 
+

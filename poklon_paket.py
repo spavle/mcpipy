@@ -9,12 +9,6 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 
 
-"""
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-print '/give spavle axe'
-"""
-
 # origin ispred na sredini 
 orMj = gdjeSam ()
 orSm = gdjeGledam ()

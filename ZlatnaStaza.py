@@ -1,7 +1,6 @@
 # pravi stazu od zlatnih blokova dugacku 2000 siroku 3 - obsolete
 
 from mc import * # ajmo probati ovaj import
-
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 radnaPozicija = mc.player.getPos()		#gdje sam

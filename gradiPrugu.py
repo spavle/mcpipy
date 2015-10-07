@@ -1,7 +1,8 @@
 # crta prugu duzine cca 256 ( velicina minecraft chunka ???? )  - SIROVO I NEDORADJENO
 import time 
-from mc import * # ajmo probati ovaj import
+#gradi prugu ali postepeno jump po jump
 
+from mc import * # ajmo probati ovaj import
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 

@@ -1,4 +1,4 @@
-# crtanje rupe lifta i sortera
+# crtanje rupe, lifta i sortera
 #definicija objekta i poziv rutine za crtanje
 import time 
 from crtanje import *		#tu je funkcija koju zovem
@@ -16,31 +16,7 @@ orSm = gdjeGledam ()
 materijal = 1
 dv = 1
 
-"""
-dubina = nadji_dno ( orMj , ( 0 , 0 , 0 ) , orSm )
-mc.postToChat("dubina %f " % dubina  )
-filter2 ( orMj , ( 0 , 0 , 0 ) , orSm ,  visina = dubina ,   sirina = 4 , dubina = 9, baklje="ne") 
-filter2 ( orMj , ( 0 , 0 , 0 ) , orSm ,  visina = dubina ,   sirina = 4 , dubina = 9, baklje="ne")
 
-
-crtaj_kvadar ( orMj , [ 10 , -4, -1 ]  , [ 10 , -4 , dubina +1 ] , orSm , STONE.id , 2 )
-crtaj_ljestve  ( orMj , [ 9 , -4, -1 ]  , [ 9 , -4 , dubina +1 ] , orSm , "odmene" )
-crtaj_kvadar ( orMj , [ 8 , -4, -1 ]  , [ 8 , -4, 0  ] , orSm , STONE.id , 2 )
-
-crtaj_kvadar ( orMj , [ 0 , -4, -1 ]  , [ 0 , -4 , dubina +1 ] , orSm , STONE.id , 2 )
-crtaj_ljestve  ( orMj , [ 1 , -4, -1 ]  , [ 1 , -4 , dubina +1 ] , orSm , "meni" )
-crtaj_kvadar ( orMj , [ 2, -4, -1 ]  , [ 2 , -4, 0  ] , orSm , STONE.id , 2 )
-
-"""
-
-"""
-crtaj_lift ( 1 , 0 , 0 , 11 )
-
-crtaj_lift ( 9 , -4 , 1 , 12 )
-
-
-sorter  ( 5 , - 7 , 13 , 22 , 7 )
-"""
 
 dubina = nadji_dno ( orMj , ( 0 , 0 , 0 ) , orSm )
 mc.postToChat("dubina %f " % dubina  )
