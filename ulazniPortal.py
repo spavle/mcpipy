@@ -14,7 +14,7 @@ orSm = gdjeGledam ()
 #mossy coblestone tijelo
 crtaj_kvadar ( orMj , (6, -sirina-6,-18)  , (1+8 + 6 + 4 + dubina,sirina + 6,3) , orSm , 98 , 1 )
 crtaj_kvadar ( orMj , (11+3,-sirina,-16)  , (11+3 + dubina ,sirina,-16) , orSm , 2 )
-for dX in range ( 18 , 18 + dubina , 8 ) :
+for dX in range ( 18 , 18 + dubina , 8 ) :   #lampe gore i dolje
    for dZ in range ( -sirina - 2  ,sirina + 8 , 8 ) :
       crtaj_kvadar ( orMj , (dX,dZ,-16)  , (dX,dZ,-16) , orSm , 89 )
       crtaj_kvadar ( orMj , (dX,dZ,1)  , (dX,dZ,1) , orSm , 89 )
@@ -36,52 +36,60 @@ crtaj_kvadar ( orMj , ( 4 , 3 , 2 )  , ( 4 , 3 , 2 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 7 , -3 , 0 )  , ( 7 , -3 , 0 ) , orSm , 89 ) #drugi par lampi iznad pocetka stepenica
 crtaj_kvadar ( orMj , ( 7 , 3 , 0 )  , ( 7 , 3 , 0 ) , orSm , 89 )
 
-#4 stepenice dolje
-for br in range (5):
-   crtaj_kvadar ( orMj , (6+br,-2,0-br)  , (6+br,2,3-br) , orSm , AIR.id , blok_dv = 0 )
-   crtaj_kvadar ( orMj , (6+br,-2,-1-br)  , (6+br,2,-1-br) , orSm , 2 )
-   
 # podest 9 x 7 +++
 crtaj_kvadar ( orMj , (11,-3,-6)  , (19,3,-16) , orSm ,98 , 1 )
-crtaj_kvadar ( orMj , (11,-3,-6)  , (19,3,-6) , orSm , 2 )
+crtaj_kvadar ( orMj , (14,-3,-6)  , (18,3,-6) , orSm , 2 )
 crtaj_kvadar ( orMj , ( 19 , -3 , -5 )  , ( 19 , -3 , -5 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 19 , 3 , -5 )  , ( 19 , 3 , -5 ) , orSm , 89 )
 crtaj_kvadar ( orMj , (11,-4,-5)  , (19,4,-5) , orSm , AIR.id ,  0 ) # prekid u ogradi
 crtaj_kvadar ( orMj , (19,-4,-5)  , (19,4,-5) , orSm , 89 )       # lampe na podestu
 crtaj_kvadar ( orMj , (19,-3,-5)  , (19,3,-5) , orSm , 85 ,  0 )  # OGRADA NAPRIJED
 
-# lijeve stepenice 3 dolje
-for br in range (4):
-   crtaj_kvadar ( orMj , (14,-4 - br ,-7 -br)  , (19,-4 -br,-16) , orSm , 98 , 1 )
-   crtaj_kvadar ( orMj , (14,-4 - br ,-6 -br)  , (19,-4 -br,-6 -br) , orSm , 2 )
+#4 stepenice dolje
+for br in range (5):
+   crtaj_kvadar ( orMj , (6+br,-2,1-br)  , (6+br,2,3-br) , orSm , AIR.id , blok_dv = 0 )
+   crtaj_kvadar ( orMj , (6+br,-2,-1-br)  , (6+br,2,-1-br) , orSm , 2 )
+   crtaj_stepenice ( orMj , (7+br,-2,-1-br)  , (7+br,2,-1-br) , orSm , blok_id = 109 , rel_smjer  = "odmene")
+   
 
-# desne stepenice 3 dolje
-for br in range (4):
-   crtaj_kvadar ( orMj , (14,4 + br ,-7 -br)  , (19,4 +br,-16) , orSm ,  98 , 1 )
-   crtaj_kvadar ( orMj , (14,4 + br ,-6 -br)  , (19,4 +br,-6 -br) , orSm , 2 )
+
    
 #lijevi podest
-crtaj_kvadar ( orMj , (14,-7,-10)  , (19,-12,-16) , orSm ,  98 , 1 )
-crtaj_kvadar ( orMj , (14,-7,-9)  , (19,-12,-9) , orSm , 2 )
+crtaj_kvadar ( orMj , (14,-7,-9)  , (19,-12,-16) , orSm ,  98 , 1 )    #podloga
+crtaj_kvadar ( orMj , (14,-7,-9)  , (19,-11,-9) , orSm , 2 )            #trava
 crtaj_kvadar ( orMj , ( 19 , -12 , -8 )  , ( 19 , -12 , -8 ) , orSm , 89 )
 
 #desni podest
-crtaj_kvadar ( orMj , (14,7,-10)  , (19,12,-16) , orSm ,  98 , 1 )
-crtaj_kvadar ( orMj , (14,7,-9)  , (19,12,-9) , orSm , 2 )
+crtaj_kvadar ( orMj , (14,7,-9)  , (19,12,-16) , orSm ,  98 , 1 )    #podloga
+crtaj_kvadar ( orMj , (14,7,-9)  , (19,11,-9) , orSm , 2 )            #trava
 crtaj_kvadar ( orMj , ( 19 , 12 , -8 )  , ( 19 , 12 , -8 ) , orSm , 89 )
 
+# lijeve stepenice 3 dolje
+for br in range (3):
+   crtaj_kvadar ( orMj , (14,-4 - br ,-7 -br)  , (19,-4 -br,-16) , orSm , 98 , 1 )
+   crtaj_kvadar ( orMj , (14,-4 - br ,-6 -br)  , (19,-4 -br,-6 -br) , orSm , 2 )
+   crtaj_stepenice ( orMj , (14,-5 - br ,-6 -br)  , (19,-5 -br,-6 -br) , orSm , blok_id = 109 , rel_smjer  = "lijevo")
+
+# desne stepenice 3 dolje
+for br in range (3):
+   crtaj_kvadar ( orMj , (14,4 + br ,-7 -br)  , (19,4 +br,-16) , orSm ,  98 , 1 )
+   crtaj_kvadar ( orMj , (14,4 + br ,-6 -br)  , (19,4 +br,-6 -br) , orSm , 2 )
+   crtaj_stepenice ( orMj , (14,5 + br ,-6 -br)  , (19,5 +br,-6 -br) , orSm , blok_id = 109 , rel_smjer  = "desno")
+
+
+
 #lijeve stepenice 5 dolje
-for br in range (6):
-   crtaj_kvadar ( orMj , (20+br,-7,-11-br)  , (20+br,-12,-16) , orSm ,  98 , 1 )
-   crtaj_kvadar ( orMj , (20+br,-7,-10-br)  , (20+br,-12,-10-br) ,  orSm , 2 )
+for br in range (7):
+   crtaj_kvadar ( orMj , (20+br,-7,-10-br)  , (20+br,-12,-16) , orSm ,  98 , 1 )
+   crtaj_stepenice ( orMj , (20+br,-7,-9-br)  , (20+br,-12,-9-br) , orSm , blok_id = 109 , rel_smjer  = "odmene")
 crtaj_kvadar ( orMj , ( 19 , -5 , -14 )  , ( 19 , -5 , -14 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 26 , -13 , -15 )  , ( 26 , -13 , -15 ) , orSm , 89 )
 
 
 #desne stepenice 5 dolje
-for br in range (6):
-   crtaj_kvadar ( orMj , (20+br,7,-11-br)  , (20+br,12,-16) , orSm ,  98 , 1 )
-   crtaj_kvadar ( orMj , (20+br,7,-10-br)  , (20+br,12,-10-br) , orSm , 2 )
+for br in range (7):
+   crtaj_kvadar ( orMj , (20+br,7,-10-br)  , (20+br,12,-16) , orSm ,  98 , 1 )
+   crtaj_stepenice ( orMj , (20+br,7,-9-br)  , (20+br,12,-9-br) , orSm , blok_id = 109 , rel_smjer  = "odmene")
 crtaj_kvadar ( orMj , ( 19 , 5 , -14 )  , ( 19 , 5 , -14 ) , orSm , 89 )
 crtaj_kvadar ( orMj , ( 26 , 13 , -15 )  , ( 26 , 13 , -15 ) , orSm , 89 )
 
@@ -216,6 +224,11 @@ for br in  range ( -1 , -11 , -1 ):    #stepenice lijevo i desno
 
 #pomakni origin na ( 14 + dubina, sirina/2 , -15) sedina - podest ispred apartmana
 pomOrigin = premjesti_origin ( orMj ,  14 + dubina, int ( - sirina / 2 ) , -15 ,  orSm )
+crtaj_kvadar ( pomOrigin , (2, -14,7)  , (35,14,-5) , orSm , 98 , 1 )   # mossy coblestone tijelo
+for dX in range ( 5 , 31 , 5  ) :   #lampe gore
+   for dZ in range ( -10   , 11  , 5 ) :
+      crtaj_kvadar ( pomOrigin , (dX,dZ,3)  , (dX,dZ,3) , orSm , 89 )
+
 crtanje_stepenastiTunel ( pomOrigin  , orSm ,  visina=4 , sirina = 13 , duzina = 3  , uspon = -1 )  #stepenasti silazak 3 stepenice
 pomOrigin2 = premjesti_origin ( pomOrigin , 3 , 0 ,  -3 , orSm )
 crtanje_stepenastiTunel ( pomOrigin2  , orSm ,  visina=6 , sirina = 13 , duzina = 30  , uspon = 0 )

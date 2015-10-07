@@ -142,6 +142,9 @@ AppPackages/
 
 # Others
 .git*
+models/
+spremi/
+vehicles/
 mcpi/
 burnaron*
 mcpipy/
