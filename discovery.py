@@ -11,51 +11,51 @@ def ubij_ispod (pos) :
   
 def go_south ( koliko , pomak ) :
    for brojalica in range ( 0 , koliko + 1 ):
-      mc.postToChat("brojalica : %f " % ( brojalica  ) )
+      mc.postToChat("go_south : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x - pomak , 109 , pos.z  , STONE.id)
+      mc.setBlock(pos.x  , 89 , pos.z - pomak , STONE.id)
       time.sleep ( 3 )
       ubij_ispod ( pos )
-      mc.player.setPos(pos.x - pomak , 110 , pos.z)
+      mc.player.setPos(pos.x  , 90 , pos.z - pomak)
       time.sleep ( 3 )
       
       
 def go_west ( koliko , pomak ) :
    for brojalica in range ( 0 , koliko + 1 ):
-      mc.postToChat("brojalica : %f " % ( brojalica  ) )
+      mc.postToChat("go_west : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x  , 109 , pos.z - pomak , STONE.id )
+      mc.setBlock(pos.x  - pomak , 89 , pos.z , STONE.id )
       time.sleep ( 3 )
       ubij_ispod ( pos )
-      mc.player.setPos(pos.x  , 110 , pos.z - pomak)
+      mc.player.setPos(pos.x - pomak , 90 , pos.z )
       time.sleep ( 3 )
       
       
 def go_north ( koliko , pomak ) :
    for brojalica in range ( 0 , koliko + 1 ):
-      mc.postToChat("brojalica : %f " % ( brojalica  ) )
+      mc.postToChat("go_north : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x + pomak , 109 , pos.z , STONE.id )
+      mc.setBlock(pos.x  , 89 , pos.z + pomak , STONE.id )
       time.sleep ( 3 )
       ubij_ispod ( pos )
-      mc.player.setPos(pos.x + pomak , 110 , pos.z)
+      mc.player.setPos(pos.x  , 90 , pos.z + pomak)
       time.sleep ( 3 )
       
 def go_east ( koliko , pomak ) :
    for brojalica in range (  0 , koliko + 1  ):
-      mc.postToChat("brojalica : %f " % ( brojalica  ) )
+      mc.postToChat("go_east : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x  , 109 , pos.z + pomak , STONE.id )
+      mc.setBlock(pos.x + pomak , 89 , pos.z  , STONE.id )
       time.sleep ( 3 )
       ubij_ispod ( pos )
-      mc.player.setPos(pos.x  , 110 , pos.z + pomak)
+      mc.player.setPos(pos.x + pomak , 90 , pos.z )
       time.sleep ( 3 )
       
-korak = 50
+korak = 45
 pocetak =  mc.player.getTilePos()
 for krug in range ( 2 , 250 , 2) :
    mc.postToChat("krug : %f " % ( krug  ) )
-   go_south ( 1 , korak )
+   go_south ( 0 , korak )
    go_west ((int ( krug / 2 ) + 1 ) , korak )
    go_north ( krug + 1 , korak )
    go_east ( (int ( krug / 2 ) + 1 ) , korak )
