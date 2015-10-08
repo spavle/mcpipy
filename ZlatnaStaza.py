@@ -15,7 +15,7 @@ if smjerRada.x:
    korektor=2			
 
 if  abs ( smjerRada.x )  != abs ( smjerRada.z ) :	#da ne ode pod 45
-   for brojalica in  range (2000) :			#duzina 2000
+   for brojalica in  range (300) :			#duzina 2000
       radnaPozicija.x += smjerRada.x
       radnaPozicija.z += smjerRada.z
       mc.setBlock(radnaPozicija.x , smjerRada.y , radnaPozicija.z , GOLD_BLOCK) #sredisnji blok

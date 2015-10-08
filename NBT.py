@@ -36,8 +36,17 @@ playerPos = mc.player.getPos()
 #bla = rel2abs ( orMj , ( 2  , 0 ,  0  ) , orSm )
 
 # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA KONJA
-id = mc.spawnEntity('EntityHorse', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
+#id = mc.spawnEntity('EntityHorse', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
+
+
+#XPOrb
+"""
+for br in range ( 6 ):
+   id = mc.spawnEntity('XPOrb', int ( playerPos.x + br ) ,int ( playerPos.y ), int ( playerPos.z ), "{Value:307}")
 print id
+"""
+
+id = mc.spawnEntity('XPOrb', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), "{Value:1237}")
 
 
 #bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )

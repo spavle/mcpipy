@@ -39,4 +39,4 @@ def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija 
    return 1
  
 if __name__ == "__main__":    #direktan poziv
-   polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 6 , duzina = 20 , korekcija = 2 , uspon = -0.2  )
+   polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 6 , duzina = 65 , korekcija = 31 , uspon = 0  )

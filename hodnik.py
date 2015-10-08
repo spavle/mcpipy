@@ -37,4 +37,4 @@ def hodnik (   iX=0 , iZ=0 , iY=0  , duzina = 10 ):
    return 1
  
 if __name__ == "__main__":    #direktan poziv
-   hodnik (   iX=0 , iZ=0 , iY=0 , duzina = 55  )
+   hodnik (   iX=0 , iZ=0 , iY=0 , duzina = 65  )
