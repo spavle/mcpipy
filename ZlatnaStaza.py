@@ -18,9 +18,9 @@ if  abs ( smjerRada.x )  != abs ( smjerRada.z ) :	#da ne ode pod 45
    for brojalica in  range (300) :			#duzina 2000
       radnaPozicija.x += smjerRada.x
       radnaPozicija.z += smjerRada.z
-      mc.setBlock(radnaPozicija.x , smjerRada.y , radnaPozicija.z , GOLD_BLOCK) #sredisnji blok
-      mc.setBlock(radnaPozicija.x + abs ( smjerRada.z ), smjerRada.y , radnaPozicija.z + abs ( smjerRada.x ) , GOLD_BLOCK)                  #diferencijalno prosirenje staze
-      mc.setBlock(radnaPozicija.x - abs ( smjerRada.z ), smjerRada.y , radnaPozicija.z - abs ( smjerRada.x ) , GOLD_BLOCK)                  #diferencijalno prosirenje staze
+      mc.setBlock(radnaPozicija.x , smjerRada.y , radnaPozicija.z ,  89 , 0) #sredisnji blok
+      mc.setBlock(radnaPozicija.x + abs ( smjerRada.z ), smjerRada.y , radnaPozicija.z + abs ( smjerRada.x ) ,  89 , 0)                  #diferencijalno prosirenje staze
+      mc.setBlock(radnaPozicija.x - abs ( smjerRada.z ), smjerRada.y , radnaPozicija.z - abs ( smjerRada.x ) ,  89 , 0)                  #diferencijalno prosirenje staze
       for dizalica in range ( 1,4 ):			# napravi tunel
          mc.setBlock(radnaPozicija.x , smjerRada.y + dizalica , radnaPozicija.z , AIR) #sredisnji blok
          mc.setBlock(radnaPozicija.x + abs ( smjerRada.z ), smjerRada.y + dizalica , radnaPozicija.z + abs ( smjerRada.x ) , AIR)                  #diferencijalno prosirenje staze
