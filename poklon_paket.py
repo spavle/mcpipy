@@ -53,3 +53,40 @@ bla = rel2abs ( orMj , ( 2  , 0 ,  0  ) , orSm )
 mc.setBlockWithNBT(bla,54,1, sadrzaj )
 
 
+
+djelovi2 = (
+'{Items:' ,
+'[0:{Slot:0b,id:"minecraft:brick",Count:64b,Damage:0s,},',
+'1:{Slot:1b,id:"minecraft:redstone_torch",Count:64b,Damage:0s,},'
+'2:{Slot:2b,id:"minecraft:chest",Count:64b,Damage:0s,},',
+'3:{Slot:3b,id:"minecraft:diamond",Count:64b,Damage:0s,},'
+'4:{Slot:4b,id:"minecraft:emerald",Count:64b,Damage:0s,},',
+'5:{Slot:5b,id:"minecraft:iron_ingot",Count:64b,Damage:0s,},',
+'6:{Slot:6b,id:"minecraft:gold_ingot",Count:64b,Damage:0s,},',
+'7:{Slot:7b,id:"minecraft:bone",Count:64b,Damage:0s,},',
+'8:{Slot:8b,id:"minecraft:string",Count:64b,Damage:0s,},',
+'9:{Slot:9b,id:"minecraft:feather",Count:64b,Damage:0s,},',
+'10:{Slot:10b,id:"minecraft:wool",Count:64b,Damage:0s,},',
+'11:{Slot:11b,id:"minecraft:chicken",Count:64b,Damage:0s,},'
+'12:{Slot:12b,id:"minecraft:porkchop",Count:64b,Damage:0s,},'
+'13:{Slot:13b,id:"minecraft:beef",Count:64b,Damage:0s,},'
+'14:{Slot:14b,id:"minecraft:glowstone",Count:64b,Damage:0s,},'
+'15:{Slot:15b,id:"minecraft:leather",Count:64b,Damage:0s,},'
+'16:{Slot:16b,id:"minecraft:vine",Count:64b,Damage:0s,},'
+'17:{Slot:17b,id:"minecraft:carrot",Count:64b,Damage:0s,},'
+'18:{Slot:18b,id:"minecraft:potato",Count:64b,Damage:0s,},'
+'19:{Slot:19b,id:"minecraft:reeds",Count:64b,Damage:0s,},'
+'20:{Slot:20b,id:"minecraft:cocoa",Count:64b,Damage:0s,},],'
+'id:"Hopper",Lock:"",}'
+)
+
+sadrzaj=""
+for to in djelovi2 :  
+   sadrzaj = sadrzaj + to
+
+bla = rel2abs ( orMj , ( 4  , 0 ,  0  ) , orSm )
+
+# GENERIRA PUNU KUTIJU
+mc.setBlockWithNBT(bla,54,1, sadrzaj )
+
+

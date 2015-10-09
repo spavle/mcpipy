@@ -25,8 +25,8 @@ def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija 
    for dX in  range( 0 , duzina  ) :    		# prodji cijeli pravokutnik
       for dZ  in  range ( - radius , radius + 1 ) : 
          for dY in  range ( - 1 , radius + 1  ) :     
-            gdje = rel2abs ( orMj ,  ( dX , dZ , dY + dYmodifikator )  , orSm  )  #relativne koordinate u apsolutne worlda
-            if  ( abs ( dY  + korekcija )   <   (   ( math.cos  (  float ( dZ )   / radius  ) ) *    radius        )      ) :
+            gdje = rel2abs ( orMj ,  ( dX , dZ  , dY + dYmodifikator )  , orSm  )  #relativne koordinate u apsolutne worlda
+            if  ( abs ( dY  + korekcija )   <   (   ( math.cos  (  float (  dZ  )   / radius  ) ) *    radius        )      ) :
                mc.setBlock(gdje , AIR)			#postavi blok
             elif ( dZ == 0  ) :
                mc.setBlock( gdje , 89 )
@@ -34,9 +34,9 @@ def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija 
                if (abs (dX) % 3) == 0  and ( abs (dZ) % 3 ) == 0 :
                   mc.setBlock( gdje , 89 )		   #u podlogu obavezno u razmaku stavi glowstone
                else :
-                  mc.setBlock(gdje , 2,0)			#postavi blok grassa
+                  mc.setBlock(gdje , 98 , 1)			#postavi blok 
       dYmodifikator += uspon
    return 1
  
 if __name__ == "__main__":    #direktan poziv
-   polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 6 , duzina = 65 , korekcija = 31 , uspon = 0  )
+   polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )

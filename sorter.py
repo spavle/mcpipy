@@ -13,6 +13,9 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 materijal = 24
 dv = 2
 
+itemId = materialGenerator ()
+
+"""
 orMj = gdjeSam ()
 orSm = gdjeGledam ()
    
@@ -21,14 +24,16 @@ orMjA = gdjeSam ()
 
 mc.postToChat("orginal: %s " %  orMj    )
 
-def pocetak_sortera ( orMj ) :
+"""
+
+def pocetak_sortera ( orMj , orSm ) :
    mc.postToChat("orginal: %s " %  orMj    )
    crtaj_hopper    ( orMj , [ 2  , 1, 4 ]  , [ 2 ,  1 , 4  ] , orSm , "odmene" ) # gornji
    crtaj_kutiju ( orMj , [ 1 , 1, 5 ]  , [ 2 ,  1 , 5  ] , orSm , rel_smjer  = "lijevo" )
    for br in range ( 0 , 4 ):
       crtaj_stepenice ( orMj , [ 2 , 5 - br , 0 + br ]  , [ 2 ,  5 - br , 0 + br  ] , orSm , blok_id = 128 , rel_smjer  = "desno" )
 
-def crtaj_modul ( orMj , dX  ):
+def crtaj_modul ( orMj , orSm , dX  ):
    """
    dX - udaljenost modula
    koja_kutija - par - obicna , nepar - traped
@@ -51,15 +56,15 @@ def crtaj_modul ( orMj , dX  ):
    
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 2 ]  , [ 3 + dX ,  1 , 3  ] , orSm , "desno" ) # dva doljnja
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # gornji
-   
-   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:4b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:5b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:5b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( popis [ dX ] [ 0 ] , popis [ dX ]  [ 1 ]  , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] , popis [ dX ]  [ 0 ] , popis [ dX ]  [ 1 ] )
+   pisi = itemId.next ()
+   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:4b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:5b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:5b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( pisi [ 0 ] , pisi  [ 1 ]  , pisi  [ 0 ] , pisi [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] )
    bla = rel2abs ( orMj , ( 3 + dX , 1 ,  3  ) , orSm )
    mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
-   time.sleep ( 1 )
+   time.sleep ( 0.1 )
    mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "desno")  , sto )   #hopper gleda na istok 
    bla = rel2abs ( orMj , ( 3 + dX , 1 ,  2  ) , orSm )
    mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
-   time.sleep ( 1 )
+   time.sleep ( 0.1 )
    mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "desno")  , sto )   #hopper gleda na istok 
    #bla = rel2abs ( orMj , ( 3 + dX , 5 ,  2  ) , orSm )
    #mc.setBlock(bla,53,4  )       #oak wood stairs naopako, gledaju na istok
@@ -76,7 +81,7 @@ def crtaj_modul ( orMj , dX  ):
    crtaj_hopper    ( orMj , [ 3 + dX , 3, 1 ]  , [ 3 + dX ,  3 , 0  ] , orSm , "desno" ) # hopper ispod kutije
    crtaj_kutiju ( orMj , [ 3 + dX , 4, 1 ]  , [ 3 + dX ,  5 , 0  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     ) # dodatne kutije
    
-def kraj ( orMj ,dX , duzina ) :
+def kraj ( orMj , orSm , dX , duzina ) :
    dX += 1
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # dovod i razmak od sortirke
    
@@ -115,5 +120,77 @@ def sorter  ( dX , dZ , dY , duzina , rep ):
    
    kraj (  orMj , br , rep) 
    
+
+def blok ():
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   #lijevo ulaz
+   pocetak_sortera ( orMj , orSm ) 
+   for br in range (  0, 11 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 14 , 1, 4 ]  , [ 14 ,  3 , 4  ] , orSm , "desno" )
+   crtaj_hopper    ( orMj , [ 14 , 4, 4 ]  , [ 17 ,  4 , 4  ] , orSm , "odmene" )
+   
+   #lijevo krak
+   orMj = premjesti_origin ( orMj , 17 , 7 , 0 ,  orSm )
+   orSm = ortUlijevo ( orSm )
+   for br in range (  0, 17 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 18 , 1, 4 ]  , [ 24 ,  1 , 4  ] , orSm , "odmene" )
+   crtaj_hopper    ( orMj , [ 25 , 1, 4 ]  , [ 25 ,  6 , 4  ] , orSm , "desno" )
+      
+   # lijevo dolje
+   orMj = premjesti_origin ( orMj , 26 , 4 , 0 ,  orSm )
+   orSm = ortUdesno ( orSm )
+   for br in range (  0, 10 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 11 , 1, 4 ]  , [ 17 ,  1 , 4  ] , orSm , "odmene" )
+   crtaj_hopper    ( orMj , [ 18 , 1, 4 ]  , [ 18 ,  6 , 4  ] , orSm , "desno" )
+      
+
+      # dugi
+   orMj = premjesti_origin ( orMj , 19 , 4 , 0 ,  orSm )
+   orSm = ortUdesno ( orSm )
+   for br in range (  0, 51 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 52 , 1, 4 ]  , [ 58 ,  1 , 4  ] , orSm , "odmene" )
+   crtaj_hopper    ( orMj , [ 59 , 1, 4 ]  , [ 59 ,  6 , 4  ] , orSm , "desno" )
+    
+   # desno gore
+   orMj = premjesti_origin ( orMj , 60 , 4 , 0 ,  orSm )
+   orSm = ortUdesno ( orSm )
+   for br in range (  0, 10 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 11 , 1, 4 ]  , [ 17 ,  1 , 4  ] , orSm , "odmene" )
+   crtaj_hopper    ( orMj , [ 18 , 1, 4 ]  , [ 18 ,  6 , 4  ] , orSm , "desno" )
+    
+      
+   #desno krak
+   orMj = premjesti_origin ( orMj , 19 , 4 , 0 ,  orSm )
+   orSm = ortUdesno ( orSm )
+   for br in range (  0, 17 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 19 , 1, 4 ]  , [ 19 ,  -3 , 4  ] , orSm , "lijevo" )
+   crtaj_hopper    ( orMj , [ 19 , -4, 4 ]  , [ 17 ,  -4 , 4  ] , orSm , "meni" )
+
+      
+   #desno ulaz
+      
+   orMj = premjesti_origin ( orMj , 15 , -1 , 0 ,  orSm )
+   orSm = ortUlijevo ( orSm )   
+   for br in range (  0, 9 ):
+      crtaj_modul ( orMj , orSm , br )
+   crtaj_hopper    ( orMj , [ 10 , 1, 4 ]  , [ 13 ,  1 , 4  ] , orSm , "odmene" )
+   orMj = premjesti_origin ( orMj , 13 , 7 , 0 ,  orSm )
+   orSm = ortUlijevo ( orSm ) 
+   kraj ( orMj ,  orSm , 2 , 15 )
    
 
+
+   
+   
+   
+
+ 
+if __name__ == "__main__":    #direktan poziv
+   blok (     )

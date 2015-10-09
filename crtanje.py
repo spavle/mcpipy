@@ -31,6 +31,25 @@ def crtanje (ulaz):
          mc.setBlock(gdjex , brojalica[2] , gdjez , brojalica[3], brojalica[4])			#postavi blok
    return 1
    
+def ortUlijevo ( orSm ):
+   prijevod = {}
+   prijevod [ ( 1 , 0  ) ] = (  0 , -1  ) # gledam north
+   prijevod [ ( -1 , 0 ) ] = (  0 , 1 ) # gledam south
+   prijevod [ ( 0 , 1 ) ] = (  1 , 0 )  # gledam east
+   prijevod [ ( 0 , -1 ) ]= (  -1 , 0 )  # gledam weast
+   buff = prijevod [ ( orSm [ 0 ] , orSm [ 1 ] )   ]
+   return buff
+
+def ortUdesno ( orSm ):
+   prijevod = {}
+   prijevod [ ( 1 , 0  ) ] = (  0 , 1  ) # gledam north
+   prijevod [ ( -1 , 0 ) ] = (  0 , -1 ) # gledam south
+   prijevod [ ( 0 , 1 ) ] = (  -1 , 0 )  # gledam east
+   prijevod [ ( 0 , -1 ) ]= (  1 , 0 )  # gledam weast
+   buff = prijevod [ ( orSm [ 0 ] , orSm [ 1 ] )   ]
+   return buff
+   
+   
 def rel2abs ( inPoz ,  dPoz  , smjer  ) :
    """
    funkcija za pretvaranje relativnih u apsolutne koordinate  prima parametre: 
