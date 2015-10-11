@@ -33,5 +33,5 @@ def iskopajKupolu ( iX=0 , iZ=0 , iY=0 , radius = 6 , korekcija = 2 , materijal 
    
  
 if __name__ == "__main__":    #direktan poziv
-   iskopajKupolu ( 10, 0, 0 ,12 ,3 )
+   iskopajKupolu ( 21, 0, 0 ,22 ,0 )
 

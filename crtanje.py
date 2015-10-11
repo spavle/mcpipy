@@ -134,7 +134,7 @@ def nadji_dno ( origin , polozaj , smjer ):
             
             
    
-def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") :
+def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") : #ne dira ga polozaj
    """
    ispred lika cisti kvadratasto podrucje
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -146,10 +146,10 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
    """
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
-   od = rel2abs ( origin , polozaj , smjer ) 
+   origin = premjesti_origin ( origin , polozaj [0] , polozaj [1], polozaj [2],  smjer ) 
    for dY in range ( visina + 2 , -1 , -1 ) : # ozgora prema dolje
       mc.postToChat("dY: %f" % ( dY ) )
-      for dX in range ( 1 + dubina , 0 , -1 ) : # sprijeda prema nazad
+      for dX in range ( 1 + dubina , -1 , -1 ) : # sprijeda prema nazad
          mc.postToChat("dX: %f" % ( dX ) )
          for dZ in range ( -1 - sirina , sirina + 2 ) : #slijeva nadesno
             #gdjeX , gdjeY , gdjeZ = rel2abs ( inPoz ,  ( dX , dZ , dY )  , smjer  ) 
