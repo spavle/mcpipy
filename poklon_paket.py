@@ -30,12 +30,13 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '15:{Slot:15b,id:"minecraft:iron_ingot",Count:64b,Damage:0s,},'
    '16:{Slot:16b,id:"minecraft:gold_ingot",Count:64b,Damage:0s,},'
    '17:{Slot:17b,id:"minecraft:cobblestone",Count:64b,Damage:0s,},'
-   '18:{Slot:18b,id:"minecraft:torch",Count:64b,Damage:0s,},'
+   '18:{Slot:18b,id:"minecraft:book",Count:64b,Damage:0s,},'
    '19:{Slot:19b,id:"minecraft:cooked_porkchop",Count:64b,Damage:0s,},'
-   '20:{Slot:20b,id:"minecraft:torch",Count:64b,Damage:0s,},'
+   '20:{Slot:20b,id:"minecraft:apple",Count:64b,Damage:0s,},'
    '21:{Slot:21b,id:"minecraft:glowstone",Count:64b,Damage:0s,},'
-   '22:{Slot:22b,id:"minecraft:cooked_porkchop",Count:64b,Damage:0s,},'
-   '23:{Slot:23b,id:"minecraft:apple",Count:64b,Damage:0s,},],' 
+   '22:{Slot:22b,id:"minecraft:torch",Count:64b,Damage:0s,},'
+   '23:{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
+   '25:{Slot:25b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
    'id:"Hopper",Lock:"",}'
 )
 

@@ -4,7 +4,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def soba_11_11 (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
+def soba_11_11 ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
    """
    ispred lika soba 10 x 10
    iX, - relativni pomak po X
@@ -13,12 +13,11 @@ def soba_11_11 (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat 
    materijal - materijal zidova okolo - default stonebrick block
    dv - modifikator
    """
-   #gdje sam
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
-   iX += 1  #pomak zbog debljine zida 
-   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar kupole
 
+   
+
+   iX += 1  #pomak zbog debljine zida 
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
    crtaj_kvadar ( orMj , (-1,-6,-1)  , (11,6,5) , orSm , materijal , dv )   #zidovi
    crtaj_kvadar ( orMj , (0,-5,0)  , (10,5,4) , orSm , 0 , blok_dv = 0 )   #rupa
    crtaj_kvadar ( orMj , (-1,0,0)  , (-1,0,1) , orSm , 0 , blok_dv = 0 )   #vrata
@@ -63,4 +62,7 @@ def soba_11_11 (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat 
  
 if __name__ == "__main__":    #direktan poziv
    #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
-   soba_11_11 (   iX=1 , iZ=0 , iY=0 ) 
+   #gdje sam
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   soba_11_11 (  orMj , orSm , iX=1 , iZ=0 , iY=0 ) 

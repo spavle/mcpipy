@@ -27,7 +27,7 @@ def katakombe ( orMjL ,  orSm ,iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , st
    #stropne lampe
    crtaj_kvadar ( orMjL , (-5,0,6)  , (-5,0,6) , orSm , 89 , 0 )
    crtaj_kvadar ( orMjL , (5,0,6)  , (5,0,6) , orSm , 89 , 0 )
-   crtaj_kvadar ( orMjL , (-5,0,6)  , (-5,0,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (0,-5,6)  , (0,-5,6) , orSm , 89 , 0 )
    crtaj_kvadar ( orMjL , (0,5,6)  , (0,5,6) , orSm , 89 , 0 )
    
  
@@ -35,6 +35,6 @@ if __name__ == "__main__":    #direktan poziv
    #katakombe (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   for dX in range (0,50,11):
+   for dX in range (0,46,11):
       for dZ in range ( -44 , 46 , 11 ):
          katakombe ( orMj ,  orSm ,  iX=6 + dX, iZ=dZ , iY=0 ) 

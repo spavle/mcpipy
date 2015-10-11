@@ -12,8 +12,9 @@ def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , 
    
    
    #stairways hole
-   crtaj_kvadar ( orMj , ( -4 , -9 , 0 )  , (  4 , 9 , bedrock ) , orSm ,  materijal , dv  )  #edge
-   crtaj_kvadar ( orMj , ( -3 , -8 , 0 )  , (  3 , 8 , bedrock ) , orSm ,  0 , 0 )     #hole
+   crtaj_kvadar ( orMj , ( -5 , -10 , 0 )  , (  5 , 10 , 5 ) , orSm ,  0 , 0  )  #priprema
+   crtaj_kvadar ( orMj , ( -5 , -10 , -1 )  , (  5 , 10 , bedrock ) , orSm ,  materijal , dv  )  #edge
+   crtaj_kvadar ( orMj , ( -4 , -9 , -1 )  , (  4 , 9 , bedrock ) , orSm ,  0 , 0 )     #hole
 
    countdown =  bedrock   #how much down
    counter = bedrock    # down counter
@@ -29,12 +30,12 @@ def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , 
       counter += 1
       if pomak == 4 :   # podium
          pomak = 3
-         crtaj_kvadar ( orMj , ( 2  ,  pomak + 1 , counter - 1 )  , ( -2 ,  pomak + 5 , counter - 1) , orSm ,  materijal , dv )
-         crtaj_kvadar ( orMj , ( 1  ,  pomak + 2 , counter -1 )  , ( -1 ,  pomak + 4 , counter - 1 ) , orSm ,  89 , 0 )
+         crtaj_kvadar ( orMj , ( 2  ,  pomak + 1 , counter - 1 )  , ( -2 ,  pomak + 6 , counter - 1) , orSm ,  materijal , dv )
+         crtaj_kvadar ( orMj , ( 1  ,  pomak + 2 , counter -1 )  , ( -1 ,  pomak + 5 , counter - 1 ) , orSm ,  89 , 0 )
       if pomak == -4 :   # podium
          pomak = -3
-         crtaj_kvadar ( orMj , ( 2  , pomak - 1  , counter  - 1 )  , ( -2 ,  pomak - 5 , counter - 1  ) , orSm ,   materijal , dv  )
-         crtaj_kvadar ( orMj , ( 1  , pomak - 2 , counter - 1)  , ( -1 ,  pomak - 4 , counter - 1 ) , orSm ,  89 , 0 )
+         crtaj_kvadar ( orMj , ( 2  , pomak - 1  , counter  - 1 )  , ( -2 ,  pomak - 6 , counter - 1  ) , orSm ,   materijal , dv  )
+         crtaj_kvadar ( orMj , ( 1  , pomak - 2 , counter - 1)  , ( -1 ,  pomak - 5 , counter - 1 ) , orSm ,  89 , 0 )
       if ( (bedrock - counter ) % 7  ) == 0 :
          smjer *= -1
          if smjer == 1 :
