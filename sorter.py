@@ -65,6 +65,7 @@ def crtaj_modul ( orMj , orSm , dX  ):
    bla = rel2abs ( orMj , ( 3 + dX , 1 ,  2  ) , orSm )
    mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
    time.sleep ( 0.1 )
+   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:2b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:2b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:2b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( pisi [ 0 ] , pisi  [ 1 ]  , pisi  [ 0 ] , pisi [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] )
    mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "desno")  , sto )   #hopper gleda na istok 
    #bla = rel2abs ( orMj , ( 3 + dX , 5 ,  2  ) , orSm )
    #mc.setBlock(bla,53,4  )       #oak wood stairs naopako, gledaju na istok
@@ -183,7 +184,7 @@ def blok ():
    crtaj_hopper    ( orMj , [ 10 , 1, 4 ]  , [ 13 ,  1 , 4  ] , orSm , "odmene" )
    orMj = premjesti_origin ( orMj , 13 , 7 , 0 ,  orSm )
    orSm = ortUlijevo ( orSm ) 
-   kraj ( orMj ,  orSm , 2 , 15 )
+   kraj ( orMj ,  orSm , 2 , 22 )
    
 
 

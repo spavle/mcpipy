@@ -226,6 +226,10 @@ popis = (
 ( "minecraft:cobblestone" , "0") , 
 )
 
-def materialGenerator ():
+def materialGenerator2 ():
    for br in popis:
       yield br
+
+def materialGenerator ():
+   while 1 == 1:
+      yield ( "minecraft:item_frame" , "0")    # item_frame - pocetno punjenje

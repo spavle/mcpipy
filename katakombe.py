@@ -30,6 +30,11 @@ def katakombe ( orMjL ,  orSm ,iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , st
    crtaj_kvadar ( orMjL , (0,-5,6)  , (0,-5,6) , orSm , 89 , 0 )
    crtaj_kvadar ( orMjL , (0,5,6)  , (0,5,6) , orSm , 89 , 0 )
    
+   gdje = rel2abs ( orMjL ,  ( 5 , 0 , 0 )  , orSm  )
+   kojiBlok = mc.getBlock ( gdje ) 
+   if kojiBlok == AIR.id :
+      mc.setBlock(gdje , TORCH.id , 5 )
+   
  
 if __name__ == "__main__":    #direktan poziv
    #katakombe (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )

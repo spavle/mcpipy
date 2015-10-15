@@ -8,7 +8,7 @@ def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , 
    #gradi se "iz centra"
    
    orMj = premjesti_origin ( orMjL , iX  , iZ , iY ,  orSm ) #centar , stup u sredini 
-   bedrock = nadji_dno ( orMjL , ( 0 , 0 , 0 ) , orSm ) + 1
+   bedrock = nadji_dno ( orMjL , ( 0 , 0 , 0 ) , orSm ) + 2 # maknuti crne tocke u pregledu
    
    
    #stairways hole

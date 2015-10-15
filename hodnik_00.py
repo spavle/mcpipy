@@ -39,14 +39,14 @@ def hodnik_00 (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal = 9
       #stupovi
       
       crtaj_kvadar ( orMj , (8,-3,0)  , (8,-3,3) , orSm , materijal , dv )   #lijevi stup
-      crtaj_stepenice ( orMj , (8,-3,2) , (8,-3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "meni" , gore_dolje = "da"  ) #prema meni
+      crtaj_stepenice ( orMj , (7,-3,2) , (7,-3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "meni" , gore_dolje = "da"  ) #prema meni
       crtaj_stepenice ( orMj , (8,-2,2) , (8,-2,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "desno" , gore_dolje = "da"  ) #u sredini
       crtaj_stepenice ( orMj , (9,-3,2) , (9,-3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "odmene" , gore_dolje = "da"  ) #u sredini
    
       crtaj_kvadar ( orMj , (8,3,0)  , (8,3,3) , orSm , materijal , dv )   #desni stup
       crtaj_stepenice ( orMj , (7,3,2) , (7,3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "meni" , gore_dolje = "da"  ) #prema meni
       crtaj_stepenice ( orMj , (8,2,2) , (8,2,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "lijevo" , gore_dolje = "da"  ) #u sredini
-      crtaj_stepenice ( orMj , (8,3,2) , (8,3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "odmene" , gore_dolje = "da"  ) #u sredini
+      crtaj_stepenice ( orMj , (9,3,2) , (9,3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "odmene" , gore_dolje = "da"  ) #u sredini
       
       orMj = premjesti_origin ( orMj , 16 , 0 , 0 ,  orSm ) #mice ishodiste za slijedeci korak
       

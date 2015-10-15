@@ -33,10 +33,12 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '18:{Slot:18b,id:"minecraft:book",Count:64b,Damage:0s,},'
    '19:{Slot:19b,id:"minecraft:cooked_porkchop",Count:64b,Damage:0s,},'
    '20:{Slot:20b,id:"minecraft:apple",Count:64b,Damage:0s,},'
-   '21:{Slot:21b,id:"minecraft:glowstone",Count:64b,Damage:0s,},'
-   '22:{Slot:22b,id:"minecraft:torch",Count:64b,Damage:0s,},'
+   '21:{Slot:21b,id:"minecraft:chest",Count:64b,Damage:0s,},'
+   '22:{Slot:22b,id:"minecraft:vine",Count:64b,Damage:0s,},'
    '23:{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
-   '25:{Slot:25b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
+   '24:{Slot:24b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+   '25:{Slot:25b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+   '26:{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
    'id:"Hopper",Lock:"",}'
 )
 
