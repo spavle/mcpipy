@@ -51,9 +51,9 @@ def go_east ( koliko , pomak ) :
       mc.player.setPos(pos.x + pomak , 90 , pos.z )
       time.sleep ( 3 )
       
-korak = 85
+korak = 55
 pocetak =  mc.player.getTilePos()
-for krug in range ( 2 , 25 , 2) :
+for krug in range ( 2 , 125 , 2) :
    mc.postToChat("krug : %f " % ( krug  ) )
    go_south ( 0 , korak )
    go_west ((int ( krug / 2 ) + 1 ) , korak )

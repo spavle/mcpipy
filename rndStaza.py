@@ -69,5 +69,5 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    
    
-   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 25  )
+   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 15  )
    
