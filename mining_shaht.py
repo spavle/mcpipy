@@ -4,7 +4,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , stepenice_mat = 109 ):
+def mining_shaht ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , stepenice_mat = 109 ):
    #gradi se "iz centra"
    
    orMj = premjesti_origin ( orMjL , iX  , iZ , iY ,  orSm ) #centar , stup u sredini 
@@ -12,7 +12,7 @@ def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , 
    
    
    #stairways hole
-   crtaj_kvadar ( orMj , ( -5 , -10 , 0 )  , (  5 , 10 , 5 ) , orSm ,  0 , 0  )  #priprema
+   crtaj_kvadar ( orMj , ( -5 , -10 , 0 )  , (  5 , 10 , 3 ) , orSm ,  0 , 0  )  #priprema
    crtaj_kvadar ( orMj , ( -5 , -10 , -1 )  , (  5 , 10 , bedrock ) , orSm ,  materijal , dv  )  #edge
    crtaj_kvadar ( orMj , ( -4 , -9 , -1 )  , (  4 , 9 , bedrock ) , orSm ,  0 , 0 )     #hole
 
@@ -64,4 +64,4 @@ def ench_table ( orMjL ,  orSm  ,  iX=0 , iZ=0 , iY=0 ,materijal = 98, dv = 0 , 
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   ench_table (  orMj ,  orSm  ,  iX=5 , iZ=0 , iY=0  )
+   mining_shaht (  orMj ,  orSm  ,  iX=5 , iZ=0 , iY=0  )

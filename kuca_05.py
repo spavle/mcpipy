@@ -100,13 +100,13 @@ dv = 0
 """
 
 #moss stonebrick
-"""
+
 materijal = 98
 dv = 1
 """
 
 #cracked stonebrick
-"""
+
 materijal = 98
 dv = 2
 """
@@ -118,14 +118,14 @@ dv = 3
 """
 
 #brick
-#"""
+"""
 materijal = 45
 dv = 0
-#"""
+"""
 
 
 # reset
-crtaj_kvadar ( orMj , [  1 , -6 , -1 ]  , [ 12 , 6 , -9  ] , orSm , 12 , 0 ) # pjesak
+crtaj_kvadar ( orMj , [  1 , -6 , -1 ]  , [ 12 , 6 , -9  ] , orSm , 1 , 0 ) # stone
 crtaj_kvadar ( orMj , [ 1 , -6 , 0 ]  , [ 12 , 6 , 9  ] , orSm , 0 , 0 ) # zrak
 #crtaj_kvadar ( orMj , [ 1 , -9 , -5 ]  , [ 14 , 9 , -5  ] , orSm , 98 , 0 ) # temelj
 
