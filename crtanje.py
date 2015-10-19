@@ -133,6 +133,7 @@ def nadji_dno ( origin , polozaj , smjer ):
    return ( dY   )
             
             
+
    
 def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 10, baklje="ne") : #ne dira ga polozaj
    """

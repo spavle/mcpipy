@@ -1,4 +1,4 @@
-# lift
+# lift crta se od dna prema gore
 #definicija objekta i poziv rutine za crtanje
 import time 
 from crtanje import *		#tu je funkcija koju zovem
@@ -6,24 +6,11 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import *			
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def crtaj_lift ( dX , dZ , dY , visina ):
-   # origin ispred na sredini 
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
+def crtaj_lift ( orMj , orSm , iX  , iZ ,  iY  , visina = 12 ):
+
+   orMj   = premjesti_origin ( orMj , iX  , iZ , iY ,  orSm )
+
    
-   #korekcija polozaja
-   orMjA = gdjeSam ()
-   orMj   = rel2abs ( orMjA ,  ( dX , dZ , dY )   , orSm  ) 
-   bla = orMj [ 1 ]
-   orMj [ 1 ] = orMj [ 2 ]
-   orMj [ 2 ] = bla
-   
-   """
-   #mc.postToChat("orginal: %f %f %f " %  orMj [ 0 ]  , orMj [ 1 ] , orMj [ 2 ] )
-   mc.postToChat("orginal: %s " %  orMj    )
-   #mc.postToChat("pretvoreno: %f %f %f " %  orMjA [ 0 ]   , orMjA [ 1 ]  , orMjA [ 2 ] )
-   mc.postToChat("pretvoreno: %s" %  orMjA     )
-   """
    
    if ( visina % 2 == 1 ) : #nesmije biti neparna visina
       mc.postToChat("NEPARNA "   )
@@ -33,10 +20,14 @@ def crtaj_lift ( dX , dZ , dY , visina ):
       
    
    #sandstone glatki
-   materijal = 1
-   dv = 1
+   materijal = 24
+   dv = 2
 
-
+   # zashtita oko stupa
+   crtaj_kvadar ( orMj , [ 0  , -2, -1 ]  , [ 4  , 5 , visina -7 ] , orSm , materijal , dv ) # zashtita i red ispod   pa do ispod nogu
+   
+   #rupa oko stupa
+   crtaj_kvadar ( orMj , [ 1  , -1, 0 ]  , [ 3  , 4 , visina + 2 ] , orSm , 0 , 0 ) # zrak
 
    #prvi red
    crtaj_kvadar ( orMj , [ 2  , 0, 0 ]  , [ 2  , 4 , 0  ] , orSm , materijal , dv ) # temeljniblok
@@ -86,11 +77,20 @@ def crtaj_lift ( dX , dZ , dY , visina ):
    
    #kutija na vrhu
 
-   crtaj_kutiju ( orMj , [ 2 , 3, visina +1  ]  , [ 2 ,  4 , visina +1  ] , orSm , rel_smjer  = "meni" , blok_id = 54     )
+   crtaj_kutiju ( orMj , [ 2 , 3, visina + 1  ]  , [ 2 ,  4 , visina + 1  ] , orSm , rel_smjer  = "meni" , blok_id = 54     )
 
 
+def ispred_glave ():
+   #pozicioniranje na soreter, ispod kutije , dva natrag, jedan lijevo
+   
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   bedrock = nadji_dno ( orMj , ( 0 , 0 , 0 ) , orSm ) + 2 # maknuti crne tocke u pregledu
+   crtaj_lift ( orMj ,  orSm ,  iX=0, iZ=-4 , iY=bedrock  , visina = -bedrock ) # crta se od dna prema gore
 
-
+if __name__ == "__main__":    #direktan poziv
+   #katakombe (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
+   ispred_glave () 
 
 
 
