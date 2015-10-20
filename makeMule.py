@@ -25,8 +25,8 @@ playerPos = mc.player.getPos()
 
 
 
-# +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA PSA
+# +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA MULU
 
-id = mc.spawnEntity('Wolf', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Tame:1}")
+id = mc.spawnEntity('EntityHorse', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
 
 
