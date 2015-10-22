@@ -142,6 +142,7 @@ AppPackages/
 
 # Others
 .git*
+bla/
 models/
 spremi/
 vehicles/

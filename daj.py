@@ -4,7 +4,9 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 mc.postToChat("//give spavle diamond_axe" )
 mc.postToChat("//give spavle diamond_sword" )
+
 """
+/give spavle diamond_axe
 /give spavle diamond_axe
 /give spavle diamond_shovel
 /give spavle diamond_pickaxe
