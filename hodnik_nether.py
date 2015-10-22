@@ -5,7 +5,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def hodnik_nether (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal = 112, dv = 0 , stepenice_mat = 114 ):
+def hodnik_nether (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal = 98, dv = 0 , stepenice_mat = 109 ):
    """
    ispred lika soba 10 x 10
    iX, - relativni pomak po X
@@ -29,21 +29,37 @@ def hodnik_nether (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal
       for dX in ( 0 , 8 , 16 ):
          gdje = rel2abs ( orMj ,  ( dX , dZ  , dY  )  , orSm  )  #relativne koordinate u apsolutne worlda
          mc.setBlock( gdje , 89 )
-      
+         if dX == 8 :
+            gdje = rel2abs ( orMj ,  ( dX+1 , dZ+1  , dY  )  , orSm  )  #relativne koordinate u apsolutne worlda
+            mc.setBlock( gdje , 89 )
+            gdje = rel2abs ( orMj ,  ( dX+1 , dZ-1  , dY  )  , orSm  )  #relativne koordinate u apsolutne worlda
+            mc.setBlock( gdje , 89 )
+
+      dY = 4
+      dZ = 0 
+      for dX in ( 0 , 8 , 16 ):
+         gdje = rel2abs ( orMj ,  ( dX , dZ  , dY  )  , orSm  )  #relativne koordinate u apsolutne worlda
+         mc.setBlock( gdje , 89 )
+         
       #pasice u uglovima gore
       crtaj_kvadar ( orMj , (0,-3,3)  , (16,-3,3) , orSm , materijal , dv )   #lijeva pasica
       crtaj_kvadar ( orMj , (0,3,3)  , (16,3,3) , orSm , materijal , dv )   #desna pasica
       #poprecna pasica
       crtaj_kvadar ( orMj , (8,-3,3)  , (8,3,3) , orSm , materijal , dv )   #popreko
+      #stakla
+      crtaj_kvadar ( orMj , (0,-4,1)  , (16,-4,1) , orSm , 102 , 0 )   #lijeva pasica
+      crtaj_kvadar ( orMj , (0,4,1)  , (16,4,1) , orSm , 102 , 0 )   #desna pasica
    
       #stupovi
       
-      crtaj_kvadar ( orMj , (8,-3,0)  , (8,-3,3) , orSm , materijal , dv )   #lijevi stup
+      crtaj_kvadar ( orMj , (8,-3,0)  , (8,-3,2) , orSm , materijal , dv )   #lijevi stup
+      crtaj_kvadar ( orMj , (8,-3,1)  , (8,-3,1) , orSm , 89 , 0 )   #lijevi stup lampa
       crtaj_stepenice ( orMj , (7,-3,2) , (7,-3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "meni" , gore_dolje = "da"  ) #prema meni
       crtaj_stepenice ( orMj , (8,-2,2) , (8,-2,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "desno" , gore_dolje = "da"  ) #u sredini
       crtaj_stepenice ( orMj , (9,-3,2) , (9,-3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "odmene" , gore_dolje = "da"  ) #u sredini
    
-      crtaj_kvadar ( orMj , (8,3,0)  , (8,3,3) , orSm , materijal , dv )   #desni stup
+      crtaj_kvadar ( orMj , (8,3,0)  , (8,3,2) , orSm , materijal , dv )   #desni stup
+      crtaj_kvadar ( orMj , (8,3,1)  , (8,3,1) , orSm , 89 , 0 )   #desni stup lampa
       crtaj_stepenice ( orMj , (7,3,2) , (7,3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "meni" , gore_dolje = "da"  ) #prema meni
       crtaj_stepenice ( orMj , (8,2,2) , (8,2,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "lijevo" , gore_dolje = "da"  ) #u sredini
       crtaj_stepenice ( orMj , (9,3,2) , (9,3,2) , orSm , blok_id = stepenice_mat , rel_smjer  = "odmene" , gore_dolje = "da"  ) #u sredini
@@ -60,5 +76,5 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    
    
-   hodnik_nether (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  materijal = 112, dv = 0 , stepenice_mat = 114 )
+   hodnik_nether (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
    
