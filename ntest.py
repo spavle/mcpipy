@@ -146,12 +146,12 @@ crtaj_redstonetorch ( gdjeSam () , ( 3 , 0 , 5 ) ,  gdjeGledam () ,  "gore"   )
 """
 
 # test crtanja repeatera +++
-
+#
 crtaj_repeater   ( gdjeSam () , [ 5 , 0 , 0 ]  , [ 5 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
 crtaj_repeater   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
 crtaj_repeater   ( gdjeSam () , [ 7 , 0 , 0 ]  , [ 7 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
 crtaj_repeater   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
-
+#
 
 # test crtanja comparatora +++
 """
@@ -183,4 +183,20 @@ crtaj_dispenser   ( gdjeSam () , [ 6 , 0 , 0 ]  , [ 6 , 0 , 0  ] , gdjeGledam ()
 crtaj_dispenser   ( gdjeSam () , [ 8 , 0 , 0 ]  , [ 8 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
 crtaj_dispenser   ( gdjeSam () , [ 10 , 0 , 0 ]  , [ 10 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
 crtaj_dispenser   ( gdjeSam () , [ 12  , 0 , 0 ]  , [ 12 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+"""
+
+# test crtanja pistona
+
+#crtaj_piston  ( gdjeSam () , [ 2 , -5 , 0 ]  , [ 8 , -5 , 0  ] , gdjeGledam (), rel_smjer  = "gore"   )
+#crtaj_piston    ( gdjeSam () , [ 2 , -3 , 1 ]  , [ 8 , -3 , 1  ] , gdjeGledam (), rel_smjer  = "dolje"   )
+#crtaj_piston   ( gdjeSam () , [ 2 , -1 , 2 ]  , [2 , 1 , 2  ] , gdjeGledam (), rel_smjer  = "meni"    ) 
+#crtaj_piston   ( gdjeSam () , [ 2 , 1 , 3 ]  , [ 8 , 1 , 3  ] , gdjeGledam (), rel_smjer  = "odmene"    ) 
+#crtaj_piston   ( gdjeSam () , [ 2 , 3 , 4 ]  , [ 8 , 3 , 4  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+#crtaj_piston   ( gdjeSam () , [ 2 , 5 , 5 ]  , [ 8 , 5 , 5  ] , gdjeGledam (), rel_smjer  = "desno"    ) 
+
+crtaj_kvadar ( gdjeSam () , [ 4 , -1 , 0 ]  , [ 6 , 1 , 2  ] , gdjeGledam () , 1 , 0 ) #blok
+crtaj_comparator   ( gdjeSam () , [ 7 , 0 , 0 ]  , [ 7 , 0 , 0  ] , gdjeGledam (), rel_smjer  = "lijevo"    ) 
+"""
+for br in range ( -3 , 3 ):
+   crtaj_piston   ( gdjeSam () , [ 1 , br , 6 ]  , [5 , br , 6  ] , gdjeGledam (), rel_smjer  = "odmene"    )
 """

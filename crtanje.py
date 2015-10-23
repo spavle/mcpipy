@@ -560,24 +560,50 @@ def crtaj_deblo ( origin , poc , kraj , smjer , rel_smjer , blok_id = 17 , podti
    
 def crtaj_dropper    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 158 , blok_dv = 0 ) :
    crtaj_dispenser    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 158 , blok_dv = 0 )
+
+
+def crtaj_sticky_piston    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 23 , blok_dv = 0 ) :
+   crtaj_piston    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 29 , blok_dv = 0 )
+   return 1
+   
+def  crtaj_piston ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 33 , blok_dv = 0 ) :
+   """
+   funkcija za crtanje dispensera
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. smjer crtanja apsolutni
+   4. gdje su okrenute 
+   5. blok_id  , 33 standardni , 29 -sticky
+
+   
+   """
+   lista_smjera = [ "dolje", "gore" , "desno" , "lijevo" , "meni"  , "odmene"   ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 0 , 1 , 3 , 2 , 4 , 5   ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 0 , 1 ,  2 , 3 , 5 , 4  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0 , 1 ,  4 , 5 , 2 , 3   )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 0 , 1 ,  5 , 4 , 3 , 2  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv  )
+
    
    
 def crtaj_dispenser    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 23 , blok_dv = 0 ) :
    """
-   funkcija za crtanje hoppera
+   funkcija za crtanje dispensera
    1. parametar lista sa koordinatama ( X , Y , Z )
    2. parametar lista sa koordinatama ( X , Y , Z )
    3. smjer crtanja apsolutni
    4. gdje su okrenute 
 
-   rel_smjer 0 - desno 1 - lijevo 2 - prema 3 - odmene  4 - gore  pokazuje smjer u kojem baklja "gleda"
-
-   stepenice imaju zadano u Minecraftu
-   0: Facing north.
-   1: Facing south.
-   2: Facing east.
-   3: Facing west.
-   5: up
+   
    """
    lista_smjera = [ "dolje", "gore" , "desno" , "lijevo" , "meni"  , "odmene"   ] # transformacija opisa u vrijednost
    pomoc = lista_smjera.index ( rel_smjer )
