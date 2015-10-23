@@ -31,8 +31,8 @@ def katakombe ( orMjL ,  orSm ,iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , st
    crtaj_kvadar ( orMjL , (0,9,6)  , (0,9,6) , orSm , 89 , 0 )
    
    #baklje na podu
-   for dX in ( -6 , 0 , 6 ):
-      for dZ in ( -6 , 0 , 6):
+   for dX in ( -9, -6, -3 , 0 ,3 , 6 ,9  ):
+      for dZ in ( -9, -6, -3 , 0 ,3 , 6 ,9  ):
          gdje = rel2abs ( orMjL ,  ( dX , dZ , 0 )  , orSm  )
          kojiBlok = mc.getBlock ( gdje ) 
          if kojiBlok == AIR.id :
@@ -43,6 +43,6 @@ if __name__ == "__main__":    #direktan poziv
    
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   for dX in range (0,66,21):
-      for dZ in range ( -63 , 66 , 21 ):
+   for dX in range (-105,106,21):
+      for dZ in range ( -105 , 106 , 21 ):
          katakombe ( orMj ,  orSm ,  iX=11 + dX, iZ=dZ , iY=0 ) 

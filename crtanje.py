@@ -149,9 +149,9 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
    origin = premjesti_origin ( origin , polozaj [0] , polozaj [1], polozaj [2],  smjer ) 
    for dY in range ( visina + 2 , -1 , -1 ) : # ozgora prema dolje
-      mc.postToChat("dY: %f" % ( dY ) )
+      #mc.postToChat("dY: %f" % ( dY ) )
       for dX in range ( 1 + dubina , -1 , -1 ) : # sprijeda prema nazad
-         mc.postToChat("dX: %f" % ( dX ) )
+         #mc.postToChat("dX: %f" % ( dX ) )
          for dZ in range ( -1 - sirina , sirina + 2 ) : #slijeva nadesno
             #gdjeX , gdjeY , gdjeZ = rel2abs ( inPoz ,  ( dX , dZ , dY )  , smjer  ) 
             gdje = rel2abs ( origin ,  ( dX , dZ , dY )  , smjer  ) # hodalica

@@ -1,5 +1,6 @@
 import time 
 from crtanje import *		#tu je funkcija koju zovem
+from katakombe import * 
 from mc import *			
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
@@ -7,7 +8,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na kocku ispod pressure plate
    #prvi red
-   crtaj_kvadar ( orMj , ( 0  , 0 , 0 )  , (  2 , 0 , 0 ) , orSm ,  materijal , dv ) #tri bloka ispod
+   crtaj_kvadar ( orMj , ( 0  , 0 , 0 )  , (  2 , 0 , 0 ) , orSm ,  materijal , dv ) #tri bloka ispod kao osnova
    #drugi red
    crtaj_kvadar ( orMj , ( 0  , 0 ,1 )  , (  0 , 0 , 1 ) , orSm ,  70 , 0 ) # pressure plate
    crtaj_comparator   ( orMj  , [ 1 , 0 , 1 ]  , [ 1 , 0 , 1  ] , orSm , rel_smjer  = "odmene"    ) # iza pressure plate comparator
@@ -17,7 +18,7 @@ def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
    crtaj_sticky_piston   ( orMj  , [ 2 , 0 , 2 ]  , [2 , 0 , 2  ] , orSm , rel_smjer  = "meni"    ) #iza kocke sticky piston
    crtaj_kvadar ( orMj , [ 3 , 0 , 2 ]  , [ 3 , 0 , 2  ] , orSm ,  materijal , dv ) #estetika kocka za iza pistona
    # cetvrti red ???
-   #crtaj_kvadar ( orMj , [ 2 , 0 , 3 ]  , [ 2 , 0 , 3  ] , orSm ,  materijal , dv ) #kocka za guranje
+   #crtaj_kvadar ( orMj , [ 2 , 0 , 3 ]  , [ 2 , 0 , 3  ] , orSm ,  materijal , dv ) #???
 
 def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 ):
 
@@ -26,6 +27,22 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    razbijalica = 46
    
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
+   orginalniOrigin = orMj # spremi ??
+   
+   crtaj_kvadar ( orMj , (  sirina  + 3  , - sirina - 3 , 5  )  , (   - sirina -3  ,  sirina + 3 ,  - 5  ) , orSm ,  0 , 0 ) # clear the deck
+   
+   dubina = nadji_dno ( orMj , ( 0 , 0, 0 ) , orSm ) # pronadji dno
+   while dubina < -7 :
+   
+      katOrigin = premjesti_origin ( orMj , 0 , 0 , dubina ,  orSm )
+      for dX in range (-105,106,21):
+         for dZ in range ( -105 , 106 , 21 ):
+            katakombe ( katOrigin ,  orSm ,  iX = dX, iZ = dZ , iY=0 ) 
+      dubina += 7
+   
+   
+   #orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm )
+   
    
    crtaj_kvadar ( orMj , (  sirina  + 1  , - sirina - 1  , - 1  )  , (   - sirina  - 1 ,  sirina  + 1 ,    - 1 ) , orSm ,   44 , 0 ) # razbijalica okolo
    crtaj_kvadar ( orMj , (  sirina  - 2  , - sirina + 2 , - 1  )  , (   - sirina +  2  ,  sirina - 2 ,  - 1  ) , orSm ,  89 , 0 ) # glowstone platforma u sredini
@@ -74,5 +91,5 @@ if __name__ == "__main__":    #direktan poziv
    #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   mmob_spawner (  orMj ,  orSm , iX=12 , iZ=0 , iY=5  ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
+   mmob_spawner (  orMj ,  orSm , iX=14 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
    
