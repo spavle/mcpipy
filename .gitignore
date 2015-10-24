@@ -141,10 +141,7 @@ csx
 AppPackages/
 
 # Others
-<<<<<<< HEAD
 mc*
-=======
->>>>>>> 513a243acc8cab17d962c3b45adbd29a7eb39859
 .git*
 bla/
 models/
