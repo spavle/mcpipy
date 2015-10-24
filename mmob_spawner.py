@@ -29,18 +29,19 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
    orginalniOrigin = orMj # spremi ??
    
-   crtaj_kvadar ( orMj , (  sirina  + 3  , - sirina - 3 , 5  )  , (   - sirina -3  ,  sirina + 3 ,  - 5  ) , orSm ,  0 , 0 ) # clear the deck
+   crtaj_kvadar ( orMj , (  sirina  + 3  , - sirina - 3 , - 5  )  , (   - sirina -3  ,  sirina + 3 ,  15  ) , orSm ,  0 , 0 ) # clear the deck
    
+   """
    dubina = nadji_dno ( orMj , ( 0 , 0, 0 ) , orSm ) # pronadji dno
-   while dubina < -7 :
-   
+   while dubina < -14 :
+      mc.postToChat("DUBINA: %f" % ( dubina ) )
       katOrigin = premjesti_origin ( orMj , 0 , 0 , dubina ,  orSm )
       for dX in range (-105,106,21):
          for dZ in range ( -105 , 106 , 21 ):
             katakombe ( katOrigin ,  orSm ,  iX = dX, iZ = dZ , iY=0 ) 
       dubina += 7
    
-   
+   """
    #orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm )
    
    

@@ -175,7 +175,7 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
 #            if ( dZ ==   0 ) and baklje == "da":
 #               mc.setBlock ( gdje , 50 , 5 )
 
-   mc.postToChat("KRAJ !!"  )
+   #mc.postToChat("KRAJ !!"  )
              
    return 1
 
