@@ -10,8 +10,8 @@ def bakljada ():
    """
    ispred lika cisti pravokutnik  3x4 i dugacak 9 i to samo blokove iz liste zaMaknuti
    """
-   #dimenzije = 150     #za jake PC-e
-   dimenzije = 100   # za slabe PC-e
+   dimenzije = 230     #za jake PC-e
+   #dimenzije = 100   # za slabe PC-e
    #gdje sam
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
@@ -20,7 +20,7 @@ def bakljada ():
    for dX in  range( -dimenzije , dimenzije , 5 ):
       for dZ in  range( -dimenzije , dimenzije , 5 ):
          increment = 0
-         while increment < 40 :
+         while increment < 42 :
             gdje = rel2abs ( orMj ,  ( dX , dZ , 0 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
             if kojiBlok == AIR.id or kojiBlok == GRASS_TALL.id:

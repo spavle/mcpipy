@@ -7,7 +7,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def katakombe ( orMjL ,  orSm ,iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
    #ishodiste je u sredini sobe
    orMjL = premjesti_origin ( orMjL , iX  , iZ , iY ,  orSm ) #centar , stup u sredini 
-   filter ( orMjL , ( -11 , 0 , 0 ) , orSm ,  visina = 8 ,   sirina = 10 , dubina = 21, baklje="ne") 
+   filter ( orMjL , ( -11 , 0 , 0 ) , orSm ,  visina = 7 ,   sirina = 10 , dubina = 21, baklje="ne") 
    #strop
    crtaj_kvadar ( orMjL , (-10,-10,6)  , (10,10,6) , orSm , materijal , dv ) 
    #podesti
@@ -43,6 +43,6 @@ if __name__ == "__main__":    #direktan poziv
    
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   for dX in range (-105,106,21):
-      for dZ in range ( -105 , 106 , 21 ):
+   for dX in range (-126,127,21):
+      for dZ in range ( -126 , 127 , 21 ):
          katakombe ( orMj ,  orSm ,  iX=11 + dX, iZ=dZ , iY=0 ) 
