@@ -5,7 +5,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def sandBager ():
    """
-   ispred lika chisti pjesak 3x3x20
+   ispred lika chisti pjesak 3x3x10
    """
    #gdje sam
    radnaPozicija = mc.player.getPos()		
@@ -24,7 +24,7 @@ def sandBager ():
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -1 , 2 ) :    		# prodji chep
          for dY  in  range( 0 , 4 ) : 
-            for dX in range ( 1 , 21 ) :
+            for dX in range ( 1 , 11 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
