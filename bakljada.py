@@ -20,7 +20,7 @@ def bakljada ():
    for dX in  range( -dimenzije , dimenzije , 5 ):
       for dZ in  range( -dimenzije , dimenzije , 5 ):
          increment = 0
-         while increment < 42 :
+         while increment < 34 :
             gdje = rel2abs ( orMj ,  ( dX , dZ , 0 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
             if kojiBlok == AIR.id or kojiBlok == GRASS_TALL.id:

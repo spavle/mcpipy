@@ -9,13 +9,12 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 
 def rndBlok ():
-   distribution = ((.022,Block(91, 0))  ,
+   distribution = ((.032,Block(91, 0))  ,
                   (.005,Block(OBSIDIAN.id, 0))  ,
                   (.005,Block(WOOD.id, 0))  ,   
                   (.01,Block(BRICK_BLOCK.id, 0))  ,                        
                   (.01,Block(WOOD_PLANKS.id, 0))  ,                     
-                  (.01,Block(DIRT.id, 0))  ,                     
-
+                  #(.01,Block(DIRT.id, 0))  ,                     
                   (.015,MOSS_STONE), 
                   (.03,Block(STONE_BRICK.id, 1)), 
                   (.03,Block(STONE_BRICK.id, 2)), 
@@ -69,5 +68,5 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    
    
-   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 15  )
+   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 10  )
    

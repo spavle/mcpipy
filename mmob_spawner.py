@@ -23,7 +23,7 @@ def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
 def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 ):
 
    sirina = 7
-   visina = 38
+   visina = 40
    razbijalica = 46
    
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 

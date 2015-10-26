@@ -43,6 +43,15 @@ if __name__ == "__main__":    #direktan poziv
    
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
+   """ shiroko
    for dX in range (-126,127,21):
       for dZ in range ( -126 , 127 , 21 ):
          katakombe ( orMj ,  orSm ,  iX=11 + dX, iZ=dZ , iY=0 ) 
+   """
+   for dX in range (-84,85,21):
+      mc.postToChat("dX %f" % dX )
+      for dZ in range ( -84 , 85 , 21 ):
+         katakombe ( orMj ,  orSm ,  iX=11 + dX, iZ=dZ , iY=0 ) 
+      
+   mc.postToChat("Kraj !!!" )
+   

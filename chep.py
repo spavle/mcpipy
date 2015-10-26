@@ -25,7 +25,7 @@ def chep ():
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -1 , 2 ) :    		# prodji chep
          for dY  in ( 0 , 1 , 2 ) : 
-            for dX in ( 1 , 2 , 3  ) :
+            for dX in ( 1 , 2 , 3 , 4 , 5 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
