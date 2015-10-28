@@ -1,7 +1,13 @@
 # podzemna citadela SA GALERIJOM OKOLO
 
 from crtanje import *		#tu je funkcija koju zovem
-from mc import *			
+from mc import *		
+from mmob_spawner import *	
+from sorter_soba import *	
+from mining_shaht import *
+from sorter import *	
+from katakombe import * 
+from lift import *
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 sirina = 38
@@ -23,6 +29,9 @@ crtaj_kvadar ( orMj , (11,-sirina - 3,-5)  , (11+6+dubina,sirina +3,0) , orSm , 
 crtaj_kvadar ( orMj , (13,-sirina - 1,-5)  , (11+4+dubina,sirina +1,-5) , orSm , 85 ,  0 )   #ograda okolo
 
 crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AIR.id ,  0 )     #centralna rupa
+
+#zakomentirano za testiranje kao heavy element
+mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
 
 #2 kocke ravno
 crtaj_kvadar ( orMj , (1,-2,0)  , (2,2,1) , orSm , AIR.id , blok_dv = 0 )
@@ -234,5 +243,44 @@ pomOrigin2 = premjesti_origin ( pomOrigin , 3 , 0 ,  -3 , orSm )
 crtanje_stepenastiTunel ( pomOrigin2  , orSm ,  visina=6 , sirina = 13 , duzina = 30  , uspon = 0 )
 for br in range ( 3 ) :
    crtaj_stepenice ( pomOrigin , ( br + 2 , -13, -1 -br  )  , ( br + 2 , 13, -1 -br ) , orSm , blok_id = 109 , rel_smjer  = "odmene")
+   
+
+   
+#sorter
+pomOrigin =  premjesti_origin ( orMj ,  20, 0 , -15 ,  orSm )
+pomSm = ortUlijevo ( ortUlijevo( orSm))
+time.sleep ( 10 )
+sorter_soba ( pomOrigin , pomSm ,  iX=8 , iZ=0 , iY=-7 ,  materijal = 98, dv = 1 , stepenice_mat = 109) # prvo nacrtaj sobu
+time.sleep ( 10 )
+crtanje_stepenastiTunel ( pomOrigin  , pomSm ,  visina=5 , sirina = 4 , duzina = 7  , uspon = -1 ) # pa tunel
+for br in range ( 7 ) :
+   crtaj_stepenice ( pomOrigin , ( br + 2 , -4, -1 -br  )  , ( br + 2 , 4, -1 -br ) , pomSm   , blok_id = 109 , rel_smjer  = "odmene") # pa stepenice
+time.sleep ( 10 )
+blok_sortera (  premjesti_origin ( pomOrigin ,  - 10 , 13 , -7 ,  orSm ) , pomSm )
+
+#katakombe
+
+# katakombe ispod zgrade
+dno = nadji_dno ( orMj , ( 0 , 0, 0 ) , orSm ) + 2 # pronadji dno ovaj +2 je nekakav iskustveni korektiv
+brojalica =  0
+while brojalica < 4 :
+   mc.postToChat("DUBINA: %f" % ( dno ) )
+   katOrigin = premjesti_origin ( orMj , 14 + dubina / 2 , 0 , dno ,  orSm )
+   originBaklje = katOrigin
+   for dX in range (-42,43,21):
+      for dZ in range ( -42 , 43 , 21 ):
+         # za testirenje zakomentirano
+         katakombe ( katOrigin ,  orSm ,  iX = dX, iZ = dZ , iY=0 ) 
+         a = 2
+   dno += 7
+   brojalica += 1
+   
+#put do katakombi
+mining_shaht ( pomOrigin2 ,  orSm  ,  iX=10 , iZ=0 , iY=0 ,materijal = 98, dv = 1 , stepenice_mat = 109 )
+lift (  premjesti_origin ( pomOrigin ,  - 9 , 13 , -2 ,  orSm ) , pomSm )
+
+#bakljada
+bakljada ( originBaklje , orSm ,  dimenzije = 160 , visina = 150)
+
 
 

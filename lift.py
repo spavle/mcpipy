@@ -80,17 +80,18 @@ def crtaj_lift ( orMj , orSm , iX  , iZ ,  iY  , visina = 12 ):
    crtaj_kutiju ( orMj , [ 2 , 3, visina + 1  ]  , [ 2 ,  4 , visina + 1  ] , orSm , rel_smjer  = "meni" , blok_id = 54     )
 
 
-def ispred_glave ():
+def lift (orMj , orSm ):
    #pozicioniranje na soreter, ispod kutije , dva natrag, jedan lijevo
    
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
+
    bedrock = nadji_dno ( orMj , ( 0 , 0 , 0 ) , orSm ) + 2 # maknuti crne tocke u pregledu
    crtaj_lift ( orMj ,  orSm ,  iX=0, iZ=-4 , iY=bedrock  , visina = -bedrock ) # crta se od dna prema gore
 
 if __name__ == "__main__":    #direktan poziv
-   #katakombe (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
-   ispred_glave () 
+   
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   lift (orMj , orSm ) 
 
 
 

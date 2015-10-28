@@ -5,7 +5,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def visoka_soba (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
+def sorter_soba ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
    """
    ispred lika soba 10 x 10
    iX, - relativni pomak po X
@@ -18,8 +18,7 @@ def visoka_soba (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat
    duboko = 50
    
    #gdje sam
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
+
    iX += 1  #pomak zbog debljine zida 
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar kupole
 
@@ -89,4 +88,6 @@ def visoka_soba (   iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat
  
 if __name__ == "__main__":    #direktan poziv
    #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
-   visoka_soba (   iX=1 , iZ=0 , iY=0 ) 
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   sorter_soba ( orMj , orSm ,  iX=1 , iZ=0 , iY=0 ) 

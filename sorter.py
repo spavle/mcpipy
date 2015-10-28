@@ -1,7 +1,7 @@
 # crtanje automatizirani sorter
 #definicija objekta i poziv rutine za crtanje
 import time 
-import sys
+#import sys
 from crtanje import *		#tu je funkcija koju zovem
 from popis_blokova import *
 
@@ -81,6 +81,7 @@ def crtaj_modul ( orMj , orSm , dX  ):
    crtaj_kutiju ( orMj , [ 3 + dX , 2, 2 ]  , [ 3 + dX ,  3 , 2  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     )
    crtaj_hopper    ( orMj , [ 3 + dX , 3, 1 ]  , [ 3 + dX ,  3 , 0  ] , orSm , "desno" ) # hopper ispod kutije
    crtaj_kutiju ( orMj , [ 3 + dX , 4, 1 ]  , [ 3 + dX ,  5 , 0  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     ) # dodatne kutije
+   crtaj_comparator ( orMj , [ 3 + dX , 6, 0 ]  , [ 3 + dX ,  6 , 0  ]  , orSm , rel_smjer  = "desno" )
    
 def kraj ( orMj , orSm , dX , duzina ) :
    dX += 1
@@ -122,9 +123,8 @@ def sorter  ( dX , dZ , dY , duzina , rep ):
    kraj (  orMj , br , rep) 
    
 
-def blok ():
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
+def blok_sortera (orMj , orSm):
+
    #lijevo ulaz
    pocetak_sortera ( orMj , orSm ) 
    for br in range (  0, 11 ):
@@ -194,4 +194,6 @@ def blok ():
 
  
 if __name__ == "__main__":    #direktan poziv
-   blok (     )
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   blok_sortera (  orMj , orSm   )
