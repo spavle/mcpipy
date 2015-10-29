@@ -22,9 +22,9 @@ def travnjak ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range ( -1 , 2 ) :    		# prodji shirinu
-         for dY  in ( -1 , 0) : 			#samo jedan level ispod
-            for dX in  range ( 1 , 10 ) :
+      for dZ in  range ( -4 , 5 ) :    		# prodji shirinu
+         for dY  in ( -2 ,1 ) : 			#samo jedan level ispod
+            for dX in  range ( -5 , 10 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
@@ -32,7 +32,9 @@ def travnjak ():
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , DIRT)					#postavi zemlju
                if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) == STONE.id :	#ako je kamen
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , DIRT)					#postavi zemlju 
-               #mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
+               if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) == WATER.id :	#ako je kamen
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , DIRT)					#postavi zemlju 
+               mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
    #mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
    return 1
    
