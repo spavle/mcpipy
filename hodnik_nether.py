@@ -22,6 +22,9 @@ def hodnik_nether (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal
    for br in range ( duzina ):
       crtaj_kvadar ( orMj , (0,-4,-1)  , (17,4,4) , orSm , materijal , dv )   #zidovi - zatvoreno na daljem kraju otvoreno na pocetku
       crtaj_kvadar ( orMj , (0,-3,0)  , (16,3,3) , orSm , 0 , blok_dv = 0 )   #rupa
+      crtaj_kvadar ( orMj , (0,-3,4)  , (16,-4,4) , orSm , 0 , blok_dv = 0 )   #rupa
+      crtaj_kvadar ( orMj , (0,3,4)  , (16,4,4) , orSm , 0 , blok_dv = 0 )   #rupa
+      
    
       #lampe u podu
       dY = -1
@@ -47,8 +50,8 @@ def hodnik_nether (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materijal
       #poprecna pasica
       crtaj_kvadar ( orMj , (8,-3,3)  , (8,3,3) , orSm , materijal , dv )   #popreko
       #stakla
-      crtaj_kvadar ( orMj , (0,-4,1)  , (16,-4,1) , orSm , 102 , 0 )   #lijeva pasica
-      crtaj_kvadar ( orMj , (0,4,1)  , (16,4,1) , orSm , 102 , 0 )   #desna pasica
+      crtaj_kvadar ( orMj , (0,-4,1)  , (16,-4,2) , orSm , 20 , 0 )   #lijeva 
+      crtaj_kvadar ( orMj , (0,4,1)  , (16,4,2) , orSm , 20 , 0 )   #desna 
    
       #stupovi
       

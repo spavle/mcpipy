@@ -4,7 +4,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def kupola (  iX=0 , iZ=0 , iY=0 , radius = 6 , korekcija = 2 , materijal = 1 , dv = 0) :
+def kupola ( orMj , orSm , iX=0 , iZ=0 , iY=0 , radius = 6 , korekcija = 2 , materijal = 1 , dv = 0) :
    """
    kreira kupolu debljine stjenke 1: NAPOMENA :nije bas debljina stjenke 1 !!!!
    iX, - relativni pomak po X
@@ -16,8 +16,7 @@ def kupola (  iX=0 , iZ=0 , iY=0 , radius = 6 , korekcija = 2 , materijal = 1 , 
    dv  podtip materijala ili orijentacija bloka default 0
    """
    #gdje sam
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
+
     
    #orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar kupole
    
@@ -33,5 +32,7 @@ def kupola (  iX=0 , iZ=0 , iY=0 , radius = 6 , korekcija = 2 , materijal = 1 , 
 
  
 if __name__ == "__main__":    #direktan poziv
-   kupola ( 0, 0 , 0 , 11 , 2 , 1 , 4 )
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   kupola ( orMj , orSm ,  0, 0 , 0 , 11 , 2 , 1 , 4 )
 

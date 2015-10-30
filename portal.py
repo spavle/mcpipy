@@ -10,5 +10,5 @@ orSm = gdjeGledam ()
 
 
 # reset
-crtaj_kvadar ( orMj , [  1 , -3, -1 ]  , [ 0 , 3 , 8  ] , orSm , 49 , 0 ) # obsidian
-crtaj_kvadar ( orMj , [  1 , -2 , 0 ]  , [ 0 , 2 , 7  ] , orSm , AIR.id , 0 ) # obsidian
+crtaj_kvadar ( orMj , [  0 , -3, -1 ]  , [ 0 , 3 , 8  ] , orSm , 49 , 0 ) # obsidian
+crtaj_kvadar ( orMj , [  0 , -2 , 0 ]  , [ 0 , 2 , 7  ] , orSm , AIR.id , 0 ) # air
