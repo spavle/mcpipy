@@ -1,11 +1,167 @@
-# surival house  from https://www.youtube.com/watch?v=VMTVaJkfe80&index=6&list=PLlr56ygHMkKhbj3TSVLIQY4BStSew02Hv
+# surival house  from https://www.youtube.com/watch?v=VCgZ4Y6pP0g
 #definicija objekta i poziv rutine za crtanje
-from crtanje import *		#tu je funkcija koju zovem
-from crtanje2 import *		#tu je funkcija koju zovem
+from crtanje import *		#
 from mc import *			
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
+def mali (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ) :
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar
+   crtaj_kvadar ( orMj , ( 0 , -1 , 1 )  , ( 0 , -1 , 3  ) , orSm , 5 , 0 ) #lijevi stup
+   crtaj_kvadar ( orMj , ( 0 , 1 , 1 )  , ( 0 , 1 , 3  ) , orSm , 5 , 0 ) #desni stup
+   crtaj_kvadar ( orMj , [ 0,0,2 ]  , [ 0,0,2  ], orSm , 102 , blok_dv = 0 ) # prozor 
+   crtaj_stepenice ( orMj , [ 0 , 0 , 3 ]  , [ 0 , 0 , 3  ], orSm , blok_id = 53 , rel_smjer  = "meni" , gore_dolje = "da"  ) #gore stepenica    
+   crtaj_stepenice ( orMj , [ 0 , 0 , 1 ]  , [ 0 , 0 , 1  ], orSm , blok_id = 53 , rel_smjer  = "meni" , gore_dolje = "ne"  ) #dolje stepenica    
+   
+def naopake_stepenice ( orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina_udesno = 1 ):
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm )     #mice ishodiste na prvu , krajnju lijevu stepenicu
+   crtaj_stepenice ( orMj , ( 0 , 0 , 0 )  , ( 0 , 0 + duzina_udesno , 0  ), orSm , blok_id = 53 , rel_smjer  = "meni" , gore_dolje = "da"  )
+   
+def uspravne_stepenice ( orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina_udesno = 1 ):
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm )     #mice ishodiste na prvu , krajnju lijevu stepenicu
+   crtaj_stepenice ( orMj , ( 0 , 0 , 0 )  , ( 0 , 0 + duzina_udesno , 0  ), orSm , blok_id = 53 , rel_smjer  = "meni" , gore_dolje = "ne"  )
 
+
+def kuca_09 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ) :
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar
+
+   #clear the deck
+   crtaj_kvadar ( orMj , ( 1 , -4 , -1 )  , ( 9 , 4 , 11  ) , orSm , 0 , 0 ) # zrak
+   
+   #temelj
+   crtaj_kvadar ( orMj , ( 1 , -4 , -1 )  , ( 9 , 4 , -1  ) , orSm , 13 , 0 ) # gravel
+   
+   for dX in ( 1 , 4 , 9  ):
+      for dZ in ( -4 , 0 , 4 ):
+         crtaj_deblo ( orMj , ( dX , dZ , 0 ) , ( dX , dZ , 1 ) , orSm , "gore" , blok_id = 17 , podtip = 0   ) # stupovi
+   
+   #okviri dolje
+   naopake_stepenice ( orMj ,  orSm , iX=4 , iZ=1 , iY=1 , duzina_udesno = 2 ) 
+   naopake_stepenice ( orMj ,  orSm , iX=1 , iZ=-3 , iY=1 , duzina_udesno = 2 )  
+   ortPom = ortUdesno ( orSm )
+   naopake_stepenice ( orMj ,  ortPom , iX=-4 , iZ=-3 , iY=1 , duzina_udesno = 1 )  
+   naopake_stepenice ( orMj ,  ortPom , iX=-4 , iZ=-8 , iY=1 , duzina_udesno = 3 )  
+   ortPom = ortUdesno ( ortPom )
+   naopake_stepenice ( orMj ,  ortPom , iX=-9 , iZ=1 , iY=1 , duzina_udesno = 2 )  
+   naopake_stepenice ( orMj ,  ortPom , iX=-9 , iZ=-3 , iY=1 , duzina_udesno = 2 )  
+   ortPom = ortUdesno ( ortPom )   
+   naopake_stepenice ( orMj ,  ortPom , iX=-4 , iZ=5 , iY=1 , duzina_udesno = 3 ) 
+   #blok podest iza ulaznih stepenica
+   crtaj_kvadar ( orMj , ( 2 , -1 , 1 )  , ( 4 , -3 , 1  ), orSm , 5 , 0 ) # blok oak wood za pod
+   #ulazne stepenice
+   ortPom = ortUlijevo ( orSm )
+   uspravne_stepenice ( orMj ,  ortPom , iX=0 , iZ=2 , iY=0 , duzina_udesno = 1 ) 
+   uspravne_stepenice ( orMj ,  ortPom , iX=1 , iZ=2 , iY=1 , duzina_udesno = 1 ) 
+   #baklje ispod
+   crtaj_baklju (  orMj , [ 5 , 0 , 0 ]   , orSm, "gore"    )
+   crtaj_baklju (  orMj , [ 8 , 0 , 0 ]   , orSm, "gore"    )
+   #lisce ispod
+   crtaj_kvadar ( orMj , ( 4 , 1 , 0 )  , ( 4 , 3 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 5 , 4 , 0 )  , ( 8 , 4 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 9 , -3 , 0 )  , ( 9 , -1 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 9 , 3 , 0 )  , ( 9 , 1 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 5 , -4 , 0 )  , ( 8 , -4 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 2 , -4 , 0 )  , ( 3 , -4 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 1 , -3 , 0 )  , ( 1 , -1 , 0  ) , orSm , 18 , 0 )
+   crtaj_kvadar ( orMj , ( 2 , 4 , 0 )  , ( 3 , 4 , 0  ) , orSm , 18 , 0 )
+   #blok ispod sobe
+   crtaj_kvadar ( orMj , ( 5 , -3 , 1 )  , ( 8 , 3 , 1  ), orSm , 5 , 0 ) # blok oak wood za pod
+   #zatvaranje tavana 
+   for dX in ( 4 , 9  ):
+         crtaj_kvadar ( orMj , ( dX , -2 , 5 )  , ( dX , 2 , 6  ), orSm , 5 , 0 ) # blok oak wood
+   #stupci
+   for dZ in ( -4 , 0 ):   #najbliza 2 idu jedan gore
+         crtaj_deblo ( orMj , ( 1 , dZ , 2 ) , ( 1 , dZ , 2 ) , orSm , "gore" , blok_id = 17 , podtip = 0   ) # stupovi
+   for dZ in ( -4 , 4 ): #vanjski idu 2 gore
+      for dX in ( 4 , 9 ):
+         crtaj_deblo ( orMj , ( dX , dZ , 2 ) , ( dX , dZ , 3 ) , orSm , "gore" , blok_id = 17 , podtip = 0   ) # stupovi
+   
+   for dX in ( 4 , 9 ):   #srednji 6 gore
+      crtaj_deblo ( orMj , ( dX , 0 , 2 ) , ( dX , 0 , 7 ) , orSm , "gore" , blok_id = 17 , podtip = 0   ) # stupovi
+   #krajnji desni zid
+   crtaj_kvadar ( orMj , ( 5 , 4 , 2 )  , ( 8 , 4 , 3  ), orSm , 5 , 0 ) # blok oak wood za zid
+   #krajnji lijevi zid
+   crtaj_kvadar ( orMj , ( 5 , -4 , 2 )  , ( 8 , -4 , 3  ), orSm , 5 , 0 ) # blok oak wood za zid
+   #desno od predulaza
+   mali (  orMj ,  orSm , iX=4 , iZ=2 , iY=1 )
+   # iza zidovi
+   ortPom = ortUdesno ( ortUdesno ( orSm ) )
+   mali (  orMj ,  ortPom , iX=-9 , iZ=-2 , iY=1 )
+   mali (  orMj ,  ortPom , iX=-9 , iZ=2 , iY=1 )
+   #ulaz iza podesta
+   crtaj_kvadar ( orMj , ( 4 , -1 , 2 )  , ( 4 , -3 , 4  ), orSm , 5 , 0 ) # blok oak wood za zid
+   crtaj_vrata ( orMj , ( 4 , -2 , 2 )   , orSm, "odmene"  , blok_id = 64  , kvaka = "desno"  )#vrata
+   #ograda oko podesta
+   crtaj_kvadar ( orMj , ( 1 , -1 , 2 )  , ( 1 , -3 , 2  ), orSm , 85 , blok_dv = 0 ) #stupci ograda 
+   crtaj_kvadar ( orMj , ( 2 , -4 , 2 )  , ( 3 , -4 , 2  ), orSm , 85 , blok_dv = 0 ) #stupci ograda 
+   #lijevi i desni krov
+   ortPomL = ortUdesno ( orSm )
+   ortPomD = ortUlijevo ( orSm )
+   for br in range ( 0 , 5 ):
+      uspravne_stepenice ( orMj ,  ortPomL , iX=-5 + br , iZ=-10 , iY=3 + br , duzina_udesno = 7 )
+      uspravne_stepenice ( orMj ,  ortPomD , iX=-5 + br , iZ=3 , iY=3 +br, duzina_udesno = 7 )
+   crtaj_kvadar ( orMj ,[ 4 , 0 , 8 ]  , [ 9 , 0 , 8  ], orSm , 126 , blok_dv = 0 )#slab iznad na spoju krovova
+   crtaj_stepenice ( orMj , ( 3 , 0 , 8  )  , ( 3 , 0 , 8  ), orSm , blok_id = 53 , rel_smjer  = "odmene" , gore_dolje = "ne"  ) # ukras na krovu
+   crtaj_stepenice ( orMj , ( 10 , 0 , 8  )  , ( 10 , 0 , 8  ), orSm , blok_id = 53 , rel_smjer  = "odmene" , gore_dolje = "ne"  ) # ukras na krovu
+   #police unutra
+   for dX in ( 5 , 8  ):
+      crtaj_kvadar ( orMj ,( dX , -3 , 4 )  , ( dX , 3 , 4  ), orSm , 126 , blok_dv = 8 )#slab
+   for corr in ( -1 , 1 ):   #kutije na policama
+      crtaj_kutiju ( orMj , ( 5 , -2 * corr , 5 ) , ( 5 , -1 * corr , 5 ) , orSm , "odmene" )
+      crtaj_kutiju ( orMj , ( 5 , -1 * corr , 6 ) , ( 5 , -1 * corr , 6 ) , orSm , "odmene" )
+      crtaj_kutiju ( orMj , ( 8 , -2 * corr , 5 ) , ( 8 , -1 * corr , 5 ) , orSm , "meni" )
+      crtaj_kutiju ( orMj , ( 8 , -1 * corr , 6 ) , ( 8 , -1 * corr , 6 ) , orSm , "meni" )
+   crtaj_kvadar ( orMj , ( 5 , 0 , 5 )  , ( 5 , 0 , 5  ), orSm , 145 , blok_dv = 0 ) #anvil
+   
+   
+   #kamin
+   crtaj_kvadar ( orMj , ( 8 , -1 , 2 )  , ( 8 , 1 , 2  ), orSm , 4 , blok_dv = 0 ) #cobblestone
+   crtaj_pec  ( orMj , ( 8 , 0 , 2 ) , ( 8 , 0 , 2 ) , orSm , "meni" )
+   crtaj_stepenice ( orMj , [ 8 , -1 , 3 ]  , [ 8 , -1 , 3  ], orSm , blok_id = 67 , rel_smjer  = "lijevo" , gore_dolje = "ne"  )#lijeva kocka
+   crtaj_stepenice ( orMj , [ 8 , 0 , 3 ]  , [ 8 , 0 , 3  ], orSm , blok_id = 67 , rel_smjer  = "meni" , gore_dolje = "da"  )#srednja kocka
+   crtaj_stepenice ( orMj , [ 8 , 1 , 3 ]  , [ 8 , 1 , 3  ], orSm , blok_id = 67 , rel_smjer  = "desno" , gore_dolje = "ne"  )#desna kocka
+   crtaj_kvadar ( orMj , ( 8 , 0 , 4 )  , ( 8 , 0 , 8  ), orSm , 4 , blok_dv = 0 ) #cobblestone dimnjak
+   crtaj_kvadar ( orMj , ( 8 , 0 , 9 )  , ( 8 , 0 , 9  ), orSm , 139 , blok_dv = 0 ) # 139 vrh dimnjaka
+   crtaj_kvadar ( orMj , ( 8 , 0 , 4 )  , ( 8 , 0 , 4  ), orSm , 89 , blok_dv = 0 ) #moja lampa
+   crtaj_kvadar ( orMj , ( 8 , 2 , 2 )  , ( 8 , 2 , 2  ), orSm , 47 , blok_dv = 0 ) # bookshelf
+   crtaj_krevet  ( orMj , [ 7 , 3 , 2 ]  , [ 8 , 3 , 2  ], orSm , rel_smjer = "odmene"  )
+   
+   
+   
+   #svod iznad podesta
+   crtaj_baklju (  orMj , ( 3 , -3 , 2 )   , orSm, "gore"    ) #baklja ispod svoda
+   crtaj_kvadar ( orMj ,( 3 , -4 , 3 )  , ( 1 , -4 , 3  ), orSm , 126 , blok_dv = 0 )#slab
+   crtaj_kvadar ( orMj ,( 3 , -4 , 3 )  , ( 3 , -4 , 3  ), orSm , 126 , blok_dv = 8 )#slab popuna
+   crtaj_kvadar ( orMj ,( 3 , -3 , 3 )  , ( 1 , -3 , 3  ), orSm , 126 , blok_dv = 8 )#slab
+   crtaj_kvadar ( orMj , ( 3 , -3 , 4 )  , ( 3 , -3 , 4  ), orSm , 5 , 0 ) # popuna
+   crtaj_kvadar ( orMj ,( 3 , -2 , 4 )  , ( 1 , -2 , 4  ), orSm , 126 , blok_dv = 0 )#slab
+   crtaj_kvadar ( orMj ,( 3 , -2 , 4 )  , ( 3 , -2 , 4  ), orSm , 126 , blok_dv = 8 )#slab popuna
+   crtaj_kvadar ( orMj , ( 3 , -2 , 5 )  , ( 3 , -2 , 5  ), orSm , 5 , 0 ) # popuna
+   crtaj_kvadar ( orMj ,( 3 , -1 , 4 )  , ( 1 , -1 , 4  ), orSm , 126 , blok_dv = 8 )#slab
+   crtaj_kvadar ( orMj ,( 3 , -1 , 5 )  , ( 3 , -1 , 5  ), orSm , 126 , blok_dv = 0 )#slab
+   crtaj_kvadar ( orMj ,( 3 , 0 , 5 )  , ( 1 , 0 , 5  ), orSm , 126 , blok_dv = 0 )#slab
+   crtaj_kvadar ( orMj , ( 1 , 0 , 3  )  , ( 1 , 0 , 4  ), orSm , 85 , blok_dv = 0 ) #stupci ograda
+   
+   #ulazni stupac
+   crtaj_kvadar ( orMj ,( 1 , 4 , 1 )  , ( 1 , 4 , 1  ), orSm , 126 , blok_dv = 0 )#slab
+   
+   #radna polica lijevo od vrata
+   crtaj_kvadar ( orMj ,( 5 , -3 , 2 )  , ( 8 , -3 , 2  ), orSm , 126 , blok_dv = 8 )#slab polica
+   crtaj_banak ( orMj ,( 6 , -3 , 2 ) , ( 6 , -3 , 2 ) , orSm , rel_smjer  = "odmene" )
+   crtaj_kutiju ( orMj , ( 7 , -3 , 1 ) , ( 8 , -3 , 1 ) , orSm , "desno" )
+   
+   
+   
+   
+   
+   
+
+if __name__ == "__main__":    #direktan poziv
+   
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   kuca_09 (  orMj ,  orSm , iX=8 , iZ=0 , iY=0 )
+   
+"""
 def dugonja (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ) :
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar
    crtaj_kvadar ( orMj , ( 0 , -1 , 1 )  , ( 0 , -1 , 4  ) , orSm , 5 , 0 ) #lijevi stup
@@ -167,7 +323,7 @@ def kuca_08 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ) :
    
 
    
-   """
+   
    #clear the deck
    crtaj_kvadar ( orMj , [ -2 , -3 , -3 ]  , [ 2 , 3 , 9  ] , orSm , 0 , 0 ) # zrak
    #crta iz sredine 7 siroko 5 duboko
@@ -288,10 +444,6 @@ def kuca_08 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ) :
    
    
    
-if __name__ == "__main__":    #direktan poziv
-   
-   orMj = gdjeSam ()
-   orSm = gdjeGledam ()
-   kuca_08 (  orMj ,  orSm , iX=8 , iZ=0 , iY=0 )
+
    
 

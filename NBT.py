@@ -44,11 +44,11 @@ playerPos = mc.player.getPos()
 for br in range ( 6 ):
    id = mc.spawnEntity('XPOrb', int ( playerPos.x + br ) ,int ( playerPos.y ), int ( playerPos.z ), "{Value:307}")
 print id
-"""
+
 
 id = mc.spawnEntity('XPOrb', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), "{Value:1237}")
 
-
+"""
 #bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
 
 

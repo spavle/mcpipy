@@ -1,58 +1,32 @@
 #ispred lika vrt
 
 from mc import * #import api-ja
+from crtanje import *	
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def vrt ():
+def vrt (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
    """
-   funkcija za crtanje vrta neposredno ispred lika
+   funkcija za crtanje vrta oko lika
    """
-   #gdje sam
-   radnaPozicija = mc.player.getPos()		
-   #kamo gledam
-   smjerRada = mc.player.getDirection ()			#uzmem kamo gledam
-
-   Vx=0												#pocetne vrijednosti su nule
-   Vz=0
-   if abs (smjerRada.x) > abs (smjerRada.z): 		#nadje se dominanti smjer i spremi u vektor
-      Vx=round(smjerRada.x)
-   else:
-      Vz=round(smjerRada.z)
    
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar
+   crtaj_kvadar ( orMj , ( -5 , -5 , 0 )  , ( 5 , 5 , 0  ) , orSm , 98 , 0 ) #temelji od stomebricks
+   crtaj_kvadar ( orMj , ( -4 , -4 , 0 )  , ( 4 , 4 , 0  ) , orSm , 60 , 0 ) #farmland
 
-   #crtanje
-   if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -5 , 6 ) :    		# prodji chep
-         for dY  in  range ( 0,1 ) : 
-            for dX in  range ( 1 , 12  ) :
-               gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
-               gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , 98 , 0 )			#postavi blok stone blocks
-      for dZ in  range( -4 , 5 ) :    		# prodji chep
-         for dY  in  range ( 0,1  ) : 
-            for dX in  range ( 2 , 11  ) :
-               gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
-               gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , 60)			#postavi blok farmlanda
-               sto = 59                                     # zasadi ponesto
-               if ( int ( gdjeX ) % 2 ) == 0 :
-                  sto = 142
-               if ( int ( gdjeX ) % 4 ) == 0 :
-                  sto = 141
-               mc.setBlock(gdjeX , gdjeY+1 , gdjeZ , sto , 2 )			#postavi blok wheata
-               
-      for dZ in  range ( 0 , 1 ) :    		# prodji chep
-         for dY  in  range ( 0,1 ) : 
-            for dX in range ( 6 , 7  ) :
-               gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
-               gdjeY=radnaPozicija.y + dY
-               gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
-               mc.setBlock(gdjeX , gdjeY , gdjeZ , 9)			#postavi blok vode
-               mc.setBlock(gdjeX , gdjeY+1 , gdjeZ , 0)			#postavi blok zraka
-      
+   crtaj_kvadar ( orMj , ( -4 , -4 , 1 )  , ( 4 , -2 , 1  ) , orSm , 59 , 0 ) #wheat   
+   crtaj_kvadar ( orMj , ( -4 , -1 , 1 )  , ( 4 , 1 , 1  ) , orSm , 141 , 0 ) #carrot   
+   crtaj_kvadar ( orMj , ( -4 , 2 , 1 )  , ( 4 , 4 , 1  ) , orSm , 142 , 0 ) #potato     
+   
+   crtaj_kvadar ( orMj , ( 0 , 0 , 0 )  , ( 0 , 0 , 0  ) , orSm , 9 , 0 ) #voda
+   crtaj_kvadar ( orMj , ( 0 , 0 , 1 )  , ( 0 , 0 , 1  ) , orSm , 89 , 0 ) #glowstone lampa iznad vode
+
 
    return 1
    
-vrt ()
+   
+   
+if __name__ == "__main__":    #direktan poziv
+   
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   vrt (  orMj ,  orSm , iX=8 , iZ=0 , iY=0 )

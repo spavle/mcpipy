@@ -759,7 +759,7 @@ def crtaj_pec   ( origin , poc , kraj , smjer , rel_smjer  = "meni" , blok_id = 
  
    crtaj_ljestve  ( origin , poc , kraj , smjer , rel_smjer   , blok_id    )
 
-def crtaj_krevet  ( origin , noge , glava  , smjer , rel_smjer = 0,   blok_id = 26  , blok_dv = 0  ) :
+def crtaj_krevet  ( origin , noge , glava  , smjer , rel_smjer = "odmene",   blok_id = 26  , blok_dv = 0  ) :
    """
    funkcija za crtanje stepenica
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -925,4 +925,23 @@ def gdjeGledam () :
       Vz=round(smjerRada.z)   
    return ( [Vx , Vz] )
 
+   
+def makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = 0 , Career = 1):
+   sto =  '{Profession:%s,Career:%s}' % ( int ( Profession ) , int ( Career )  )
+   gdje = rel2abs ( orMj , (  dX , dZ , dY )   , orSm  )
+   id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , sto) 
 
+def makeFarmer (orMj , dX , dZ , dY ,  orSm ,  Profession = 0 , Career = 1):
+   makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 
+
+def makeLibrarian (orMj , dX , dZ , dY ,  orSm ,  Profession = 1 , Career = 1):
+   makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 
+
+def makePriest (orMj , dX , dZ , dY ,  orSm ,  Profession = 2 , Career = 1):
+   makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 
+
+def makeBlacksmith (orMj , dX , dZ , dY ,  orSm ,  Profession = 3 , Career = 1):
+   makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 
+
+def makeButcher (orMj , dX , dZ , dY ,  orSm ,  Profession = 4 , Career = 1):
+   makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 

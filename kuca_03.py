@@ -53,10 +53,10 @@ crtaj_krevet  ( orMj  , ( 8 , 1 , 0 ) , ( 8 , 2 , 0 ) , orSm , "desno") #krevet 
 
 #krov na dvije vode od red_sandstone_stairs
 for br in range ( 0 , 3 ) :
-   crtaj_stepenice ( orMj , ( 4 + br , - 4  , 2 + br) , ( 4   + br , 4  , 2 + br ) , orSm , blok_id = 180 , rel_smjer  = "meni" ) # prednja kosina
-   crtaj_stepenice ( orMj , ( 10 - br , - 4  , 2 + br) , ( 10 - br , 4 , 2 + br ) , orSm , blok_id = 180 , rel_smjer  = "odmene" ) # zadnja kosina
+   crtaj_stepenice ( orMj , ( 4 + br , - 4  , 2 + br) , ( 4   + br , 4  , 2 + br ) , orSm , blok_id = 53 , rel_smjer  = "meni" ) # prednja kosina
+   crtaj_stepenice ( orMj , ( 10 - br , - 4  , 2 + br) , ( 10 - br , 4 , 2 + br ) , orSm , blok_id = 53 , rel_smjer  = "odmene" ) # zadnja kosina
 
-crtaj_kvadar ( orMj , [ 7 , -4 , 4 ]  , [ 7 , 4 , 4  ] , orSm , 182 , 8 ) # slabovi za zatvoriti rupu u sredini krova   Red Sandstone Slab
+crtaj_kvadar ( orMj , [ 7 , -4 , 4 ]  , [ 7 , 4 , 4  ] , orSm , 126 , 8 ) # slabovi za zatvoriti rupu u sredini krova   Red Sandstone Slab
 
 #Dimnjak 
 crtaj_kvadar ( orMj , ( 5 , 2 , 0 ) , ( 5 , 2 , 5 ) , orSm , 4 , 0 ) # blok coblestonea
@@ -75,7 +75,7 @@ crtaj_vrataograde ( orMj , ( 2 , 0  , 0 ) ,  orSm ,  "naprijed_nazad"  , blok_id
 
 
 # nadstresnica
-crtaj_kvadar ( orMj , ( 3 , -4   , 2 ) , ( 3 , 0 , 2 ) , orSm ,  182 , 0 ) #  Red Sandstone Slab
+crtaj_kvadar ( orMj , ( 3 , -4   , 2 ) , ( 3 , 0 , 2 ) , orSm ,  126 , 0 ) #  Red Sandstone Slab
 crtaj_kvadar ( orMj , ( 3 , -4  , 1 ) , ( 3 , -4 , 1 ) , orSm , 188 , 0 ) # spruce_fence ograda
 crtaj_kvadar ( orMj , ( 3 , 0  , 1 ) , ( 3 , 0 , 1 ) , orSm , 188 , 0 ) # spruce_fence ograda
 
