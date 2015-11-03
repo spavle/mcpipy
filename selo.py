@@ -29,6 +29,7 @@ def selo (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
    makePriest (orMj , 5 , 0 , 0 ,  orSm ,  Profession = 2 , Career = 1)
    makeBlacksmith (orMj , 5 , 1 , 0 ,  orSm ,  Profession = 3 , Career = 1)
    makeButcher (orMj , 5 , 2 , 0 ,  orSm ,  Profession = 4 , Career = 1)
+   
    return 1
 
   

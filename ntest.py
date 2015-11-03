@@ -206,9 +206,13 @@ for br in range ( -3 , 3 ):
 
 orMj = gdjeSam ()
 orSm = gdjeGledam ()
-
+"""
 makeFarmer (orMj , 5 , -2 , 0 ,  orSm ,  Profession = 0 , Career = 1)
 makeLibrarian (orMj , 5 , -1 , 0 ,  orSm ,  Profession = 1 , Career = 1)
 makePriest (orMj , 5 , 0 , 0 ,  orSm ,  Profession = 2 , Career = 1)
 makeBlacksmith (orMj , 5 , 1 , 0 ,  orSm ,  Profession = 3 , Career = 1)
 makeButcher (orMj , 5 , 2 , 0 ,  orSm ,  Profession = 4 , Career = 1)
+
+"""
+from modul_sorter import * 
+modul_sorter (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0  , kutija = "ne" ,crtaj_kutije = "ne" )
