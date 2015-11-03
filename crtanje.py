@@ -720,7 +720,7 @@ def crtaj_redstonetorch ( origin , poc ,  smjer ,  rel_smjer   ) :
    3: Facing west.
    5: up
    """
-   lista_smjera = [  "desno" , "lijevo" , "meni"  , "odmene"  ] # transformacija opisa u vrijednost
+   lista_smjera = [  "desno" , "lijevo" , "meni"  , "odmene" , "gore" ] # transformacija opisa u vrijednost
    pomoc = lista_smjera.index ( rel_smjer )
    rel_smjer = pomoc  
    
