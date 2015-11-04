@@ -11,10 +11,12 @@ def crtaj_lift ( orMj , orSm , iX  , iZ ,  iY  , visina = 12 ):
    orMj   = premjesti_origin ( orMj , iX  , iZ , iY ,  orSm )
 
    
-   
+   korekcija = 0
    if ( visina % 2 == 1 ) : #nesmije biti neparna visina
       mc.postToChat("NEPARNA "   )
       visina += 1
+      korekcija = 1
+      
    else:
       mc.postToChat("PPPPPARNA "   )
       
@@ -78,6 +80,11 @@ def crtaj_lift ( orMj , orSm , iX  , iZ ,  iY  , visina = 12 ):
    #kutija na vrhu
 
    crtaj_kutiju ( orMj , [ 2 , 3, visina + 1  ]  , [ 2 ,  4 , visina + 1  ] , orSm , rel_smjer  = "meni" , blok_id = 54     )
+   if korekcija == 1 :
+      crtaj_hopper    ( orMj , [ 2 ,  4 , visina   ]  , [ 2 ,  4 , visina   ] , orSm , "dolje" ) # spust iz kutija
+      crtaj_hopper    ( orMj , [ 2 ,  4 , visina - 1  ]  , [ 2 ,  4 , visina - 1  ] , orSm , "desno" ) # desno
+   else :
+      crtaj_hopper    ( orMj , [ 2 ,  4 , visina  ]  , [ 2 ,  4 , visina  ] , orSm , "desno" ) # desno
 
 
 def lift (orMj , orSm ):

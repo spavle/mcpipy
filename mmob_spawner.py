@@ -199,6 +199,7 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    time.sleep ( 15 )
    mc.postToChat("Gljiva"  )
    orMj = premjesti_origin ( orMj , 0  , 0 ,  razbijalica ,  orSm ) #mice ishodiste na centar i 45 iznad razbijalice
+   
    for dummy in ( 1 ,2 ,3 ,4 ): #brojalica za okretanje
       mc.postToChat("Gljiva %f "  % dummy )
       for br in range ( 0, visina ):
@@ -217,6 +218,7 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    mc.postToChat("Poklopac"  )
    crtaj_kvadar ( orMj , (  sirina   , sirina , 0 + 3 * br + 3 )  , (  - sirina  , - sirina  ,  3 * br + 3 ) , orSm ,  44 , 0 ) # poklopac na sredini stepenica half slab anti spawn
    time.sleep ( 10 )
+   
 
 
 

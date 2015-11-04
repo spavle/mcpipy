@@ -3,6 +3,7 @@
 import time 
 #import sys
 from crtanje import *		#tu je funkcija koju zovem
+from modul_sorter import * 
 from popis_blokova import *
 
 from mc import *			
@@ -32,6 +33,10 @@ def pocetak_sortera ( orMj , orSm ) :
    crtaj_kutiju ( orMj , [ 1 , 1, 5 ]  , [ 2 ,  1 , 5  ] , orSm , rel_smjer  = "lijevo" )
    for br in range ( 0 , 4 ):
       crtaj_stepenice ( orMj , [ 2 , 5 - br , 0 + br ]  , [ 2 ,  5 - br , 0 + br  ] , orSm , blok_id = 128 , rel_smjer  = "desno" )
+   crtaj_hopper    ( orMj , [ 0  , 1, 5 ]  , [ -23 ,  1 , 5  ] , orSm , "odmene" ) # izlaz iz sortera
+   crtaj_hopper    ( orMj , [ -23  , 21, 5 ]  , [ -23 ,  2 , 5  ] , orSm , "lijevo" ) # od kutija to izlaza iz sorter
+   crtaj_hopper    ( orMj , [ -23  , 21, 6 ]  , [ -23 ,  20 , 6  ] , orSm , "dolje" ) # spust iz kutija
+   
 
 def crtaj_modul ( orMj , orSm , dX  ):
    """
@@ -139,10 +144,41 @@ def blok_sortera (orMj , orSm):
       crtaj_modul ( orMj , orSm , br )
    crtaj_hopper    ( orMj , [ 18 , 1, 4 ]  , [ 24 ,  1 , 4  ] , orSm , "odmene" )
    crtaj_hopper    ( orMj , [ 25 , 1, 4 ]  , [ 25 ,  6 , 4  ] , orSm , "desno" )
+   
+   orSm2 = ortUlijevo ( orSm )
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=20 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )  #PRVA TRI MODULA
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=21 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=22 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   
+   
+   crtaj_hopper    ( orMj , [ -2 , 20, 2 ]  , [ -2 ,  23 , 2  ] , orSm2 , "desno" )
+   
       
    # lijevo dolje
    orMj = premjesti_origin ( orMj , 26 , 4 , 0 ,  orSm )
    orSm = ortUdesno ( orSm )
+   
+   orSm2 = ortUlijevo ( orSm )
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=2 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )   #DRUGA 4 MODULA
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=1 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=0 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   modul_sorter (  orMj ,  orSm2 , iX=-6 , iZ=-1 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   
+   crtaj_hopper    ( orMj , [ -2 , 2, 2 ]  , [ -2 ,  -21 , 2  ] , orSm2 , "lijevo" )
+   crtaj_hopper    ( orMj , [ -2 , -22, 2 ]  , [ -2 ,  -22 , -2  ] , orSm2 , "dolje" )
+   crtaj_hopper    ( orMj , [ -2 ,  -22 , -3 ]  , [ -11 ,  -22 , -3  ] , orSm2 , "meni" )
+   crtaj_hopper    ( orMj , [ -12 ,  -22 , -3 ]  , [ -12 ,  -20 , -3  ] , orSm2 , "desno" )
+   crtaj_hopper    ( orMj , [  -12 ,  -19 , -3 ]  , [  -12 ,  -19 , -3  ] , orSm2 , "dolje" ) #spoj na kutije
+   
+   #izmedju 1 i 2 reda
+   crtaj_hopper    ( orMj , [ 6 ,  -19 , -4 ]  , [ 6 ,  -9 , -4  ] , orSm2 , "desno" )
+   crtaj_hopper    ( orMj , [ 6 ,  -8 , -4 ]  , [ 6 ,  -8 , -4  ] , orSm2 , "meni" )
+   #izmedju 2 i 3 reda
+   crtaj_hopper    ( orMj , [ -32 ,  -8 , -4 ]  , [ -32 ,  2 , -4  ] , orSm2 , "desno" )
+   crtaj_hopper    ( orMj , [ -32 ,  3 , -4 ]  , [ -32 ,  3 , -4  ] , orSm2 , "odmene" )
+   
+   
+   
    for br in range (  0, 10 ):
       crtaj_modul ( orMj , orSm , br )
    crtaj_hopper    ( orMj , [ 11 , 1, 4 ]  , [ 17 ,  1 , 4  ] , orSm , "odmene" )

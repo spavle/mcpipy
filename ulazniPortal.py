@@ -8,6 +8,7 @@ from mining_shaht import *
 from sorter import *	
 from katakombe import * 
 from lift import *
+from endStorage import *
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 sirina = 38
@@ -31,6 +32,7 @@ crtaj_kvadar ( orMj , (13,-sirina - 1,-5)  , (11+4+dubina,sirina +1,-5) , orSm ,
 crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AIR.id ,  0 )     #centralna rupa
 
 #zakomentirano za testiranje kao heavy element
+
 mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
 
 #2 kocke ravno
@@ -249,6 +251,9 @@ for br in range ( 3 ) :
 #sorter
 pomOrigin =  premjesti_origin ( orMj ,  20, 0 , -15 ,  orSm )
 pomSm = ortUlijevo ( ortUlijevo( orSm))
+
+#endStorage (  pomOrigin ,  orSm , iX=-18 , iZ=19 , iY=-17  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ) # iz OK
+endStorage (  pomOrigin ,  orSm , iX=-28 , iZ=19 , iY=-17  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ) # iz OK -iX nazad iZ lijevo
 time.sleep ( 10 )
 sorter_soba ( pomOrigin , pomSm ,  iX=8 , iZ=0 , iY=-7 ,  materijal = 98, dv = 1 , stepenice_mat = 109) # prvo nacrtaj sobu
 time.sleep ( 10 )
@@ -263,6 +268,7 @@ blok_sortera (  premjesti_origin ( pomOrigin ,  - 10 , 13 , -7 ,  orSm ) , pomSm
 # katakombe ispod zgrade
 dno = nadji_dno ( orMj , ( 0 , 0, 0 ) , orSm ) + 2 # pronadji dno ovaj +2 je nekakav iskustveni korektiv
 brojalica =  0
+
 while brojalica < 4 :
    mc.postToChat("DUBINA: %f" % ( dno ) )
    katOrigin = premjesti_origin ( orMj , 14 + dubina / 2 , 0 , dno ,  orSm )

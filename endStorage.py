@@ -11,12 +11,12 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 
 
-
+"""
 
 def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
-   """
-   crta push modul u spawneru
-   """
+   
+   #crta push modul u spawneru
+  
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na kocku ispod pressure plate
    #prvi red
    crtaj_kvadar ( orMj , ( 0  , 0 , 0 )  , (  2 , 0 , 0 ) , orSm ,  materijal , dv ) #tri bloka ispod kao osnova
@@ -32,9 +32,9 @@ def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
    #crtaj_kvadar ( orMj , [ 2 , 0 , 3 ]  , [ 2 , 0 , 3  ] , orSm ,  materijal , dv ) #???
 
 def tvrdja (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 ):
-   """
-   zgrada ispod i oko spawnera
-   """
+   
+   #zgrada ispod i oko spawnera
+   
    dimenzija = 26 # dimenzije zgrade
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
    orginalniOrigin = orMj # spremi ??
@@ -223,15 +223,15 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    mc.postToChat("Poklopac"  )
    crtaj_kvadar ( orMj , (  sirina   , sirina , 0 + 3 * br + 3 )  , (  - sirina  , - sirina  ,  3 * br + 3 ) , orSm ,  44 , 0 ) # poklopac na sredini stepenica half slab anti spawn
    time.sleep ( 10 )
-
+"""
 
 def endStorage (  orMj ,  orSm , iX=0 , iZ=0 , iY=20  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ):
 
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar    
    crtaj_kvadar ( orMj , (  -20  , -22 ,  0  )  , (   20  ,  22 ,  8  ) , orSm ,  materijal , dv  ) # kocka - crtanje tijela zgrade
    crtaj_kvadar ( orMj , (  -19  , -21 ,  1  )  , (   19  ,  21 ,  7  ) , orSm ,  0 , 0  ) # kocka - crtanje tijela zgrade
-   for dX in range ( -20 , 20 , 4 ):
-      for dZ in range ( -20 , 20 , 4 ):
+   for dX in range ( -20 , 22 , 4 ):
+      for dZ in range ( -20 , 22 , 4 ):
             crtaj_kvadar ( orMj , (  dX  , dZ ,  0  )  , (   dX  , dZ ,  0  ) , orSm ,  89 , 0  )  #lampe
             crtaj_kvadar ( orMj , (  dX  , dZ ,  8  )  , (   dX  , dZ ,  8 ) , orSm ,  89 , 0  )  #lampe
    flag_crtaj_kutije = "da"
@@ -251,6 +251,11 @@ def endStorage (  orMj ,  orSm , iX=0 , iZ=0 , iY=20  ,  materijal = 98, dv = 1 
       modul_kraj (  orMj ,  orSm , iX=-11 , iZ=dZ , iY=1  ,  materijal = 98, dv = 0  , kutija = flag_kutija )  #kat ispod slijepa kutija
       crtaj_hopper    ( orMj , [ -6 , dZ , 6 ]  , [ -6   ,  dZ , 6    ] , orSm , "desno" )
       crtaj_hopper    ( orMj , [ -6 , dZ , 5 ]  , [ -6   ,  dZ , 5    ] , orSm , "meni" )
+   
+   """
+   orSm = ortUlijevo ( orSm )
+   modul_sorter (  orMj ,  orSm , iX=17 , iZ=0 , iY=8  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   """
       
 
 if __name__ == "__main__":    #direktan poziv

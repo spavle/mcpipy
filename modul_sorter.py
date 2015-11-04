@@ -3,6 +3,7 @@
 import time
 from mc import * #import api-ja
 from crtanje import *		#tu je funkcija koju zovem
+
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def modul_kraj (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "da" ):
