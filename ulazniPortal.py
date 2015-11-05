@@ -269,12 +269,12 @@ blok_sortera (  premjesti_origin ( pomOrigin ,  - 10 , 13 , -7 ,  orSm ) , pomSm
 dno = nadji_dno ( orMj , ( 0 , 0, 0 ) , orSm ) + 2 # pronadji dno ovaj +2 je nekakav iskustveni korektiv
 brojalica =  0
 
-while brojalica < 4 :
+while brojalica < 3 :
    mc.postToChat("DUBINA: %f" % ( dno ) )
    katOrigin = premjesti_origin ( orMj , 14 + dubina / 2 , 0 , dno ,  orSm )
    originBaklje = katOrigin
-   for dX in range (-42,43,21):
-      for dZ in range ( -42 , 43 , 21 ):
+   for dX in range (-63,66,21):
+      for dZ in range ( -63 , 66 , 21 ):
          # za testirenje zakomentirano
          katakombe ( katOrigin ,  orSm ,  iX = dX, iZ = dZ , iY=0 ) 
          a = 2
