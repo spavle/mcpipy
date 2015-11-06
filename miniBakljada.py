@@ -19,12 +19,16 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
    
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
+<<<<<<< HEAD
          increment = -20
+=======
+         increment = 0
+>>>>>>> origin/master
          while increment < visina :
-            gdje = rel2abs ( orMj ,  ( dX , dZ , 0 + increment )  , orSm  )
+            gdje = rel2abs ( orMj ,  ( dX , dZ , -20 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
             if increment > -1 :
-               if kojiBlok == AIR.id or kojiBlok == GRASS_TALL.id or kojiBlok == SNOW.id :
+               if kojiBlok == AIR.id or kojiBlok == 31 or kojiBlok == 175 or kojiBlok == SNOW.id :
                   if kojiBlokIspod in zaStaviti :
                      mc.setBlock(gdje , TORCH.id , 5 )
             increment += 1

@@ -20,10 +20,10 @@ def makeFarmer ( ):
    playerPos = mc.player.getPos()
    # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA MULU
    id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z ), "{Profession:0,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z -1 ), "{Profession:0,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +1), "{Profession:0,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +2), "{Profession:1,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +3), "{Profession:2,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z -1 ), "{Profession:0,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +1), "{Profession:0,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +2), "{Profession:1,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +3), "{Profession:2,Career:1}")
 
 
 
