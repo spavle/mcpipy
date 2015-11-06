@@ -28,9 +28,9 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    #dolje farmland
    crtaj_kvadar ( orMj , (  -4 , -4 , 0)  , (  14 , 4 , 0 ) , orSm ,  60 , 0 )
    #posadi wheat
-   crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  urod , 0 )
-   crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  urod , 0 )
-   crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  urod , 0 )
+   crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  urod , 7 )
+   crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  urod , 7 )
+   crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  urod , 7 )
    #voda u sredini
    crtaj_kvadar ( orMj , (  -1 , 0 , 0)  , (  -1 , 0 , 0 ) , orSm ,  9 , 0 )
    crtaj_kvadar ( orMj , (  5 , 0 , 0)  , (  5 , 0 , 0 ) , orSm ,  9 , 0 )
@@ -48,7 +48,7 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    #vrata
    crtaj_vrata ( orMj , (  15 , 0 , 1)   , orSm , "meni"   )
    #konzumer
-   time.sleep  ( 10 )
+   time.sleep  ( 1 )
    gdje = rel2abs ( orMj , (  18,0,1 )   , orSm  )
    id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:0,Career:1}") 
    gdje2 = rel2abs ( orMj , (  1,0,1 )   , orSm  )
@@ -96,6 +96,7 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 142 ) #wheat
-   wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  , urod = 141 ) #carrot
-   wheatFarm (  orMj , orSm , iX=7 , iZ=30 , iY=-2  ) #potato
+   #wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 142 ) #potato
+   wheatFarm (  orMj , orSm , iX=7 , iZ=20 , iY=-2  , urod = 141 ) #carrot
+   #wheatFarm (  orMj , orSm , iX=7 , iZ=40 , iY=-2  ) #wheat
+   
