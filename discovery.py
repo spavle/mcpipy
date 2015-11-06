@@ -13,11 +13,11 @@ def go_south ( koliko , pomak ) :
    for brojalica in range ( 0 , koliko + 1 ):
       mc.postToChat("go_south : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x  , 89 , pos.z - pomak , STONE.id)
-      time.sleep ( 1 )
+      mc.setBlock(pos.x  , 89 , pos.z + pomak , STONE.id)
+      time.sleep ( 3 )
       ubij_ispod ( pos )
       mc.player.setPos(pos.x  , 90 , pos.z - pomak)
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       
       
 def go_west ( koliko , pomak ) :
@@ -25,34 +25,34 @@ def go_west ( koliko , pomak ) :
       mc.postToChat("go_west : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
       mc.setBlock(pos.x  - pomak , 89 , pos.z , STONE.id )
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       ubij_ispod ( pos )
       mc.player.setPos(pos.x - pomak , 90 , pos.z )
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       
       
 def go_north ( koliko , pomak ) :
    for brojalica in range ( 0 , koliko + 1 ):
       mc.postToChat("go_north : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
-      mc.setBlock(pos.x  , 89 , pos.z + pomak , STONE.id )
-      time.sleep ( 1 )
+      mc.setBlock(pos.x  , 89 , pos.z - pomak , STONE.id )
+      time.sleep ( 3 )
       ubij_ispod ( pos )
       mc.player.setPos(pos.x  , 90 , pos.z + pomak)
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       
 def go_east ( koliko , pomak ) :
    for brojalica in range (  0 , koliko + 1  ):
       mc.postToChat("go_east : %f " % ( brojalica  ) )
       pos = mc.player.getTilePos()
       mc.setBlock(pos.x + pomak , 89 , pos.z  , STONE.id )
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       ubij_ispod ( pos )
       mc.player.setPos(pos.x + pomak , 90 , pos.z )
-      time.sleep ( 1 )
+      time.sleep ( 3 )
       
 
-korak = 25
+korak = 70
 
 pocetak =  mc.player.getTilePos()
 for krug in range ( 2 , 225 , 2) :

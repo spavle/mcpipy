@@ -37,5 +37,5 @@ def bakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   bakljada ( orMj , orSm ,  dimenzije = 230 , visina = 140)   
+   bakljada ( orMj , orSm ,  dimenzije = 220 , visina = 140)   
    #bakljada (dimenzije = 200 , visina = 80)   

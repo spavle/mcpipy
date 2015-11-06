@@ -28,9 +28,9 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    #dolje farmland
    crtaj_kvadar ( orMj , (  -4 , -4 , 0)  , (  14 , 4 , 0 ) , orSm ,  60 , 0 )
    #posadi wheat
-   crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  59 , 0 )
-   crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  141 , 0 )
-   crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  142 , 0 )
+   crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  urod , 0 )
+   crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  urod , 0 )
+   crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  urod , 0 )
    #voda u sredini
    crtaj_kvadar ( orMj , (  -1 , 0 , 0)  , (  -1 , 0 , 0 ) , orSm ,  9 , 0 )
    crtaj_kvadar ( orMj , (  5 , 0 , 0)  , (  5 , 0 , 0 ) , orSm ,  9 , 0 )
@@ -97,5 +97,5 @@ if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
    wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  ) #wheat
-   #wheatFarm (  orMj , orSm , iX=22 , iZ=0 , iY=-2  , urod = 141) #carrot
+   #wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  , urod = 141) #carrot
    #wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  , urod = 142) #potato

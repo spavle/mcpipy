@@ -19,7 +19,7 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
    
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
-         increment = -2
+         increment = -20
          while increment < visina :
             gdje = rel2abs ( orMj ,  ( dX , dZ , 0 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
@@ -37,5 +37,5 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   miniBakljada ( orMj , orSm ,  dimenzije = 40 , visina = 60)   
+   miniBakljada ( orMj , orSm ,  dimenzije = 50 , visina = 30)   
    #bakljada (dimenzije = 200 , visina = 80)   
