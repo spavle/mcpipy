@@ -8,6 +8,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
 
    orMj   = premjesti_origin ( orMj ,   iX , iZ , iY    , orSm  )
+   crtaj_kvadar ( orMj , [ -5 , -6 , 0 ]  , [ 21 , 6 , 9  ] , orSm , 0 , 0 ) # clear the deck
    mc.postToChat("Poc"  )
    #glowstone kocka
    crtaj_kvadar ( orMj , (  -5 , -5 , 0)  , (  15 , 5 , 1 ) , orSm ,  89 , 0 )
@@ -28,15 +29,11 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    #dolje farmland
    crtaj_kvadar ( orMj , (  -4 , -4 , 0)  , (  14 , 4 , 0 ) , orSm ,  60 , 0 )
    #posadi wheat
-<<<<<<< HEAD
-   crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  urod , 0 )
-   crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  urod , 0 )
-   crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  urod , 0 )
-=======
+
    crtaj_kvadar ( orMj , (  -4 , -4 , 1)  , (  14 , -2 , 1 ) , orSm ,  urod , 7 )
    crtaj_kvadar ( orMj , (  -4 , -1 , 1)  , (  14 , 1 , 1 ) , orSm ,  urod , 7 )
    crtaj_kvadar ( orMj , (  -4 , 2 , 1)  , (  14 , 4 , 1 ) , orSm ,  urod , 7 )
->>>>>>> origin/master
+
    #voda u sredini
    crtaj_kvadar ( orMj , (  -1 , 0 , 0)  , (  -1 , 0 , 0 ) , orSm ,  9 , 0 )
    crtaj_kvadar ( orMj , (  5 , 0 , 0)  , (  5 , 0 , 0 ) , orSm ,  9 , 0 )
@@ -54,11 +51,11 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    #vrata
    crtaj_vrata ( orMj , (  15 , 0 , 1)   , orSm , "meni"   )
    #konzumer
-   time.sleep  ( 1 )
+   time.sleep  ( 2 )
    gdje = rel2abs ( orMj , (  18,0,1 )   , orSm  )
-   id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:0,Career:1}") 
+   id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:0,Career:2}") 
    gdje2 = rel2abs ( orMj , (  1,0,1 )   , orSm  )
-   id = mc.spawnEntity('Villager',  int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:1}")
+   id = mc.spawnEntity('Villager',  int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2}")
    #id = mc.spawnEntity('Villager',  gdje [0]  ,gdje [1] ,gdje [2] , "{Profession:0,Career:1}")
    
    
@@ -102,13 +99,10 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-<<<<<<< HEAD
-   wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  ) #wheat
-   #wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  , urod = 141) #carrot
-   #wheatFarm (  orMj , orSm , iX=6 , iZ=0 , iY=-2  , urod = 142) #potato
-=======
-   #wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 142 ) #potato
-   wheatFarm (  orMj , orSm , iX=7 , iZ=20 , iY=-2  , urod = 141 ) #carrot
-   #wheatFarm (  orMj , orSm , iX=7 , iZ=40 , iY=-2  ) #wheat
+
+
+   wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
+   wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
+   wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
    
->>>>>>> origin/master
+

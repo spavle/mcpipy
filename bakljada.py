@@ -18,6 +18,7 @@ def bakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 
    
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
+      mc.postToChat("dX: %f " % dX )
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
          increment = -2
          while increment < visina :
@@ -29,7 +30,7 @@ def bakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
                      mc.setBlock(gdje , TORCH.id , 5 )
             increment += 1
             kojiBlokIspod = kojiBlok
-      mc.postToChat("dX: %f " % dX )
+      
  
    mc.postToChat("Kraj !!!" )
    return 1

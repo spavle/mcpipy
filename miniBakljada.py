@@ -19,11 +19,9 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
    
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
-<<<<<<< HEAD
-         increment = -20
-=======
+
          increment = 0
->>>>>>> origin/master
+
          while increment < visina :
             gdje = rel2abs ( orMj ,  ( dX , dZ , -20 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 

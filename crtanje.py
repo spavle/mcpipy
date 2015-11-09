@@ -280,7 +280,7 @@ def crtanje_stepenastiTunel ( orUlazni  , smjer ,  visina=3 , sirina = 5 , duzin
       dYmodifikator += uspon
    return 1   
    
-def crtaj_terase ( origin , polozaj , smjer ,  visina = 7 ,  korak = 1 , sirina = 10 , baklje="ne") :
+def crtaj_terase ( origin ,   smjer , iX = 0  , iZ = 0  , iY = 0 ,  visina = 7 ,  korak = 1 , sirina = 10 , baklje="ne") :
    """
    ispred lika cisti terasasto podrucje
    1. parametar lista sa koordinatama ( X , Y , Z )
@@ -292,7 +292,8 @@ def crtaj_terase ( origin , polozaj , smjer ,  visina = 7 ,  korak = 1 , sirina 
    """
    zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
-   od = rel2abs ( origin , polozaj , smjer ) 
+   origin  = premjesti_origin ( origin , iX , iZ , iY ,  smjer ) #mice ishodiste
+   #od = rel2abs ( origin ,  smjer ) 
    for dY in range ( visina - 1, -1 , -1 ) : # ozgora prema dolje
       mc.postToChat("dY: %f" % ( dY ) )
       for dX in range ( 1 + korak * ( dY + 1 ) , 0 , -1 ) : # sprijeda prema nazad
