@@ -23,6 +23,7 @@ def napalm ():
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -60 , 60 ) :    		# prodji chep
+         mc.postToChat("dZ: %f " % dZ )
          for dY  in  range( -10 , 20 ) : 
             for dX in range ( -60 , 61 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
