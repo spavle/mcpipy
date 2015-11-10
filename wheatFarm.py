@@ -105,4 +105,12 @@ if __name__ == "__main__":    #direktan poziv
    wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
    wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
    
+   orSm = ortUlijevo ( ortUlijevo ( orSm ))
+
+   wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
+   wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
+   wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
+   
+   
+   
 
