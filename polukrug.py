@@ -40,4 +40,5 @@ def polukrugTunel (   iX=0 , iZ=0 , iY=0 , radius = 5 , duzina = 10 , korekcija 
  
 if __name__ == "__main__":    #direktan poziv
    #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
-   polukrugTunel (   iX=1 , iZ=0 , iY=0 , radius = 4 , duzina = 15 , korekcija = 1 , uspon = -0.3 )
+   #polukrugTunel (   iX=1 , iZ=0 , iY=0 , radius = 4 , duzina = 15 , korekcija = 1 , uspon = -0.3 )
+   polukrugTunel (   iX=1 , iZ=0 , iY=0 , radius = 3 , duzina = 8 , korekcija = 0 , uspon = -0.5 )

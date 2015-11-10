@@ -23,7 +23,7 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
          increment = 0
 
          while increment < visina :
-            gdje = rel2abs ( orMj ,  ( dX , dZ , -20 + increment )  , orSm  )
+            gdje = rel2abs ( orMj ,  ( dX , dZ , -10 + increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
             if increment > -1 :
                if kojiBlok == AIR.id or kojiBlok == 31 or kojiBlok == 175 or kojiBlok == SNOW.id :
@@ -39,5 +39,5 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   miniBakljada ( orMj , orSm ,  dimenzije = 50 , visina = 30)   
+   miniBakljada ( orMj , orSm ,  dimenzije = 50 , visina = 20)   
    #bakljada (dimenzije = 200 , visina = 80)   

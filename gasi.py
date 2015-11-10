@@ -32,7 +32,7 @@ def gasi ():
                if  koji == 50 :	#ako je torch
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)					#postavi blok zraka
 
-      mc.postToChat("dZ: %f " % dZ )            
+         mc.postToChat("dZ: %f " % dZ )            
    return 1
    
 gasi ()

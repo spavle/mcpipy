@@ -20,7 +20,7 @@ def bakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
       mc.postToChat("dX: %f " % dX )
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
-         increment = -2
+         increment = -1
          while increment < visina :
             gdje = rel2abs ( orMj ,  ( dX , dZ ,  increment )  , orSm  )
             kojiBlok = mc.getBlock ( gdje ) 
@@ -38,5 +38,5 @@ def bakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   bakljada ( orMj , orSm ,  dimenzije = 160 , visina = 70)   
+   bakljada ( orMj , orSm ,  dimenzije = 100 , visina = 140)   
    #bakljada (dimenzije = 200 , visina = 80)   

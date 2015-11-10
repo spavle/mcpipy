@@ -39,7 +39,8 @@ def blokRudnika (dimenzije = 150):
 
    
    
-zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id ,  WATER_FLOWING.id, WATER_STATIONARY.id , LAVA_STATIONARY.id, LAVA_FLOWING.id ]
-zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
+zaMaknuti = [ SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id ,  WATER_FLOWING.id, WATER_STATIONARY.id , LAVA_STATIONARY.id, LAVA_FLOWING.id , 97 ]# 97 monster_egg
+#zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
+zaMaknutiOpasno = [  SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
 
 blokRudnika (dimenzije = 150)

@@ -23,7 +23,7 @@ def rndBlok ():
                   (.07,Block(STONE.id, 0))  ,                   
                   (.3,Block(GRAVEL.id, 0)) , 
                   (.3,Block(COBBLESTONE.id, 0)) , 
-                  (.96,Block(GRASS.id, 0)) 
+                  (.96,Block(168, 1)) 
                   )
    while 1 == 1 :
       r = random.random()
@@ -34,7 +34,7 @@ def rndBlok ():
             break
 
 
-def rndStaza (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  sirina = 1):
+def rndStaza (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  sirina = 1):
    """
    
    iX, - relativni pomak po X
@@ -43,16 +43,14 @@ def rndStaza (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  sirina = 1):
    duzina - koliko dugo
    
    """
- 
 
-   #gdje sam
 
-   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste  
    kojiBlok = rndBlok ()
    
    
    for dZ in range ( - sirina , sirina + 1 ) :
-      for dX in range ( iX , iX + duzina + 1 ):
+      for dX in range ( 0 ,   duzina  ):
          gdje = rel2abs ( orMj ,  ( dX , dZ  , -1  )  , orSm  )  #relativne koordinate u apsolutne worlda
          mc.setBlock( gdje ,  kojiBlok.next  () ) 
          gdje = rel2abs ( orMj ,  ( dX , dZ  , 0 )  , orSm  )  #relativne koordinate u apsolutne worlda
@@ -63,10 +61,11 @@ def rndStaza (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  sirina = 1):
    return 1
  
 if __name__ == "__main__":    #direktan poziv
-   #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
+   
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
    
    
-   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 10  )
+   #rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 10  )
+   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 3  )
    
