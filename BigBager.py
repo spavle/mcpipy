@@ -9,11 +9,11 @@ def bigBager ( orMj , orSm ,  dimenzije = 50 , visina = 20) :
 
    for dX in  range( -dimenzije , dimenzije + 1 ):
       for dZ in  range( -dimenzije , dimenzije + 1 ):
-         increment = 0
-         while increment < visina :
-            gdje = rel2abs ( orMj ,  ( dX , dZ ,  increment )  , orSm  )
-            mc.setBlock(gdje , AIR.id , 0 )
-            increment += 1
+ 
+         gdje = rel2abs ( orMj ,  ( dX , dZ ,  0 )  , orSm  )
+         gdje2 = rel2abs ( orMj ,  ( dX , dZ , - visina )  , orSm  )
+         mc.setBlocks(gdje , gdje2 , AIR.id , 0 )
+ 
       mc.postToChat("dX: %f " % dX )
  
    mc.postToChat("Kraj !!!" )
@@ -24,4 +24,4 @@ def bigBager ( orMj , orSm ,  dimenzije = 50 , visina = 20) :
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   bigBager ( orMj , orSm ,  dimenzije = 120 , visina = 50)   
+   bigBager ( orMj , orSm ,  dimenzije = 280 , visina = 70)   

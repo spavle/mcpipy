@@ -1,4 +1,5 @@
 #ispred lika vrt
+#ispred lika vrt
 
 from mc import * #import api-ja
 from crtanje import *	
