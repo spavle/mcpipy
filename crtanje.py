@@ -567,6 +567,34 @@ def crtaj_sticky_piston    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id 
    crtaj_piston    ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 29 , blok_dv = 0 )
    return 1
    
+   
+def  crtaj_button ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 77 , blok_dv = 0 ) :
+   """
+   funkcija za crtanje dispensera
+   1. parametar lista sa koordinatama ( X , Y , Z )
+   2. parametar lista sa koordinatama ( X , Y , Z )
+   3. smjer crtanja apsolutni
+   4. gdje su okrenute 
+   5. blok_id  , 33 standardni , 29 -sticky
+
+   
+   """
+   lista_smjera = [ "dolje", "gore" , "desno" , "lijevo" , "meni"  , "odmene"   ] # transformacija opisa u vrijednost
+   pomoc = lista_smjera.index ( rel_smjer )
+   rel_smjer = pomoc  
+   
+   tablica_smjera = {}     # definira se tablica prevoda
+   tablica_smjera [ ( 1 , 0  ) ] = ( 5 , 0  , 3 , 4 , 1 , 2  ) # gledam north
+   tablica_smjera [ ( -1 , 0 ) ] = ( 5 , 0 ,  4 , 3 , 1 , 2  ) # gledam south
+   tablica_smjera [ ( 0 , 1 ) ] = ( 5 , 0 , 2 , 1 , 3 , 4   )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 5 , 0 , 1 , 2 , 3 , 4  )  # gledam weast
+   
+   buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
+   blok_dv =  buff [ rel_smjer ]
+   od = rel2abs ( origin , poc , smjer )
+   do = rel2abs ( origin , kraj , smjer )
+   mc.setBlocks ( od , do , blok_id , blok_dv  )
+   
 def  crtaj_piston ( origin , poc , kraj , smjer ,  rel_smjer , blok_id = 33 , blok_dv = 0 ) :
    """
    funkcija za crtanje dispensera

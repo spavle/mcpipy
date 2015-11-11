@@ -229,3 +229,20 @@ modul_sorter (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0  , 
 
 orMj = gdjeSam ()
 orSm = gdjeGledam ()
+
+#test crtanja  buttona
+
+
+#for br in range ( 4 , 16 , 2 ):
+#   crtaj_kvadar ( gdjeSam () , [ br , 0 , 1 ]  , [ br , 0 , 1  ] , gdjeGledam () , 1 , 0 ) #blok
+#crtaj_kvadar ( gdjeSam () , [ 5 , 0 , 0 ]  , [ 5 , 0 , 2  ] , gdjeGledam () , 0 , 0 ) #blok
+
+crtaj_button  ( gdjeSam () , ( 4 , 0 , 1 )  , ( 4 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "gore" )
+crtaj_button  ( gdjeSam () , ( 6 , 0 , 1 )  , ( 6 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "dolje" )
+
+
+
+crtaj_button  ( gdjeSam () , ( 8 , 0 , 1 )  , ( 8 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "lijevo" )
+crtaj_button  ( gdjeSam () , ( 10 , 0 , 1 )  , ( 10 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "desno" )
+crtaj_button  ( gdjeSam () , ( 12 , 0 , 1 )  , ( 12 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "meni" )
+crtaj_button  ( gdjeSam () , ( 14 , 0 , 1 )  , ( 14 , 0 , 1 ) , gdjeGledam ()  , rel_smjer  = "odmene" )
