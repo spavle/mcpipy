@@ -6,6 +6,58 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import *			
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
+
+def crtaj_lift_2 ( orMj , orSm , iX  , iZ ,  iY  , visina = 4 , materijal = 24 , dv = 2 ):
+
+   orMj   = premjesti_origin ( orMj , iX  , iZ , iY ,  orSm )
+   #minimalna visina je 4, broji se od reda sa chestom
+   if visina < 4 :
+      visina = 4
+   #prvi red nivo: -3
+   crtaj_kvadar ( orMj , ( 1  , 0, -3 )  , ( 4  , 0 , -3 ) , orSm , materijal , dv )
+   #drugi red nivo -2 , crtam odozada prema naprijed zbog slijeda
+   crtaj_redstonedust ( orMj , ( 4 , 0 , -2 ) , ( 4 , 0 , -2 ) , orSm )
+   crtaj_repeater ( orMj , ( 3 , 0 , -2 ) , ( 3 , 0 , -2 ) , orSm , rel_smjer  = "meni" )
+   crtaj_kvadar ( orMj , ( 2 , 0 , -2 ) , ( 2 , 0 , -2 ) , orSm , materijal , dv )
+   crtaj_redstonetorch ( orMj , ( 1 , 0 , -2 )   ,  orSm  , "meni" )
+   # treci red nivo -1 , crtam sprijeda zbog slijeda
+   crtaj_hopper    ( orMj , ( 0 , 0 , -1 )  , ( 0 , 0 , -1 ) , orSm , "odmene" )
+   crtaj_dropper    ( orMj , ( 1 , 0 , -1 )  , ( 1 , 0 , -1 )  , orSm , rel_smjer  = "gore" )
+   crtaj_comparator ( orMj , ( 2 , 0 , -1 )  , ( 2 , 0 , -1 )  , orSm , rel_smjer  = "odmene" )
+   crtaj_kvadar ( orMj , ( 3 , 0 , -1 ) , ( 3 , 0 , -1 ) , orSm , materijal , dv )
+   crtaj_redstonetorch ( orMj , ( 4 , 0 , -1 )   ,  orSm  , "odmene" )
+   #prije periodike na hopper staviti kutiju
+   crtaj_kutiju ( orMj , ( 0 , 0 , 0 )  , ( 0 , 0 , 0 ) , orSm , rel_smjer  = "meni" , blok_id = 54     ) # ulazna kutija je ishodiste
+   #mora zavrsiti sa gornjim redom periodike, visina mora biti parni broj
+   if visina % 2 == 1 :
+      visina += 1
+   #crtaj uvis
+   brojalica = 0
+   while brojalica < visina :
+      # dropper se uvijek jednako crta
+      crtaj_dropper    ( orMj , ( 1 , 0 , brojalica )  , ( 1 , 0 , brojalica )  , orSm , rel_smjer  = "gore" )
+      if brojalica % 2 == 0 :    # doljnji red periodike
+         crtaj_kvadar ( orMj , ( 4 , 0 , brojalica ) , ( 4 , 0 , brojalica ) , orSm , materijal , dv ) #kocka
+         crtaj_redstonetorch ( orMj , ( 3 , 0 , brojalica )   ,  orSm  , "meni" )   #baklja
+      else :      #gornji red periodike
+         crtaj_kvadar ( orMj , ( 3 , 0 , brojalica ) , ( 3 , 0 , brojalica ) , orSm , materijal , dv ) #kocka u sredini
+         crtaj_redstonetorch ( orMj , ( 2 , 0 , brojalica )   ,  orSm  , "meni" )   #baklja napred
+         crtaj_redstonetorch ( orMj , ( 4 , 0 , brojalica )   ,  orSm  , "odmene" )   #baklja nazad
+      brojalica += 1
+   #i na "visini"
+   crtaj_kutiju ( orMj , ( 0 , 0 , visina )  , ( 1 , 0 , visina ) , orSm , rel_smjer  = "lijevo" , blok_id = 54     ) # izlazna kutija
+         
+         
+      
+   
+   
+   
+   
+   
+   
+   
+   
+
 def crtaj_lift ( orMj , orSm , iX  , iZ ,  iY  , visina = 12 ):
 
    orMj   = premjesti_origin ( orMj , iX  , iZ , iY ,  orSm )
@@ -93,12 +145,19 @@ def lift (orMj , orSm ):
 
    bedrock = nadji_dno ( orMj , ( 0 , 0 , 0 ) , orSm ) + 2 # maknuti crne tocke u pregledu
    crtaj_lift ( orMj ,  orSm ,  iX=0, iZ=-4 , iY=bedrock  , visina = -bedrock ) # crta se od dna prema gore
+   
+def lift2 (orMj , orSm ):
+   """ test okretanja
+   orSm2 = ortUlijevo ( ortUlijevo ( orSm ))
+   crtaj_lift_2 ( orMj ,  orSm2 ,  iX=-5, iZ=0 , iY=0  , visina = 3 ) # 
+   """
+   crtaj_lift_2 ( orMj ,  orSm ,  iX=1, iZ=0 , iY=0  , visina = 93 )
 
 if __name__ == "__main__":    #direktan poziv
    
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   lift (orMj , orSm ) 
+   lift2 (orMj , orSm ) 
 
 
 

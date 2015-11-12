@@ -50,11 +50,15 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    crtaj_kvadar ( orMj , (  15 , 0 , 1)  , (  16 , 0 , 2) , orSm ,  0 , 0 )
    #vrata
    crtaj_vrata ( orMj , (  15 , 0 , 1)   , orSm , "meni"   )
-   #konzumer
+   #konzumer - stavi ga u minecart da se bolje pozicionira
+   crtaj_kvadar ( orMj , ( 18,0,1)  , (  18,0,1 ) , orSm ,  66 , 0 )
    time.sleep  ( 2 )
    gdje = rel2abs ( orMj , (  18,0,1 )   , orSm  )
+   id = mc.spawnEntity('Minecart',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Type:0}" )
+   time.sleep  ( 2 ) # minecart
    id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:0,Career:2}") 
-   gdje2 = rel2abs ( orMj , (  1,0,1 )   , orSm  )
+   #worker
+   gdje2 = rel2abs ( orMj , (  2,0,1 )   , orSm  )
    id = mc.spawnEntity('Villager',  int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2}")
    #id = mc.spawnEntity('Villager',  gdje [0]  ,gdje [1] ,gdje [2] , "{Profession:0,Career:1}")
    
@@ -104,12 +108,13 @@ if __name__ == "__main__":    #direktan poziv
    wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
    wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
    wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
-   
+   """
    orSm = ortUlijevo ( ortUlijevo ( orSm ))
 
    wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
    wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
    wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
+   """
    
    
    

@@ -31,7 +31,7 @@ def modul_sorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 
    
    crtaj_hopper    ( orMj , [ 5   , 0, 4 ]  , [ 5   ,  0 , 4  ] , orSm , "desno" ) # gornji
    
-   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,},],id:"Hopper",Lock:"",}' 
+   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}' 
    bla = rel2abs ( orMj , ( 5 , 0 , 3  ) , orSm )
    time.sleep ( 0.1 )
    mc.setBlockWithNBT(bla,154,smjer_hoppera ( orSm , "meni")  , sto )   #hopper gleda meni
@@ -42,13 +42,14 @@ def modul_sorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 
    
 
 def sorter2 (  orMj , orSm   ) :
-   for br in range (  0, 21 ):
+   for br in range (  0, 4 ):
       if br % 2 == 1 :
          koja_kutija = "kutija"
       else:
          koja_kutija = "druga_kutija"
             
       modul_sorter2 (  orMj ,  orSm , iX=3 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
+   """
    orSm = ortUlijevo ( ortUlijevo ( orSm ))
    
    for br in range (  0, - 21 , -1 ):
@@ -58,6 +59,7 @@ def sorter2 (  orMj , orSm   ) :
          koja_kutija = "druga_kutija"
             
       modul_sorter2 (  orMj ,  orSm , iX=3 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
+   """
 
 
 if __name__ == "__main__":    #direktan poziv
