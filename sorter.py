@@ -59,10 +59,11 @@ def crtaj_modul ( orMj , orSm , dX  ):
    crtaj_comparator ( orMj , [ 3 + dX , 0, 3 ]  , [ 3 + dX ,  0 , 3 ]  , orSm , rel_smjer  = "lijevo" )
    crtaj_repeater ( orMj , [ 3 + dX , -1, 1 ]  , [ 3 + dX ,  -1 , 1  ]  , orSm , rel_smjer  = "desno" )
    
+   
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 2 ]  , [ 3 + dX ,  1 , 3  ] , orSm , "desno" ) # dva doljnja
    crtaj_hopper    ( orMj , [ 3 + dX , 1, 4 ]  , [ 3 + dX ,  1 , 4  ] , orSm , "odmene" ) # gornji
    pisi = itemId.next ()
-   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",Count:4b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:5b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:5b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( pisi [ 0 ] , pisi  [ 1 ]  , pisi  [ 0 ] , pisi [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] )
+   sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"%s",CustomName:"Bla",CustomNameVisible:1b,Count:1b,Damage:%ss,},1:{Slot:1b,id:"%s",Count:2b,Damage:%ss,},2:{Slot:2b,id:"%s",Count:2b,Damage:%ss,},3:{Slot:3b,id:"%s",Count:5b,Damage:%ss,},4:{Slot:4b,id:"%s",Count:5b,Damage:%ss,},],id:"Hopper",Lock:"",}' % ( pisi [ 0 ] , pisi  [ 1 ]  , pisi  [ 0 ] , pisi [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] , pisi [ 0 ] , pisi  [ 1 ] )
    bla = rel2abs ( orMj , ( 3 + dX , 1 ,  3  ) , orSm )
    mc.postToChat("orginal: %s %s " %  ( dX , bla )    )
    time.sleep ( 0.1 )

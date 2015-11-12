@@ -357,8 +357,8 @@ def crtaj_klopku   ( origin , polozaj , smjer , rel_smjer  , stanje="zatvoreno" 
    tablica_smjera = {}     # definira se tablica prevoda
    tablica_smjera [ ( 1 , 0  ) ] = ( 2 , 3  , 0 , 1 ,  ) # gledam north
    tablica_smjera [ ( -1 , 0 ) ] = ( 3 , 2 , 1 , 0 ) # gledam south
-   tablica_smjera [ ( 0 , 1 ) ] = ( 0  , 1 , 2 , 3 )  # gledam east
-   tablica_smjera [ ( 0 , -1 ) ]= ( 1 , 0 , 3 , 2 )  # gledam weast
+   tablica_smjera [ ( 0 , 1 ) ] = ( 0  , 1 , 3 , 2 )  # gledam east
+   tablica_smjera [ ( 0 , -1 ) ]= ( 1 , 0 , 2 , 3 )  # gledam weast
    
    buff = tablica_smjera [ ( smjer [ 0 ] , smjer [ 1 ] )   ]
    blok_dv =  buff [ rel_smjer ]
