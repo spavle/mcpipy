@@ -8,7 +8,7 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
 
    orMj   = premjesti_origin ( orMj ,   iX , iZ , iY    , orSm  )
-   crtaj_kvadar ( orMj , [ -5 , -6 , 0 ]  , [ 21 , 6 , 9  ] , orSm , 0 , 0 ) # clear the deck
+   crtaj_kvadar ( orMj , [ -5 , -7 , 0 ]  , [ 21 , 7 , 29  ] , orSm , 0 , 0 ) # clear the deck
    mc.postToChat("Poc"  )
    #glowstone kocka
    crtaj_kvadar ( orMj , (  -5 , -5 , 0)  , (  15 , 5 , 1 ) , orSm ,  89 , 0 )
@@ -105,16 +105,16 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
 
 
-   wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
+   wheatFarm (  orMj , orSm , iX=7 , iZ=-16 , iY=-2  , urod = 142 ) #potato
    wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
-   wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
-   """
+   wheatFarm (  orMj , orSm , iX=7 , iZ=16 , iY=-2  ) #wheat
+   
    orSm = ortUlijevo ( ortUlijevo ( orSm ))
 
-   wheatFarm (  orMj , orSm , iX=7 , iZ=-15 , iY=-2  , urod = 142 ) #potato
+   wheatFarm (  orMj , orSm , iX=7 , iZ=-16 , iY=-2  , urod = 142 ) #potato
    wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
-   wheatFarm (  orMj , orSm , iX=7 , iZ=15 , iY=-2  ) #wheat
-   """
+   wheatFarm (  orMj , orSm , iX=7 , iZ=16 , iY=-2  ) #wheat
+   
    
    
    
