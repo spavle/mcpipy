@@ -13,9 +13,12 @@ def modul_kraj2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 
       kmat = 54
    else :
       kmat = 146
-   crtaj_hopper    ( orMj , [ 3 , 0, 4 ]  , [ 3 ,  0 , 4  ] , orSm , "lijevo" ) # hopper razvodnik
+   crtaj_hopper    ( orMj , [ 3 , 0, 4 ]  , [ 3 ,  0 , 4  ] , orSm , "desno" ) # hopper razvodnik
+   
+   
+   
    crtaj_kutiju ( orMj , [ 1 , 0, 0 ]  , [ 2 ,  0 , 3  ] , orSm , rel_smjer  = "meni" , blok_id = kmat     )
-   crtaj_hopper    ( orMj , [ 3 , 0, 3 ]  , [ 3 ,  0 , 0  ] , orSm , "meni" ) # hopper iza kutije
+   crtaj_hopper    ( orMj , [ 3 , 0, 3 ]  , [ 3 ,  0 , 0  ] , orSm , "meni" ) # hopperi iza kutije
    crtaj_comparator ( orMj , [ 0   , 0, 0 ]  , [ 0   ,  0 , 0 ]  , orSm , rel_smjer  = "meni" ) #ima li stvari u kutiji
    
 
@@ -45,7 +48,6 @@ def modul_sorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 
    crtaj_comparator ( orMj , [ 6   , 0, 3 ]  , [ 6   ,  0 , 3 ]  , orSm , rel_smjer  = "odmene" )
    
    crtaj_hopper    ( orMj , [ 5   , 0, 4 ]  , [ 5   ,  0 , 4  ] , orSm , "desno" ) # gornji
-   crtaj_kvadar ( orMj , (  5 , 0 , 5   )  , (  5 , 0 , 5   ) , orSm ,   44 , 0 )
    
    sto =  '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}' 
    bla = rel2abs ( orMj , ( 5 , 0 , 3  ) , orSm )
@@ -57,52 +59,63 @@ def modul_sorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 
    
    
 
-def sorter2 (    orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
+def endStorage_2 (  orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
 
-   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice gdje treba 
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice gdje treba
 
-   #crtaj_kvadar ( orMj , ( -5 , -32 , 0 ),( 50 , 32 , 8) , orSm , 0 , 0 ) #clear the deck
-   #lijevi zid
-   orSm = ortUlijevo ( orSm )
-   for br in range (  0, 40 ):
-      if br % 2 == 1 :
-         koja_kutija = "kutija"
-      else:
-         koja_kutija = "druga_kutija"
-            
-      modul_sorter2 (  orMj ,  orSm , iX=15 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  20 , 40 , 4 ) ,  (  20 , 45 , 4 ) , orSm , "desno" )
-   crtaj_kvadar ( orMj , (  20 , 40 , 5 ) ,  (  20 , 45 , 5 ) , orSm ,   44 , 0 )
    
-   # zadnji zid
+   
+   #priprema
+   
+   crtaj_hopper    ( orMj , ( 4   , -21, 4 )  , ( 4   ,  21 , 4  ) , orSm , "lijevo" ) # prvi razvod
+   #crtaj_hopper    ( orMj , ( 50   , -21, 4 )  , ( 50   ,  21 , 4  ) , orSm , "lijevo" ) # drugi razvod
+
+   crtaj_hopper    ( orMj , ( 4   , 21, 4 )  , ( 4   ,  21 , 4  ) , orSm , "odmene" ) # 
+   crtaj_hopper    ( orMj , ( 55   , 21, 4 )  , ( 55   ,  21 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 55   , 20, 4 )  , ( 55   ,  20 , 4  ) , orSm , "meni" ) # 
+   
+   crtaj_hopper    ( orMj , ( 4   , 11, 4 )  , ( 4   ,  11 , 4  ) , orSm , "odmene" ) # 
+   crtaj_hopper    ( orMj , ( 55   , 11, 4 )  , ( 55   ,  11 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 55   , 10, 4 )  , ( 55   ,  10 , 4  ) , orSm , "meni" ) # 
+
+   crtaj_hopper    ( orMj , ( 4   , -10, 4 )  , ( 4   ,  -10 , 4  ) , orSm , "odmene" ) # 
+   crtaj_hopper    ( orMj , ( 55   , -10, 4 )  , ( 55   ,  -10 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 55   , -11, 4 )  , ( 55   ,  -11 , 4  ) , orSm , "meni" ) #    
+   
+   crtaj_hopper    ( orMj , ( 4   , -20, 4 )  , ( 4   ,  -20 , 4  ) , orSm , "odmene" ) # 
+   crtaj_hopper    ( orMj , ( 55   , -20, 4 )  , ( 55   ,  -20 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 55   , -21, 4 )  , ( 55   ,  -21 , 4  ) , orSm , "meni" ) #      
+   
+   
+   #return 1
+   
+   #proba dead end
    orSm = ortUdesno( orSm )
-   for br in range (  -13, 14 ):
-      if br % 2 == 1 :
-         koja_kutija = "kutija"
-      else:
-         koja_kutija = "druga_kutija"
-            
-      modul_sorter2 (  orMj ,  orSm , iX=41 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  46 , -20 , 4 ) ,  (  46 , -12 , 4 ) , orSm , "desno" ) # lijevi spoj
-   crtaj_kvadar ( orMj , (  46 , -20 , 5 ) ,  (  46 , -12 , 5 ) , orSm ,   44 , 0 )
-   
-   crtaj_hopper ( orMj , (  46 , 12 , 4 ) ,  (  46 , 19 , 4 ) , orSm , "desno" ) # desni spoj
-   crtaj_kvadar ( orMj , (  46 , 12 , 5 ) ,  (  46 , 19 , 5 ) , orSm ,   44 , 0 )
-   #desni zid
-   orSm = ortUdesno( orSm )
-   for br in range (  -39, 1 ):
-      if br % 2 == 1 :
-         koja_kutija = "kutija"
-      else:
-         koja_kutija = "druga_kutija"
-            
-      modul_sorter2 (  orMj ,  orSm , iX=15 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  20 , -46 , 4 ) ,  (  20 , -40 , 4 ) , orSm , "desno" )
-   crtaj_kvadar ( orMj , (  20 , -46 , 5 ) ,  (  20 , -40 , 5 ) , orSm ,   44 , 0 )
-   
 
+   for br in range ( -5 , -55 ,-1 ) :
+      if br % 2 == 1 :
+         koja_kutija = "kutija"
+      else:
+         koja_kutija = "druga_kutija"
+
+      modul_kraj2 (  orMj ,  orSm , iX=-24 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=17 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=-14 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=7 , iZ=br , iY=0   , kutija = koja_kutija )
+      
+   orSm = ortUdesno( ortUdesno ( orSm ) )
+    
+   for br in range ( 5  , 55 ) :
+      if br % 2 == 1 :
+         koja_kutija = "kutija"
+      else:
+         koja_kutija = "druga_kutija"
+      modul_kraj2 (  orMj ,  orSm , iX=-24 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=17 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=-14 , iZ=br , iY=0   , kutija = koja_kutija )
+      modul_kraj2 (  orMj ,  orSm , iX=7 , iZ=br , iY=0   , kutija = koja_kutija )
 
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   sorter2 (  orMj , orSm , iX=10  )
+   endStorage_2 (  orMj , orSm  ,  iX=8 )
