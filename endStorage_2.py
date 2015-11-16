@@ -71,20 +71,20 @@ def endStorage_2 (  orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
    #crtaj_hopper    ( orMj , ( 50   , -21, 4 )  , ( 50   ,  21 , 4  ) , orSm , "lijevo" ) # drugi razvod
 
    crtaj_hopper    ( orMj , ( 4   , 21, 4 )  , ( 4   ,  21 , 4  ) , orSm , "odmene" ) # 
-   crtaj_hopper    ( orMj , ( 55   , 21, 4 )  , ( 55   ,  21 , 4  ) , orSm , "lijevo" ) # drugi razvod
-   crtaj_hopper    ( orMj , ( 55   , 20, 4 )  , ( 55   ,  20 , 4  ) , orSm , "meni" ) # 
+   crtaj_hopper    ( orMj , ( 75   , 21, 4 )  , ( 75   ,  21 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 75   , 20, 4 )  , ( 75   ,  20 , 4  ) , orSm , "meni" ) # 
    
    crtaj_hopper    ( orMj , ( 4   , 11, 4 )  , ( 4   ,  11 , 4  ) , orSm , "odmene" ) # 
-   crtaj_hopper    ( orMj , ( 55   , 11, 4 )  , ( 55   ,  11 , 4  ) , orSm , "lijevo" ) # drugi razvod
-   crtaj_hopper    ( orMj , ( 55   , 10, 4 )  , ( 55   ,  10 , 4  ) , orSm , "meni" ) # 
+   crtaj_hopper    ( orMj , ( 75   , 11, 4 )  , ( 75   ,  11 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 75   , 10, 4 )  , ( 75   ,  10 , 4  ) , orSm , "meni" ) # 
 
    crtaj_hopper    ( orMj , ( 4   , -10, 4 )  , ( 4   ,  -10 , 4  ) , orSm , "odmene" ) # 
-   crtaj_hopper    ( orMj , ( 55   , -10, 4 )  , ( 55   ,  -10 , 4  ) , orSm , "lijevo" ) # drugi razvod
-   crtaj_hopper    ( orMj , ( 55   , -11, 4 )  , ( 55   ,  -11 , 4  ) , orSm , "meni" ) #    
+   crtaj_hopper    ( orMj , ( 75   , -10, 4 )  , ( 75   ,  -10 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 75   , -11, 4 )  , ( 75   ,  -11 , 4  ) , orSm , "meni" ) #    
    
    crtaj_hopper    ( orMj , ( 4   , -20, 4 )  , ( 4   ,  -20 , 4  ) , orSm , "odmene" ) # 
-   crtaj_hopper    ( orMj , ( 55   , -20, 4 )  , ( 55   ,  -20 , 4  ) , orSm , "lijevo" ) # drugi razvod
-   crtaj_hopper    ( orMj , ( 55   , -21, 4 )  , ( 55   ,  -21 , 4  ) , orSm , "meni" ) #      
+   crtaj_hopper    ( orMj , ( 75   , -20, 4 )  , ( 75   ,  -20 , 4  ) , orSm , "lijevo" ) # drugi razvod
+   crtaj_hopper    ( orMj , ( 75   , -21, 4 )  , ( 75   ,  -21 , 4  ) , orSm , "meni" ) #      
    
    
    #return 1
@@ -92,7 +92,7 @@ def endStorage_2 (  orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
    #proba dead end
    orSm = ortUdesno( orSm )
 
-   for br in range ( -5 , -55 ,-1 ) :
+   for br in range ( -5 , -75 ,-1 ) :
       if br % 2 == 1 :
          koja_kutija = "kutija"
       else:
@@ -105,7 +105,7 @@ def endStorage_2 (  orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
       
    orSm = ortUdesno( ortUdesno ( orSm ) )
     
-   for br in range ( 5  , 55 ) :
+   for br in range ( 5  , 75 ) :
       if br % 2 == 1 :
          koja_kutija = "kutija"
       else:

@@ -30,7 +30,7 @@ def modul_sorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 
       crtaj_kutiju ( orMj , [ 3   , 0, 2 ]  , [ 4   ,  0 , 2  ] , orSm , rel_smjer  = "desno" , blok_id = kmat     )
       crtaj_hopper    ( orMj , [ 3   , 0, 1 ]  , [ 3   ,  0 , 0  ] , orSm , "meni" ) # hopper ispod kutije
       crtaj_kutiju ( orMj , [ 1   , 0, 0 ]  , [ 2   ,  0 , 1  ] , orSm , rel_smjer  = "desno" , blok_id = kmat     )
-      crtaj_stepenice ( orMj , ( 1   , 0 ,  2  ) , ( 1   , 0 ,  2  ) , orSm , blok_id = 53 , rel_smjer  = "odmene" , gore_dolje = "ne"  )
+      crtaj_stepenice ( orMj , ( 1   , 0 ,  2  ) , ( 1   , 0 ,  2  ) , orSm , blok_id = 109 , rel_smjer  = "odmene" , gore_dolje = "ne"  )
       crtaj_comparator ( orMj , [ 0   , 0, 0 ]  , [ 0   ,  0 , 0 ]  , orSm , rel_smjer  = "meni" ) #ima li stvari u kutiji
    crtaj_kvadar ( orMj , [ 8   , 0, 0 ]  , [ 8   , 0 , 0  ] , orSm , materijal , 2 ) # doljnji blok
    crtaj_kvadar ( orMj , [ 7   , 0, 1 ]  , [ 9   , 0 , 1  ] , orSm , materijal , 2 ) # srednji blokovi
@@ -64,15 +64,15 @@ def sorter2 (    orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
    #crtaj_kvadar ( orMj , ( -5 , -32 , 0 ),( 50 , 32 , 8) , orSm , 0 , 0 ) #clear the deck
    #lijevi zid
    orSm = ortUlijevo ( orSm )
-   for br in range (  0, 40 ):
+   for br in range (  0, 65 ):
       if br % 2 == 1 :
          koja_kutija = "kutija"
       else:
          koja_kutija = "druga_kutija"
             
       modul_sorter2 (  orMj ,  orSm , iX=15 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  20 , 40 , 4 ) ,  (  20 , 45 , 4 ) , orSm , "desno" )
-   crtaj_kvadar ( orMj , (  20 , 40 , 5 ) ,  (  20 , 45 , 5 ) , orSm ,   44 , 0 )
+   crtaj_hopper ( orMj , (  20 , 65 , 4 ) ,  (  20 , 70 , 4 ) , orSm , "desno" )
+   crtaj_kvadar ( orMj , (  20 , 65 , 5 ) ,  (  20 , 70 , 5 ) , orSm ,   44 , 0 )
    
    # zadnji zid
    orSm = ortUdesno( orSm )
@@ -82,23 +82,23 @@ def sorter2 (    orMj , orSm , iX=0 , iZ=0 , iY=0   ) :
       else:
          koja_kutija = "druga_kutija"
             
-      modul_sorter2 (  orMj ,  orSm , iX=41 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  46 , -20 , 4 ) ,  (  46 , -12 , 4 ) , orSm , "desno" ) # lijevi spoj
-   crtaj_kvadar ( orMj , (  46 , -20 , 5 ) ,  (  46 , -12 , 5 ) , orSm ,   44 , 0 )
+      modul_sorter2 (  orMj ,  orSm , iX=66 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
+   crtaj_hopper ( orMj , (  71 , -20 , 4 ) ,  (  71 , -12 , 4 ) , orSm , "desno" ) # lijevi spoj
+   crtaj_kvadar ( orMj , (  71 , -20 , 5 ) ,  (  71 , -12 , 5 ) , orSm ,   44 , 0 )
    
-   crtaj_hopper ( orMj , (  46 , 12 , 4 ) ,  (  46 , 19 , 4 ) , orSm , "desno" ) # desni spoj
-   crtaj_kvadar ( orMj , (  46 , 12 , 5 ) ,  (  46 , 19 , 5 ) , orSm ,   44 , 0 )
+   crtaj_hopper ( orMj , (  71 , 12 , 4 ) ,  (  71 , 19 , 4 ) , orSm , "desno" ) # desni spoj
+   crtaj_kvadar ( orMj , (  71 , 12 , 5 ) ,  (  71 , 19 , 5 ) , orSm ,   44 , 0 )
    #desni zid
    orSm = ortUdesno( orSm )
-   for br in range (  -39, 1 ):
+   for br in range (  -64, 1 ):
       if br % 2 == 1 :
          koja_kutija = "kutija"
       else:
          koja_kutija = "druga_kutija"
             
       modul_sorter2 (  orMj ,  orSm , iX=15 , iZ=br , iY=0  ,  materijal = 98, dv = 0  , kutija = koja_kutija , crtaj_kutije = "da" )
-   crtaj_hopper ( orMj , (  20 , -46 , 4 ) ,  (  20 , -40 , 4 ) , orSm , "desno" )
-   crtaj_kvadar ( orMj , (  20 , -46 , 5 ) ,  (  20 , -40 , 5 ) , orSm ,   44 , 0 )
+   crtaj_hopper ( orMj , (  20 , -71 , 4 ) ,  (  20 , -65 , 4 ) , orSm , "desno" )
+   crtaj_kvadar ( orMj , (  20 , -71 , 5 ) ,  (  20 , -65 , 5 ) , orSm ,   44 , 0 )
    
 
 

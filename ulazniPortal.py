@@ -3,12 +3,14 @@
 from crtanje import *		#tu je funkcija koju zovem
 from mc import *		
 from mmob_spawner import *	
-from sorter_soba import *	
+#from sorter_soba import *	
 from mining_shaht import *
-from sorter import *	
+#from sorter import *	
 from katakombe import * 
 from lift import *
 from endStorage import *
+from testKomplet import *
+
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 sirina = 38
@@ -33,7 +35,7 @@ crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AI
 
 #zakomentirano za testiranje kao heavy element
 
-#mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
+mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
 
 #2 kocke ravno
 crtaj_kvadar ( orMj , (1,-2,0)  , (2,2,1) , orSm , AIR.id , blok_dv = 0 )
@@ -252,6 +254,8 @@ for br in range ( 3 ) :
 pomOrigin =  premjesti_origin ( orMj ,  20, 0 , -15 ,  orSm )
 pomSm = ortUlijevo ( ortUlijevo( orSm))
 
+# STARI SORTER
+"""
 #endStorage (  pomOrigin ,  orSm , iX=-18 , iZ=19 , iY=-17  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ) # iz OK
 endStorage (  pomOrigin ,  orSm , iX=-28 , iZ=19 , iY=-17  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ) # iz OK -iX nazad iZ lijevo
 time.sleep ( 10 )
@@ -262,6 +266,9 @@ for br in range ( 7 ) :
    crtaj_stepenice ( pomOrigin , ( br + 2 , -4, -1 -br  )  , ( br + 2 , 4, -1 -br ) , pomSm   , blok_id = 109 , rel_smjer  = "odmene") # pa stepenice
 time.sleep ( 10 )
 blok_sortera (  premjesti_origin ( pomOrigin ,  - 10 , 13 , -7 ,  orSm ) , pomSm )
+"""
+
+
 
 #katakombe
 
@@ -283,7 +290,19 @@ while brojalica < 3 :
    
 #put do katakombi
 mining_shaht ( pomOrigin2 ,  orSm  ,  iX=10 , iZ=0 , iY=0 ,materijal = 98, dv = 1 , stepenice_mat = 109 )
-lift (  premjesti_origin ( pomOrigin ,  - 9 , 13 , -2 ,  orSm ) , pomSm )
+#lift (  premjesti_origin ( pomOrigin ,  - 9 , 13 , -2 ,  orSm ) , pomSm )
+# NOVI SORTER
+
+crtanje_stepenastiTunel ( pomOrigin  , pomSm ,  visina=5 , sirina = 4 , duzina = 8  , uspon = -1 ) # pa tunel
+for br in range ( 7 ) :
+   crtaj_stepenice ( pomOrigin , ( br + 2 , -4, -1 -br  )  , ( br + 2 , 4, -1 -br ) , pomSm   , blok_id = 109 , rel_smjer  = "odmene") # pa stepenice
+testKomplet ( pomOrigin , pomSm ,  iX=8 , iZ=0 , iY=-7  )    
+
+crtaj_hopper    (   pomOrigin ,  ( -13 , 8 , -1 ) , ( -13 , 8 , -1 ) , pomSm , "lijevo" )
+crtaj_hopper    (   pomOrigin ,  ( -13 , 8 , -2 ) , ( -13 , -19 , -2 ) , pomSm , "lijevo" )
+crtaj_hopper    (   pomOrigin ,  (  -13 , -20 , -2 ) , (  -13 , -20 , -2 ) , pomSm , "dolje" )
+crtaj_hopper    (   pomOrigin ,  ( -13 , -20 , -3 ) , ( 9 , -20 , -3 ) , pomSm , "odmene" )
+
 
 #bakljada
 bakljada ( originBaklje , orSm ,  dimenzije = 160 , visina = 150)

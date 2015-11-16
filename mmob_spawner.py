@@ -192,6 +192,7 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
       crtaj_hopper    ( orMj , (  sirina + 1   , - sirina - 3, -5 ), (  sirina  , - sirina - 3 , -5) , orSm ,  "dolje" ) #hopperi ispod kutija
       crtaj_hopper    ( orMj , (  sirina + 1   , - sirina - 3, -6 ), (  sirina -1  , - sirina - 3 , -6) , orSm ,  "meni" ) #hopperi ispod kutija
       crtaj_hopper    ( orMj , (  sirina -2   , - sirina - 3, -6 ), (  sirina -2  , - sirina - 14 , -6) , orSm ,  "lijevo" ) #hopperi ispod kutija
+
    #return za testiranje
    #return 1
    

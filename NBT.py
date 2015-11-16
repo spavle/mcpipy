@@ -117,3 +117,5 @@ mc.setBlock(-1,-1,-1,1)
 mc.conn.send("world.setBlocks",1,4,0,1,0,0,63,4,"{id:\"Sign\",Text1:\"AAAAAAPablo\,Text2:\"Line2\"}")
 """
 
+
+[0:{id:1,Count:52b,Damage:4s,},1:{id:1,Count:55b,Damage:0s,},2:{id:2,Count:55b,Damage:0s,},3:{id:2,Count:55b,Damage:0s,},4:{id:2,Count:55b,Damage:0s,},5:{id:1,Count:52b,Damage:4s,},6:{id:1,Count:55b,Damage:0s,},7:{id:7,Count:55b,Damage:0s,},8:{id:2,Count:55b,Damage:0s,},]

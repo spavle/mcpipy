@@ -8,8 +8,8 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 def sorter_soba_2 ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 , visina = 6 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
 
-   siroko = 28 # zbog arkada
-   duboko = 60
+   siroko = 28 #
+   duboko = 85
    
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar kupole
 
@@ -19,15 +19,13 @@ def sorter_soba_2 ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 , visina = 6 ,  materijal 
    time.sleep ( 1 )
    crtaj_kvadar ( orMj , (1,1-siroko ,0)  , (duboko - 1 ,siroko-1, visina) , orSm , 0 , blok_dv = 0 )   #rupa
    
-   crtaj_kvadar ( orMj , (0,-1 ,0)  , (0,1,2) , orSm , 0 , blok_dv = 0 )   #vrata
+   #crtaj_kvadar ( orMj , (0,-1 ,0)  , (0,1,2) , orSm , 0 , blok_dv = 0 )   #vrata
       #lampe u stropu
    dY = visina + 1
-   for dX in range ( 0 , duboko , 4):
-      for dZ in range ( - siroko , siroko ,4 ):
-         gdje = rel2abs ( orMj ,  ( dX , dZ  , dY  )  , orSm  )  #relativne koordinate u apsolutne worlda
-         mc.setBlock( gdje , 89 )
-         gdje = rel2abs ( orMj ,  ( dX , dZ  , -1  )  , orSm  )  #relativne koordinate u apsolutne worlda
-         mc.setBlock( gdje , 89 )
+   for dX in range ( 0 , duboko , 5):
+      for dZ in  ( - 25 , -20 , -16 , -10 , -5 , 0 , 5 , 10 , 16 , 20 , 25       ):
+         crtaj_kvadar ( orMj , ( dX , dZ , dY )  , ( dX , dZ , dY ) , orSm , 89 , 0 )
+         crtaj_kvadar ( orMj , ( dX , dZ , -1 )  , ( dX , dZ , -1 ) , orSm , 89 , 0 )
    
 def sorter_soba ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
  
