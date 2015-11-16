@@ -305,7 +305,7 @@ crtaj_hopper    (   pomOrigin ,  ( -13 , -20 , -3 ) , ( 9 , -20 , -3 ) , pomSm ,
 
 
 #bakljada
-bakljada ( originBaklje , orSm ,  dimenzije = 160 , visina = 150)
+bakljada ( originBaklje , orSm ,  dimenzije = 120 , visina = 120)
 
 
 
