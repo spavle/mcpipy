@@ -279,7 +279,8 @@ brojalica =  0
 while brojalica < 3 :
    mc.postToChat("DUBINA: %f" % ( dno ) )
    katOrigin = premjesti_origin ( orMj , 14 + dubina / 2 , 0 , dno ,  orSm )
-   originBaklje = katOrigin
+   if brojalica == 0 :
+      originBaklje = katOrigin
    for dX in range (-63,66,21):
       for dZ in range ( -63 , 66 , 21 ):
          # za testirenje zakomentirano
@@ -305,7 +306,7 @@ crtaj_hopper    (   pomOrigin ,  ( -13 , -20 , -3 ) , ( 9 , -20 , -3 ) , pomSm ,
 
 
 #bakljada
-bakljada ( originBaklje , orSm ,  dimenzije = 120 , visina = 120)
+bakljada ( originBaklje , orSm ,  dimenzije = 250 , visina = 120)
 
 
 

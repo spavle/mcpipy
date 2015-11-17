@@ -20,11 +20,11 @@ def makeFarmer ( ):
    playerPos = mc.player.getPos()
    # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA 
    # full farmer
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z ), "{Profession:0,Career:1,Inventory:[0:{id:1,Count:52b,Damage:4s,},1:{id:1,Count:55b,Damage:0s,},2:{id:2,Count:55b,Damage:0s,},3:{id:2,Count:55b,Damage:0s,},4:{id:2,Count:55b,Damage:0s,},5:{id:1,Count:52b,Damage:4s,},6:{id:1,Count:55b,Damage:0s,},7:{id:7,Count:55b,Damage:0s,},8:{id:2,Count:55b,Damage:0s,},]}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z -1 ), "{Profession:2,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z ), "{Profession:0,Career:1,Inventory:[0:{id:1,Count:52b,Damage:4s,},1:{id:1,Count:55b,Damage:0s,},2:{id:2,Count:55b,Damage:0s,},3:{id:2,Count:55b,Damage:0s,},4:{id:2,Count:55b,Damage:0s,},5:{id:1,Count:52b,Damage:4s,},6:{id:1,Count:55b,Damage:0s,},7:{id:7,Count:55b,Damage:0s,},8:{id:2,Count:55b,Damage:0s,},]}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z -1 ), "{Profession:2,Career:1}")
    id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +1), "{Profession:0,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +2), "{Profession:1,Career:1}")
-   id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +3), "{Profession:2,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +2), "{Profession:1,Career:1}")
+   #id = mc.spawnEntity('Villager',  int( playerPos.x + 4 ) , int( playerPos.y ),  int( playerPos.z +3), "{Profession:2,Career:1}")
 
 
 
