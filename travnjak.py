@@ -22,9 +22,9 @@ def travnjak ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range ( -44 , 44 ) :    		# prodji shirinu
+      for dZ in  range ( -100 , 100 ) :    		# prodji shirinu
          for dY  in  range( -2 ,0 ) : 			#samo jedan level ispod
-            for dX in  range ( -44 , 44 ) :
+            for dX in  range ( -100 , 100 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z

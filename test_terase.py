@@ -6,4 +6,4 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 orMj = gdjeSam ()
 orSm = gdjeGledam ()
 
-crtaj_terase ( orMj  , orSm , 0 , 0 , 0 ,  visina = 30 ,  korak = 1 , sirina = 5 )
+crtaj_terase ( orMj  , orSm , 0 , 0 , 0 ,  visina = 3 ,  korak = 1 , sirina = 1 )

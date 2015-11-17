@@ -24,11 +24,11 @@ def Kopanje ():
 
    # makni lavu i vodu
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -5 , 105 ) :    		# prodji cijeli pravokutnik
+      for dZ in  range( -105 , 105 ) :    		# prodji cijeli pravokutnik
          mc.postToChat(" ---- dZ: %f " % ( dZ  ) )
          for dY  in  range (  -1 , -6 , -1 ) : 
             #mc.postToChat("dY: %f " % ( dY  ) )
-            for dX in  range ( -5 , 65  ) :
+            for dX in  range ( -105 , 105  ) :
                #mc.postToChat("dX: %f " % ( dX  ) )
                if ( dZ != 0 ) or ( dX != 0 ) : 
                   gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
@@ -39,18 +39,22 @@ def Kopanje ():
    #crtanje
    
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( 0 , 100 ) :    		# prodji cijeli pravokutnik
+      for dZ in  range( -100 , 100 ) :    		# prodji cijeli pravokutnik
          mc.postToChat("dZ: %f " % ( dZ  ) )
          for dY  in  range (  1 , -5 , -1 ) : 
             #mc.postToChat("dY: %f " % ( dY  ) )
-            for dX in  range ( 0 , 60  ) :
+            for dX in  range ( -100 , 100  ) :
                #mc.postToChat("dX: %f " % ( dX  ) )
                if ( dZ != 0 ) or ( dX != 0 ) : 
                   gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                   gdjeY=radnaPozicija.y + dY						# pomak po y
                   gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
+                  mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
+                  
+                  """
                   if mc.getBlock ( gdjeX , gdjeY , gdjeZ ) in zaMaknuti :
                      mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
+                  """
    
    return 1
 
