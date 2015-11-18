@@ -67,5 +67,5 @@ if __name__ == "__main__":    #direktan poziv
    
    
    #rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 10  )
-   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 3  )
+   rndStaza (  orMj ,  orSm , iX=1 , iZ=0 , iY=0 , duzina= 40  )
    
