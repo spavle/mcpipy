@@ -18,10 +18,11 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    crtaj_kvadar ( orMj , (  15 , -2 , 0)  , (  19 , 2 , 3 ) , orSm ,  89 , 0 )
    #cobblestone ispod mjesta za konzumera
    crtaj_kvadar ( orMj , (  18 , 0 , 0)  , (  18 , 0 , 0 ) , orSm ,  4 , 0 )
-   #mjesto za konzumera
-   crtaj_kvadar ( orMj , (  18 , 0 , 1)  , (  18 , 0 , 2 ) , orSm ,  0 , 0 )
+   #siroko mjesto za konzumera
+   crtaj_kvadar ( orMj , (  18 , -1 , 1)  , (  18 , 1 , 2 ) , orSm ,  0 , 0 )
+   crtaj_hopper    ( orMj , (  18 , -2 , 0)  , (  18 , 3 , 0 ) , orSm ,  "desno" , blok_id = 154 , blok_dv = 0 )
 
-   #kiosk oko konzumera
+   #kiosk ispred konzumera
    crtaj_kvadar ( orMj , (  17 , -1 , 2)  , (  18 , 1 , 2 ) , orSm ,  0 , 0 )
 
    #gore zrak
@@ -56,11 +57,12 @@ def wheatFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 , urod = 59):
    gdje = rel2abs ( orMj , (  18,0,1 )   , orSm  )
    id = mc.spawnEntity('Minecart',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Type:0}" )
    time.sleep  ( 2 ) # minecart
-   id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:0,Career:2}") 
+   id = mc.spawnEntity('Villager',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Profession:2,Career:2,Inventory:[0:{id:1,Count:62b,Damage:4s,},1:{id:1,Count:62b,Damage:0s,},2:{id:1,Count:62b,Damage:0s,},3:{id:1,Count:62b,Damage:0s,},4:{id:1,Count:62b,Damage:0s,},5:{id:1,Count:62b,Damage:4s,},6:{id:1,Count:62b,Damage:0s,},7:{id:1,Count:62b,Damage:0s,},]}") 
    #worker
    gdje2 = rel2abs ( orMj , (  2,0,1 )   , orSm  )
-   id = mc.spawnEntity('Villager',  int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2}")
-   #id = mc.spawnEntity('Villager',  gdje [0]  ,gdje [1] ,gdje [2] , "{Profession:0,Career:1}")
+   #id = mc.spawnEntity('Villager',  int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2,Inventory:[0:{id:142,Count:62b,Damage:4s,},1:{id:142,Count:55b,Damage:0s,},2:{id:142,Count:62b,Damage:0s,},3:{id:142,Count:62b,Damage:0s,},4:{id:142,Count:62b,Damage:0s,},5:{id:142,Count:62b,Damage:4s,},6:{id:142,Count:62b,Damage:0s,},7:{id:142,Count:62b,Damage:0s,},]}")
+   #id = mc.spawnEntity('Villager', int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2,Inventory:[0:{id:141,Count:62b,Damage:4s,},1:{id:141,Count:55b,Damage:0s,},2:{id:141,Count:62b,Damage:0s,},3:{id:141,Count:62b,Damage:0s,},4:{id:141,Count:62b,Damage:0s,},5:{id:141,Count:62b,Damage:4s,},6:{id:141,Count:62b,Damage:0s,},7:{id:142,Count:62b,Damage:0s,},]}")
+   id = mc.spawnEntity('Villager', int (gdje2 [0])  ,int (gdje2 [1]) ,int (gdje2 [2]) , "{Profession:0,Career:2,Inventory:[0:{id:59,Count:62b,Damage:4s,},1:{id:59,Count:55b,Damage:0s,},2:{id:59,Count:62b,Damage:0s,},3:{id:59,Count:62b,Damage:0s,},4:{id:59,Count:62b,Damage:0s,},5:{id:59,Count:42b,Damage:4s,},6:{id:59,Count:2b,Damage:0s,},7:{id:59,Count:2b,Damage:0s,},]}")
    
    
    
@@ -105,9 +107,9 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
 
 
-   wheatFarm (  orMj , orSm , iX=7 , iZ=-16 , iY=-2  , urod = 142 ) #potato
-   wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
-   wheatFarm (  orMj , orSm , iX=7 , iZ=16 , iY=-2  ) #wheat
+   #wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 141 ) #carrot
+   #wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  , urod = 142 )#potato 
+   wheatFarm (  orMj , orSm , iX=7 , iZ=0 , iY=-2  ) #wheat
    
    """
    orSm = ortUlijevo ( ortUlijevo ( orSm ))
