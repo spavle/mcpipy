@@ -117,5 +117,12 @@ mc.setBlock(-1,-1,-1,1)
 mc.conn.send("world.setBlocks",1,4,0,1,0,0,63,4,"{id:\"Sign\",Text1:\"AAAAAAPablo\,Text2:\"Line2\"}")
 """
 
-
+"""
 [0:{id:1,Count:52b,Damage:4s,},1:{id:1,Count:55b,Damage:0s,},2:{id:2,Count:55b,Damage:0s,},3:{id:2,Count:55b,Damage:0s,},4:{id:2,Count:55b,Damage:0s,},5:{id:1,Count:52b,Damage:4s,},6:{id:1,Count:55b,Damage:0s,},7:{id:7,Count:55b,Damage:0s,},8:{id:2,Count:55b,Damage:0s,},]
+"""
+
+id = mc.spawnEntity('Item', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:1,Count:64,Damage:2}}')
+#id = mc.spawnEntity('Item', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:3,Count:64}}')
+#id = mc.spawnEntity('Item', int ( playerPos.x + 3 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:14,Count:64}}')
+#id = mc.spawnEntity('Item', int ( playerPos.x + 2 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:15,Count:64}}')
+#id = mc.spawnEntity('Item', int ( playerPos.x + 1 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:16,Count:64}}')

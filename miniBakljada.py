@@ -20,7 +20,7 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
    for dX in  range( -dimenzije , dimenzije + 1, 5 ):
       for dZ in  range( -dimenzije , dimenzije + 1, 5 ):
 
-         increment = 0
+         increment = -1
 
          while increment < visina :
             gdje = rel2abs ( orMj ,  ( dX , dZ , -10 + increment )  , orSm  )
