@@ -7,26 +7,35 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 import time
 
 
-zaObradu = [ GRASS.id , SANDSTONE.id , SAND.id ,  DIRT.id , GRAVEL.id , COBBLESTONE.id , CLAY.id ,GOLD_ORE.id , IRON_ORE.id , COAL_ORE.id ,  DIAMOND_ORE.id , OBSIDIAN.id , REDSTONE_ORE.id , LAPIS_LAZULI_ORE.id , 129 ] # 129 emerald
+zaObradu = [ STONE.id , GRASS.id , SANDSTONE.id , SAND.id ,  DIRT.id , GRAVEL.id , COBBLESTONE.id , CLAY.id ,GOLD_ORE.id , IRON_ORE.id , COAL_ORE.id ,  DIAMOND_ORE.id , OBSIDIAN.id , REDSTONE_ORE.id , LAPIS_LAZULI_ORE.id , 129 ] # 129 emerald
 
 popis = {}
 
-def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
+def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
    a = 1
-   for dY in range ( 0 , visina ):
+   for dY in range ( visina  , -1 , -1 ):
       mc.postToChat("Level: %s " % dY )
-      for dZ  in range ( -dimenzije , dimenzije + 1 ):
-         for dX in range ( -dimenzije , dimenzije + 1 ):
-            a += 1
-            
+      for dZ  in range ( -dimenzije - 2 * dY , dimenzije + 2 * dY + 1 ):
+         for dX in range ( -dimenzije - 2 * dY , dimenzije + 2 * dY + 1 ):
+ 
             gdje = rel2abs ( ( int ( orMj [ 0 ] ) , int ( orMj [ 1 ] ) , int ( orMj [ 2 ] ) )  , (  dX , dZ , dY )   , orSm  )
             #id = mc.spawnEntity('Minecart',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Type:0}" )
             #block = getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]))
             myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
-            myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
-            
+            #myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
+            """
+            if myBlock.id == 1 : #makni sve stone
+               mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )  
+               myBlock.id = 0      
+               time.sleep ( 0.2 )
+            """
+            if myBlock.id in   ( 8 , 9 , 10 , 11 ) : #makni izvore vode
+               mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )   
+               time.sleep ( 0.2 )
+
             if myBlock.id in zaObradu :
                a = a + 1
+               mc.postToChat("Level: %s  dZ: %s dX: %s count: %s" % ( dY  , dZ ,  dX, a ) )
                time.sleep ( 0.2 )
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
                
@@ -35,13 +44,13 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
                   popis [ ( myBlock.id , myBlock.data ) ] += 1
                else:
                   popis [ ( myBlock.id , myBlock.data ) ] = 1
-
+            if a > 1800:
+               break
+         if a > 1800 :
+            break
+      if a > 1800 :
+         break
                
-               
-               
-               
-               #time.sleep ( 0.5 )
-               #myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
                
    time.sleep ( 15 )            
    for bla in popis.keys () :
@@ -73,13 +82,14 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
          mc.postToChat("Key: %s %s " % ( bla [ 0 ] , bla [ 1 ] ) )
          mc.postToChat("Value: %s " % popis [ bla ] )
          while popis [ bla ] > 0 :
-            if  popis [ bla ] > 64 :
-               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , 64  ,  modifikacija ) )
+            if  popis [ bla ] > 64 :   # preostalo vise od paketa
+               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , 64  ,  modifikacija ) ) #posalji cijeli paket
+               if blok == 1 and modifikacija == 0 :   #ako je stone
+                  popis [ bla ] -= 1  # unisti jedan paket i malo vise
             else:
-               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , popis [ bla ]  ,  modifikacija ) )
-            mc.postToChat("XXX: %s  " % ( sto  ) )
-            gdje = rel2abs ( orMj , (  3 , 0 , 0 )   , orSm  )
-            
+               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , popis [ bla ]  ,  modifikacija ) ) #posalji preostalo
+            mc.postToChat("-------> : %s  jos: %s " % ( sto , popis [ bla ]  ) )
+            gdje = rel2abs ( orMj , (  0 , 0 , 1 )   , orSm  )
             myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
             popis [ bla ] -= 64
             time.sleep ( 5 )
@@ -94,5 +104,5 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   selektivniRudar ( orMj , orSm ,  dimenzije = 40 , visina = 7)   
+   MegaGrinder ( orMj , orSm ,  dimenzije = 72 , visina = 22)   
    #bakljada (dimenzije = 200 , visina = 80)   
