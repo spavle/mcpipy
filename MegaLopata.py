@@ -1,6 +1,7 @@
 #ispred lika crta more baklji po tlu
 
 import time
+import math
 from mc import * #import api-ja
 from crtanje import *		#tu je funkcija koju zovem
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
@@ -17,12 +18,8 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
       mc.postToChat("Level: %s " % dY )
       for dZ  in range ( -dimenzije - 1 * dY , dimenzije + 1 * dY + 1 ):
          for dX in range ( -dimenzije - 1 * dY , dimenzije + 1 * dY + 1 ):
- 
-            gdje = rel2abs ( ( int ( orMj [ 0 ] ) , int ( orMj [ 1 ] ) , int ( orMj [ 2 ] ) )  , (  dX , dZ , dY )   , orSm  )
-            #id = mc.spawnEntity('Minecart',  int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , "{Type:0}" )
-            #block = getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]))
+            gdje = rel2abs ( orMj  , (  dX , dZ , dY )   , orSm  )
             myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
-            #myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
             """
             if myBlock.id == 1 : #makni sve stone
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )  
@@ -36,14 +33,12 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             if myBlock.id in zaObradu :
                a = a + 1
                mc.postToChat("Level: %s  dZ: %s dX: %s count: %s what: %s " % ( dY  , dZ ,  dX, a , myBlock.id ) )
-               time.sleep ( 0.25 )
+               
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
+               time.sleep ( 0.2 )
+               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( myBlock.id , 1  ,  myBlock.data ) ) #posalji
+               myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1] + 1 ) ,int (gdje [2] ) , sto )
                
-               
-               if popis.has_key ((  myBlock.id , myBlock.data )):
-                  popis [ ( myBlock.id , myBlock.data ) ] += 1
-               else:
-                  popis [ ( myBlock.id , myBlock.data ) ] = 1
             if a > 1000:
                break
          if a > 1000 :
@@ -51,7 +46,7 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
       if a > 1000 :
          break
                
-               
+   """            
    time.sleep ( 15 )            
    for bla in popis.keys () :
          blok = bla [ 0 ]
@@ -93,7 +88,7 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
             popis [ bla ] -= 64
             time.sleep ( 10 )
-         
+   """      
    mc.postToChat("Kraj :  XXXXXXXXXXXX")
    return 1
                   
@@ -104,5 +99,5 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 25)   
+   MegaGrinder ( orMj , orSm ,  dimenzije = 2 , visina = 4)   
    #bakljada (dimenzije = 200 , visina = 80)   

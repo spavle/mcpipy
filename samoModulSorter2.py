@@ -22,4 +22,6 @@ if __name__ == "__main__":    #direktan poziv
    
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   samoModulSorter2 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 )
+   for dZ in range ( 0 , 10 ):   
+      samoModulSorter2 (  orMj ,  orSm , iX=4 , iZ=dZ , iY=0 )
+      samoModulSorter2 (  orMj ,  orSm , iX=4 , iZ=dZ , iY=0 )
