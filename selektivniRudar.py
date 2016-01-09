@@ -13,7 +13,7 @@ popis = {}
 
 def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
    a = 1
-   for dY in range ( 0 , visina ):
+   for dY in range ( -3 , visina ):
       mc.postToChat("Level: %s " % dY )
       for dZ  in range ( -dimenzije , dimenzije + 1 ):
          for dX in range ( -dimenzije , dimenzije + 1 ):
@@ -27,7 +27,7 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             
             if myBlock.id in zaObradu :
                a = a + 1
-               time.sleep ( 0.2 )
+               #time.sleep ( 0.2 )
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
                
                
@@ -43,7 +43,7 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
                #time.sleep ( 0.5 )
                #myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
                
-   time.sleep ( 15 )            
+   #time.sleep ( 15 )            
    for bla in popis.keys () :
          blok = bla [ 0 ]
          modifikacija = bla [ 1 ]
@@ -82,7 +82,7 @@ def selektivniRudar ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             
             myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
             popis [ bla ] -= 64
-            time.sleep ( 5 )
+            #time.sleep ( 5 )
          
    mc.postToChat("Kraj :  XXXXXXXXXXXX")
    return 1

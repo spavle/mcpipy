@@ -23,20 +23,21 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             #block = getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]))
             myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
             #myBlock = mc.getBlockWithData( int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) )
-            """
+            
             if myBlock.id == 1 : #makni sve stone
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )  
                myBlock.id = 0      
-               time.sleep ( 0.2 )
-            """
+               #time.sleep ( 0.2 )
+               
+            
             if myBlock.id in   ( 8 , 9 , 10 , 11 ) : #makni izvore vode
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )   
-               time.sleep ( 0.2 )
+               #time.sleep ( 0.2 )
 
             if myBlock.id in zaObradu :
                a = a + 1
                mc.postToChat("Level: %s  dZ: %s dX: %s count: %s" % ( dY  , dZ ,  dX, a ) )
-               time.sleep ( 0.2 )
+               #time.sleep ( 0.2 )
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
                
                
@@ -44,15 +45,15 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
                   popis [ ( myBlock.id , myBlock.data ) ] += 1
                else:
                   popis [ ( myBlock.id , myBlock.data ) ] = 1
-            if a > 1800:
+            if a > 9800:
                break
-         if a > 1800 :
+         if a > 9800 :
             break
-      if a > 1800 :
+      if a > 9800 :
          break
                
                
-   time.sleep ( 15 )            
+   time.sleep ( 20 )            
    for bla in popis.keys () :
          blok = bla [ 0 ]
          modifikacija = bla [ 1 ]
@@ -83,7 +84,7 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
          mc.postToChat("Value: %s " % popis [ bla ] )
          while popis [ bla ] > 0 :
             if  popis [ bla ] > 64 :   # preostalo vise od paketa
-               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , 64  ,  modifikacija ) ) #posalji cijeli paket
+               sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( blok , 1  ,  modifikacija ) ) #posalji cijeli paket
                if blok == 1 and modifikacija == 0 :   #ako je stone
                   popis [ bla ] -= 1  # unisti jedan paket i malo vise
             else:
@@ -92,7 +93,7 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             gdje = rel2abs ( orMj , (  0 , 0 , 1 )   , orSm  )
             myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
             popis [ bla ] -= 64
-            time.sleep ( 5 )
+            time.sleep ( 12 )
          
    mc.postToChat("Kraj :  XXXXXXXXXXXX")
    return 1
@@ -104,5 +105,5 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   MegaGrinder ( orMj , orSm ,  dimenzije = 72 , visina = 22)   
+   MegaGrinder ( orMj , orSm ,  dimenzije = 100 , visina = 28)   
    #bakljada (dimenzije = 200 , visina = 80)   
