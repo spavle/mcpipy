@@ -128,6 +128,7 @@ class Hiltica(threading.Thread):
       mc.postToChat("Kraj :  XXXXXXXXXXXX")
       #return 1
 
+      
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
