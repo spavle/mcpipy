@@ -13,11 +13,7 @@ popis = {}
 
 def stoneCutter ( orMj , orSm ,  dimenzije = 5 , visina = 5):
    
-   gdje1 = rel2abs ( orMj , ( 1 , -1 , 0 ) , orSm )
-   gdje2 =  rel2abs ( orMj , ( 5 , 1 , 3 ) , orSm )
-   mc.setBlocks(gdje1 , gdje2  , AIR.id , 0  , "destroy" )
-   
-   return 1
+
    
    a = 1
    for dY in range ( 0 , visina ):
@@ -35,13 +31,10 @@ def stoneCutter ( orMj , orSm ,  dimenzije = 5 , visina = 5):
             if myBlock.id in zaObradu :
                a = a + 1
                #time.sleep ( 0.5 )
-               mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
+               mc.setBlock(gdje  , AIR.id , 0 , "destroy")
                
                
-               if popis.has_key ((  myBlock.id , myBlock.data )):
-                  popis [ ( myBlock.id , myBlock.data ) ] += 1
-               else:
-                  popis [ ( myBlock.id , myBlock.data ) ] = 1
+  
 
                
                
@@ -50,7 +43,8 @@ def stoneCutter ( orMj , orSm ,  dimenzije = 5 , visina = 5):
                #time.sleep ( 0.5 )
                #myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
                
-               
+   return 1
+   
    for bla in popis.keys () :
          blok = bla [ 0 ]
          modifikacija = bla [ 1 ]

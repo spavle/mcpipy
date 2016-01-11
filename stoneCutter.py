@@ -94,5 +94,5 @@ def stoneCutter ( orMj , orSm ,  dimenzije = 5 , visina = 5):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   stoneCutter ( orMj , orSm ,  dimenzije = 20 , visina = 6)   
+   stoneCutter ( orMj , orSm ,  dimenzije = 4 , visina = 4)   
    #bakljada (dimenzije = 200 , visina = 80)   

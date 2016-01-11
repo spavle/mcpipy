@@ -14,6 +14,7 @@ popis = {}
 
 def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
    a = 1
+   lista_blokova = []
    for dY in range ( visina  , -1 , -1 ):
       mc.postToChat("Level: %s " % dY )
       for dZ  in range ( -dimenzije - 1 * dY , dimenzije + 1 * dY + 1 ):
@@ -35,16 +36,28 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
                mc.postToChat("Level: %s  dZ: %s dX: %s count: %s what: %s " % ( dY  , dZ ,  dX, a , myBlock.id ) )
                
                mc.setBlock(int (gdje [0])  ,int (gdje [1]) ,int (gdje [2]) , AIR.id , 0 )
-               time.sleep ( 0.2 )
+               time.sleep ( 1 )
                sto = ( '{Item:{id:%s,Count:%s,Damage:%s}}' % ( myBlock.id , 1  ,  myBlock.data ) ) #posalji
+               """
                myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1] + 1 ) ,int (gdje [2] ) , sto )
+               """
                
-            if a > 1000:
+               lista_blokova.append ( [ int (gdje [0])  ,int (gdje [1]  ) ,int (gdje [2] ) , sto ]  )
+               
+            if a > 10000:
                break
-         if a > 1000 :
+         if a > 10000 :
             break
-      if a > 1000 :
+      if a > 10000 :
          break
+   
+      time.sleep ( 15 )
+   for napravi_blok in lista_blokova  :
+      myId = mc.spawnEntity('Item', napravi_blok [ 0 ]  ,napravi_blok [ 1 ] ,napravi_blok [ 2 ] , napravi_blok [ 3 ] )
+      time.sleep ( 0.5 )
+      mc.postToChat ("countdown: %d" % a )
+      a -= 1
+      
                
    """            
    time.sleep ( 15 )            
@@ -99,5 +112,5 @@ def MegaGrinder ( orMj , orSm ,  dimenzije = 5 , visina = 5):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   MegaGrinder ( orMj , orSm ,  dimenzije = 2 , visina = 4)   
+   MegaGrinder ( orMj , orSm ,  dimenzije = 3 , visina = 5)   
    #bakljada (dimenzije = 200 , visina = 80)   
