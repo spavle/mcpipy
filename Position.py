@@ -60,6 +60,8 @@ if __name__ == "__main__":    #direct call for testing purpose
    # self test code
    first = Position ()
    print first.x
+   print first.x_direction
+   print first.z_direction
    first.x = 2
    first.y = 3
    first.z = 4
