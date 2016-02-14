@@ -40,16 +40,16 @@ class Position ( object ):
    
    
    def get_origin ( self ):
-   
-      current_position = mc.player.getPos()	#coordinates
+      #get current position and direction
+      current_position = mc.player.getPos()	#get coordinates
       self.x = current_position.x
       self.y = current_position.y
       self.z = current_position.z
       
-      current_direction = mc.player.getDirection () #directions
+      current_direction = mc.player.getDirection () #get direction
       self.x_direction = 0
       self.z_direction = 0
-      if abs (current_direction.x) > abs (current_direction.z): 		#nadje se dominanti smjer i spremi u vektor
+      if abs (current_direction.x) > abs (current_direction.z): 		#find dominant direction
          self.x_direction=round(current_direction.x)
       else:
          self.z_direction=round(current_direction.z)  
