@@ -18,8 +18,7 @@ origin
 
 
 class Position ( object ):
-
-
+   #clas for holding object positions
    def __init__ (self, input=None , dX=None, dY=None, dZ=None ) :
 
       if input != None :
@@ -54,6 +53,10 @@ class Position ( object ):
       else:
          self.z_direction=round(current_direction.z)  
    
+   @classmethod
+   def origin (cls):
+      #toon position
+      return cls ()
 
 
 if __name__ == "__main__":    #direct call for testing purpose
@@ -69,3 +72,5 @@ if __name__ == "__main__":    #direct call for testing purpose
    print second.x
    third = Position ( second , 2 , 3 , 4 )
    print third.x
+   where_i_am = Position.origin ()
+   print where_i_am.x
