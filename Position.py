@@ -30,13 +30,7 @@ class Position ( object ):
       else:
          self.get_origin ()
 
-      if dX :
-         self.x += dX
-      if dY :
-         self.y += dY
-      if dZ :
-         self.z += dZ
-   
+
    
    def get_origin ( self ):
       #get current position and direction
@@ -57,6 +51,11 @@ class Position ( object ):
    def origin (cls):
       #toon position
       return cls ()
+      
+   @classmethod
+   def relativ_distance (cls,dX,dY,dZ):
+      #toon position
+      return cls (None,dX,dY,dZ)      
 
 
 if __name__ == "__main__":    #direct call for testing purpose
@@ -74,3 +73,5 @@ if __name__ == "__main__":    #direct call for testing purpose
    print third.x
    where_i_am = Position.origin ()
    print where_i_am.x
+   where_is_house = Position.relativ_distance (2,2,2)
+   print where_is_house.x
