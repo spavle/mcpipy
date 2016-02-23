@@ -30,9 +30,9 @@ class Position ( object ):
       else:
          self.get_origin ()
 
-      self.x=self.x + self.x_direction*dX - self.z_direction*dZ    		# x move
-      self.z=self.z + self.x_direction*dZ + self.z_direction*dX			# y move
-      self.y = self.y + dZ  
+      self.x=self.x + self.x_direction*dX - self.z_direction*dZ    		# x translate
+      self.z=self.z + self.x_direction*dZ + self.z_direction*dX			# y translate
+      self.y = self.y + dZ                                              # z translate
 
    
    def get_origin ( self ):
@@ -45,7 +45,7 @@ class Position ( object ):
       current_direction = mc.player.getDirection () #get direction
       self.x_direction = 0
       self.z_direction = 0
-      if abs (current_direction.x) > abs (current_direction.z): 		#find dominant direction
+      if abs (current_direction.x) >= abs (current_direction.z): 		#find dominant direction
          self.x_direction=round(current_direction.x)
       else:
          self.z_direction=round(current_direction.z)  
@@ -79,7 +79,7 @@ class Position ( object ):
       return cls ()
       
    @classmethod
-   def relativ_distance (cls,dX,dY,dZ):
+   def relative_distance (cls,dX,dY,dZ):
       #toon position + relative move
       return cls (None,dX,dY,dZ)      
 
