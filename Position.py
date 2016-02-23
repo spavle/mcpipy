@@ -2,25 +2,25 @@ from mc import * #Minecraft api import
 mc = Minecraft() #initialization
 """
 Class for storing and manipulating coordintes in Minecraft 
--x
--y
--z
--direction
+- x
+- y
+- z
+- x_direction
+- z_direction
 
 __init__
-move
-copy
+move ?
+copy ?
 rotate_left
 rotate_right
-real_coords
 origin
 """
 
 
 class Position ( object ):
-   #clas for holding object positions
+   #clas for holding object position and direction
    def __init__ (self, input=None , dX=None, dY=None, dZ=None ) :
-
+      #class Position initialization
       if input != None :
          self.x = input.x
          self.y = input.y
@@ -30,6 +30,9 @@ class Position ( object ):
       else:
          self.get_origin ()
 
+      self.x=self.x + self.x_direction*dX - self.z_direction*dZ    		# x move
+      self.z=self.z + self.x_direction*dZ + self.z_direction*dX			# y move
+      self.y = self.y + dZ  
 
    
    def get_origin ( self ):
@@ -47,6 +50,29 @@ class Position ( object ):
       else:
          self.z_direction=round(current_direction.z)  
    
+   def rotate_left (self):
+      #rotate direction to left
+      convert = {}
+      convert [ ( 1 , 0  ) ] = (  0 , -1  ) # look north
+      convert [ ( -1 , 0 ) ] = (  0 , 1 ) # look south
+      convert [ ( 0 , 1 ) ] = (  1 , 0 )  # look east
+      convert [ ( 0 , -1 ) ]= (  -1 , 0 )  # look weast
+      buff = convert [ ( self.x_direction , self.z_direction )   ]
+      self.x_direction=buff [0]
+      self.z_direction=buff [1]
+      
+   def rotate_right (self):
+      #rotate direction to right
+      convert = {}
+      convert [ ( 1 , 0  ) ] = (  0 , 1  ) # look north
+      convert [ ( -1 , 0 ) ] = (  0 , -1 ) # look south
+      convert [ ( 0 , 1 ) ] = (  -1 , 0 )  # look east
+      convert [ ( 0 , -1 ) ] = (  1 , 0 )  # look weast
+      buff = convert [ ( self.x_direction , self.z_direction )   ]
+      self.x_direction=buff [0]
+      self.z_direction=buff [1]      
+   
+   
    @classmethod
    def origin (cls):
       #toon position
@@ -54,7 +80,7 @@ class Position ( object ):
       
    @classmethod
    def relativ_distance (cls,dX,dY,dZ):
-      #toon position
+      #toon position + relative move
       return cls (None,dX,dY,dZ)      
 
 
