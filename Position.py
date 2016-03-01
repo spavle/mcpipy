@@ -88,7 +88,7 @@ class Position ( object ):
 
 
 if __name__ == "__main__":    #direct call for testing purpose
-    # self test code
+    # TDD: self test code
     first = Position ()
     print first.x
     print first.x_direction

@@ -18,7 +18,7 @@ class Cuboid (object):
       
       
 if __name__ == "__main__":    #direct call for testing purpose
-    # self test code
+    # TD: self test code
 
     #od = Position.relative_distance  ( 2 , 2 , -1 )
     do = Position.relative_distance  ( 4 , 2 , 1 )

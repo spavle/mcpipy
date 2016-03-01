@@ -20,7 +20,7 @@ class Block (Cuboid):
       
       
 if __name__ == "__main__":    #direct call for testing purpose
-    # self test code
+    # TDD: self test code
 
       
     Block ( Position.relative_distance  ( 2 , 1 , -1 )   , 1 , 0 )
