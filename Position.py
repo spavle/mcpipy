@@ -1,28 +1,29 @@
 from mc import * #Minecraft api import
 mc = Minecraft() #initialization
-"""
-Class for storing and manipulating coordintes in Minecraft 
-- x
-- y
-- z
-- x_direction
-- z_direction
 
-__init__
-move ?
-copy ?
-rotate_left
-rotate_right
-origin
-"""
 
 
 class Position ( object ):
     """
-    clas for holding object position and direction
+    Class for storing and manipulating coordintes in Minecraft 
+    - x
+    - y
+    - z
+    - x_direction
+    - z_direction
+
+    __init__
+    move ?
+    copy ?
+    rotate_left
+    rotate_right
+    origin
     """
+
     def __init__ (self, input=None , dX=0, dY=0, dZ=0 ) :
-        #class Position initialization
+        """ 
+        Position initialization
+        """
         if input != None :
             self.x = input.x
             self.y = input.y
@@ -31,6 +32,7 @@ class Position ( object ):
             self.z_direction = input.z_direction
         else:
             self.get_origin ()
+
 
         print self.x
         print self.x_direction
@@ -41,7 +43,9 @@ class Position ( object ):
 
    
     def get_origin ( self ):
-        #get current position and direction
+        """
+        get current position and direction
+        """
         current_position = mc.player.getPos()	#get coordinates
         self.x = current_position.x
         self.y = current_position.y
@@ -56,7 +60,9 @@ class Position ( object ):
             self.z_direction=int(round(current_direction.z))  
    
     def rotate_left (self):
-        #rotate direction to left
+        """
+        rotate direction to left
+        """
         convert = {}
         convert [ ( 1 , 0  ) ] = (  0 , -1  ) # look north
         convert [ ( -1 , 0 ) ] = (  0 , 1 ) # look south
@@ -67,7 +73,9 @@ class Position ( object ):
         self.z_direction=buff [1]
       
     def rotate_right (self):
-        #rotate direction to right
+        """
+        rotate direction to right
+        """
         convert = {}
         convert [ ( 1 , 0  ) ] = (  0 , 1  ) # look north
         convert [ ( -1 , 0 ) ] = (  0 , -1 ) # look south
@@ -80,12 +88,16 @@ class Position ( object ):
    
     @classmethod
     def origin (cls):
-        #get toon position to object
+        """
+        get toon position to object
+        """
         return cls ()
       
     @classmethod
     def relative_distance (cls,dX,dY,dZ):
-        #toon position + relative move
+        """
+        toon position + relative move
+        """
         return cls (None,dX,dY,dZ)      
 
 

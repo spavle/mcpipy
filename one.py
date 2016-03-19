@@ -8,11 +8,15 @@ class Block (Cuboid):
     class for creating one block
     """
     def __init__ ( self , block_position , material , material_modification = 0 ):
-        #Block class initialization
+        """
+        Block class initialization
+        """
         self.draw ( block_position.x , block_position.y , block_position.z  , material , material_modification )
       
     def draw ( self , block_position_x , block_position_y , block_position_z  , material , material_modification ) :
-        #create one  block
+        """
+        create one  block
+        """
         Cuboid.draw ( self , block_position_x , block_position_y , block_position_z , block_position_x , block_position_y , block_position_z , material , material_modification )
         
       

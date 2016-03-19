@@ -7,11 +7,19 @@ class Cuboid (object):
     class for creating cuboid
     """
     def __init__ ( self , start , end , material , material_modification = 0 ):
-        #Cuboid class initialization
+        """
+        Cuboid class initialization
+        start start position
+        end end position
+        material cuboid material
+        material_modification   cuboid material variation
+        """
         self.draw ( start.x , start.y , start.z , end.x , end.y , end.z , material , material_modification )
       
     def draw ( self , start_x , start_y , start_z , end_x , end_y , end_z , material , material_modification ) :
-        #create cuboid
+        """
+        create cuboid
+        """
         mc.setBlocks( start_x , start_y , start_z , end_x , end_y , end_z , material , material_modification )
       
       
@@ -20,7 +28,9 @@ class Cuboid (object):
       
       
 if __name__ == "__main__":    #direct call for testing purpose
-    # TD: self test code
+    """
+    TDD: sort off self test code
+    """
 
     #od = Position.relative_distance  ( 2 , 2 , -1 )
     do = Position.relative_distance  ( 4 , 2 , 1 )
