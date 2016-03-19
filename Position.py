@@ -18,7 +18,9 @@ origin
 
 
 class Position ( object ):
-    #clas for holding object position and direction
+    """
+    clas for holding object position and direction
+    """
     def __init__ (self, input=None , dX=0, dY=0, dZ=0 ) :
         #class Position initialization
         if input != None :

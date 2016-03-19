@@ -3,7 +3,9 @@ from Position import * # clas for position
 mc = Minecraft() #initialization
 
 class Cuboid (object):
-    #class for creating cuboid
+    """
+    class for creating cuboid
+    """
     def __init__ ( self , start , end , material , material_modification = 0 ):
         #Cuboid class initialization
         self.draw ( start.x , start.y , start.z , end.x , end.y , end.z , material , material_modification )

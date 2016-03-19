@@ -4,7 +4,9 @@ from cuboid import *
 mc = Minecraft() #initialization
 
 class Block (Cuboid):
-    #class for creating one block
+    """
+    class for creating one block
+    """
     def __init__ ( self , block_position , material , material_modification = 0 ):
         #Block class initialization
         self.draw ( block_position.x , block_position.y , block_position.z  , material , material_modification )
