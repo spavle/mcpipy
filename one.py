@@ -31,3 +31,5 @@ if __name__ == "__main__":  # direct call for testing purpose
     Block(Position(pos, 4, 2, -1), 1, 0)
     pos.rotate_right()
     Block(Position(pos, 4, 3, -1), 1, 0)
+
+    Block (Position(dx=15, dz=3), 1)

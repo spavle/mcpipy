@@ -5,7 +5,7 @@ mc = Minecraft()  # initialization
 
 class Position(object):
     """
-    class for holding object position and direction
+    class for holding and manipulating object position and direction
     """
 
     def __init__(self, my_input=None, dx=0, dy=0, dz=0):
@@ -60,7 +60,7 @@ class Position(object):
         convert[(-1, 0)] = (0, 1)  # look south
         convert[(0, 1)] = (1, 0)  # look east
         convert[(0, -1)] = (-1, 0)  # look weast
-        self.rotate(convert)        #call rotation
+        self.rotate(convert)  # call rotation
 
     def rotate_right(self):
         """
@@ -72,7 +72,7 @@ class Position(object):
         convert[(-1, 0)] = (0, -1)  # look south
         convert[(0, 1)] = (-1, 0)  # look east
         convert[(0, -1)] = (1, 0)  # look weast
-        self.rotate(convert)    #call rotation
+        self.rotate(convert)  # call rotation
 
     def rotate(self, convert):
         """
@@ -97,7 +97,7 @@ class Position(object):
         return back
 
     @classmethod
-    def relative_distance(cls, dx, dy, dz):
+    def relative_distance(cls, dx=0, dy=0, dz=0):
         """
         toon position + relative move
         :param dx: float
@@ -105,7 +105,7 @@ class Position(object):
         :param dz: float
         :return: Position
         """
-        back = cls(None, dx, dy, dz)
+        back = cls(None, dx=0, dy=0, dz=0)
         assert isinstance(back, Position)
         return back
 
@@ -114,6 +114,7 @@ if __name__ == "__main__":  # direct call for testing purpose
     # self test code
     first = Position()
 
+    b = Position (first)
     print first.x
     print first.x_direction
     print first.z_direction
