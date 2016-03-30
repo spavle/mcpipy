@@ -9,7 +9,7 @@ class Position(object):
     """
 
     def __init__(self, my_input=None, dx=0, dy=0, dz=0):
-        # type: (Position, float, float, float) ->         Position
+        # type: (Position, float, float, float) -> Position
         """
         class Position initialization
         :param my_input: Position
@@ -28,7 +28,6 @@ class Position(object):
             self.z = my_input.z
             self.x_direction = my_input.x_direction
             self.z_direction = my_input.z_direction
-
 
         self.x = self.x + self.x_direction * dx - self.z_direction * dz  # x translate
         self.z = self.z + self.x_direction * dz + self.z_direction * dx  # y translate
@@ -49,40 +48,53 @@ class Position(object):
         if abs(current_direction.x) >= abs(current_direction.z):  # find dominant direction
             self.x_direction = int(round(current_direction.x))
         else:
-
             self.z_direction = int(round(current_direction.z))
 
     def rotate_left(self):
-        # rotate direction to left
+        """
+        prepare rotation to left
+        :rtype: None
+        """
         convert = dict()
         convert[(1, 0)] = (0, -1)  # look north
         convert[(-1, 0)] = (0, 1)  # look south
         convert[(0, 1)] = (1, 0)  # look east
         convert[(0, -1)] = (-1, 0)  # look weast
-        buff = convert[(self.x_direction, self.z_direction)]
-        self.x_direction = buff[0]
-        self.z_direction = buff[1]
+        self.rotate(convert)        #call rotation
 
     def rotate_right(self):
         """
-        rotate direction to right
+        prepare rotation to right
+        :rtype: None
         """
         convert = dict()
         convert[(1, 0)] = (0, 1)  # look north
         convert[(-1, 0)] = (0, -1)  # look south
         convert[(0, 1)] = (-1, 0)  # look east
         convert[(0, -1)] = (1, 0)  # look weast
+        self.rotate(convert)    #call rotation
+
+    def rotate(self, convert):
+        """
+        do rotation
+
+        :param convert: dictionary
+        :rtype: None
+        """
         buff = convert[(self.x_direction, self.z_direction)]
         self.x_direction = buff[0]
         self.z_direction = buff[1]
 
     @classmethod
     def origin(cls):
+        # type: () -> None
         """
         get toon position to object
         :return: Position
         """
-        return cls()
+        back = cls()
+        assert isinstance(back, Position)
+        return back
 
     @classmethod
     def relative_distance(cls, dx, dy, dz):
@@ -101,7 +113,6 @@ class Position(object):
 if __name__ == "__main__":  # direct call for testing purpose
     # self test code
     first = Position()
-
 
     print first.x
     print first.x_direction
