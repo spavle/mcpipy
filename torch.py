@@ -38,4 +38,3 @@ if __name__ == "__main__":  # direct call for testing purpose
         Cuboid(Position(pos, dx=5, dz=-1), Position(pos, dx=7, dz=1), 1, 0)
         Torch(Position(pos, dx=6), direction=counter)
         pos.rotate_left()
-
