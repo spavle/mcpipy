@@ -1,11 +1,15 @@
-import time
-from crtanje import *  # tu je funkcija koju zovem
-from katakombe import *
-from bakljada import *
-from modul_sorter import *
-from mc import *
+import time 
+from crtanje import *		#tu je funkcija koju zovem
+from katakombe import * 
+from bakljada import * 
+from modul_sorter import * 
+from mc import *			
+mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-mc = Minecraft()  # inicijalizacija sustava za rad sa Minecraftom
+
+
+
+
 
 """
 
@@ -221,45 +225,47 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    time.sleep ( 10 )
 """
 
+def endStorage (  orMj ,  orSm , iX=0 , iZ=0 , iY=20  ,  materijal = 98, dv = 1 , stepenice_mat = 109 ):
 
-def endStorage(orMj, orSm, iX=0, iZ=0, iY=20, materijal=98, dv=1, stepenice_mat=109):
-    orMj = premjesti_origin(orMj, iX, iZ, iY, orSm)  # mice ishodiste na centar
-    crtaj_kvadar(orMj, (-20, -22, 0), (20, 22, 8), orSm, materijal, dv)  # kocka - crtanje tijela zgrade
-    crtaj_kvadar(orMj, (-19, -21, 1), (19, 21, 7), orSm, 0, 0)  # kocka - crtanje tijela zgrade
-    for dX in range(-20, 22, 4):
-        for dZ in range(-20, 22, 4):
-            crtaj_kvadar(orMj, (dX, dZ, 0), (dX, dZ, 0), orSm, 89, 0)  # lampe
-            crtaj_kvadar(orMj, (dX, dZ, 8), (dX, dZ, 8), orSm, 89, 0)  # lampe
-    flag_crtaj_kutije = "da"
-    for dZ in range(-18, 19):
-        if dZ % 2 == 0:  # naizmjenicno chest - trapped chest
-            flag_kutija = "kutija"
-        else:
-            flag_kutija = "ne"
-        modul_kraj(orMj, orSm, iX=0, iZ=dZ, iY=1, materijal=98, dv=0, kutija=flag_kutija)  # kat ispod slijepa kutija
-        crtaj_hopper(orMj, [5, dZ, 6], [5, dZ, 6], orSm, "lijevo")
-        crtaj_hopper(orMj, [5, dZ, 5], [5, dZ, 5], orSm, "meni")
+   orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar    
+   crtaj_kvadar ( orMj , (  -20  , -22 ,  0  )  , (   20  ,  22 ,  8  ) , orSm ,  materijal , dv  ) # kocka - crtanje tijela zgrade
+   crtaj_kvadar ( orMj , (  -19  , -21 ,  1  )  , (   19  ,  21 ,  7  ) , orSm ,  0 , 0  ) # kocka - crtanje tijela zgrade
+   for dX in range ( -20 , 22 , 4 ):
+      for dZ in range ( -20 , 22 , 4 ):
+            crtaj_kvadar ( orMj , (  dX  , dZ ,  0  )  , (   dX  , dZ ,  0  ) , orSm ,  89 , 0  )  #lampe
+            crtaj_kvadar ( orMj , (  dX  , dZ ,  8  )  , (   dX  , dZ ,  8 ) , orSm ,  89 , 0  )  #lampe
+   flag_crtaj_kutije = "da"
+   for dZ in range ( -18,19 ):
+      if dZ % 2 == 0:   # naizmjenicno chest - trapped chest
+         flag_kutija = "kutija"
+      else:
+         flag_kutija = "ne"
+      modul_kraj (  orMj ,  orSm , iX=0 , iZ=dZ , iY=1  ,  materijal = 98, dv = 0  , kutija = flag_kutija )  #kat ispod slijepa kutija
+      crtaj_hopper    ( orMj , [ 5 , dZ , 6 ]  , [ 5   ,  dZ , 6    ] , orSm , "lijevo" )
+      crtaj_hopper    ( orMj , [ 5 , dZ , 5 ]  , [ 5   ,  dZ , 5    ] , orSm , "meni" )
 
-        modul_kraj(orMj, orSm, iX=11, iZ=dZ, iY=1, materijal=98, dv=0, kutija=flag_kutija)  # kat ispod slijepa kutija
-        crtaj_hopper(orMj, [16, dZ, 6], [16, dZ, 6], orSm, "desno")
-        crtaj_hopper(orMj, [16, dZ, 5], [16, dZ, 5], orSm, "meni")
+      modul_kraj (  orMj ,  orSm , iX=11 , iZ=dZ , iY=1  ,  materijal = 98, dv = 0  , kutija = flag_kutija )  #kat ispod slijepa kutija
+      crtaj_hopper    ( orMj , [ 16 , dZ , 6 ]  , [ 16   ,  dZ , 6    ] , orSm , "desno" )
+      crtaj_hopper    ( orMj , [ 16 , dZ , 5 ]  , [ 16   ,  dZ , 5    ] , orSm , "meni" )
 
-        modul_kraj(orMj, orSm, iX=-11, iZ=dZ, iY=1, materijal=98, dv=0, kutija=flag_kutija)  # kat ispod slijepa kutija
-        crtaj_hopper(orMj, [-6, dZ, 6], [-6, dZ, 6], orSm, "desno")
-        crtaj_hopper(orMj, [-6, dZ, 5], [-6, dZ, 5], orSm, "meni")
+      modul_kraj (  orMj ,  orSm , iX=-11 , iZ=dZ , iY=1  ,  materijal = 98, dv = 0  , kutija = flag_kutija )  #kat ispod slijepa kutija
+      crtaj_hopper    ( orMj , [ -6 , dZ , 6 ]  , [ -6   ,  dZ , 6    ] , orSm , "desno" )
+      crtaj_hopper    ( orMj , [ -6 , dZ , 5 ]  , [ -6   ,  dZ , 5    ] , orSm , "meni" )
+   
+   """
+   orSm = ortUlijevo ( orSm )
+   modul_sorter (  orMj ,  orSm , iX=17 , iZ=0 , iY=8  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
+   """
+      
 
-    """
-    orSm = ortUlijevo ( orSm )
-    modul_sorter (  orMj ,  orSm , iX=17 , iZ=0 , iY=8  ,  materijal = 98, dv = 0  , kutija = "kutija" , crtaj_kutije = "ne" )
-    """
-
-
-if __name__ == "__main__":  # direktan poziv
-    # polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
-    orMj = gdjeSam()
-    orSm = gdjeGledam()
-    # orMj = tvrdja (  orMj ,  orSm , iX=27 , iZ=0 , iY=0  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
-    endStorage(orMj, orSm, iX=20, iZ=22, iY=-10, materijal=98, dv=1, stepenice_mat=109)
-
-    # tvrdja (  orMj ,  orSm , iX=14 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
-    mc.postToChat("K R A J  ")
+if __name__ == "__main__":    #direktan poziv
+   #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
+   #orMj = tvrdja (  orMj ,  orSm , iX=27 , iZ=0 , iY=0  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
+   endStorage (  orMj ,  orSm , iX=20 , iZ=22 , iY=-10  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
+   
+   #tvrdja (  orMj ,  orSm , iX=14 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
+   mc.postToChat("K R A J  "  )
+   
+   

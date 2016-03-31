@@ -904,7 +904,6 @@ def crtaj_redstonedust ( origin , poc  , kraj , smjer ) :
    crtaj_kvadar ( origin , poc  , kraj , smjer , 55 , blok_dv = 0 )
    
 def crtaj_kvadar ( origin , poc  , kraj , smjer , blok_id , blok_dv = 0 ) :
-    # type: (object, object, object, object, object, object) -> object
    """
    funkcija za crtanje tocke
    1. parametar lista sa koordinatama ( X , Z , Y )
@@ -913,7 +912,6 @@ def crtaj_kvadar ( origin , poc  , kraj , smjer , blok_id , blok_dv = 0 ) :
    4. smjer crtanja
    3. koji blok 
    4. koja varijanta bloka DFAULT osnovni oblik
-   :rtype: None
    
    
    """
