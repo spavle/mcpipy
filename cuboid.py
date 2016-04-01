@@ -1,4 +1,3 @@
-from mc import *  # Minecraft api import
 from Position import *  # clas for position
 
 mc = Minecraft()  # initialization
@@ -18,7 +17,6 @@ class Cuboid(object):
         :rtype: None
         """
         mc.setBlocks(start.x, start.y, start.z, end.x, end.y, end.z, material, material_modification)
-
 
 
 if __name__ == "__main__":  # direct call for testing purpose

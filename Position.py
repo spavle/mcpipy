@@ -29,6 +29,12 @@ class Position(object):
             self.x_direction = my_input.x_direction
             self.z_direction = my_input.z_direction
 
+        self.translate(dx, dy, dz)
+
+    def translate(self, dx=0, dy=0, dz=0):
+        """
+        translate position
+        """
         self.x = self.x + self.x_direction * dx - self.z_direction * dz  # x translate
         self.z = self.z + self.x_direction * dz + self.z_direction * dx  # y translate
         self.y += dy  # z translate
@@ -89,7 +95,7 @@ class Position(object):
     def origin(cls):
         # type: () -> None
         """
-        get toon position to object
+        get toon position to object, easy way
         :return: Position
         """
         back = cls()
@@ -105,7 +111,7 @@ class Position(object):
         :param dz: float
         :return: Position
         """
-        back = cls(None, dx=0, dy=0, dz=0)
+        back = cls(None, dx, dy, dz)
         assert isinstance(back, Position)
         return back
 
@@ -114,7 +120,7 @@ if __name__ == "__main__":  # direct call for testing purpose
     # self test code
     first = Position()
 
-    b = Position (first)
+    b = Position(first)
     print first.x
     print first.x_direction
     print first.z_direction

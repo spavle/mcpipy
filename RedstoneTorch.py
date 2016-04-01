@@ -1,16 +1,9 @@
-from OrientedElement import *
+from torch import *
 
 
-class Torch(OrientedElement):
-    element = 50  # minecraft code of torch
+class RedstoneTorch(Torch):
 
-    direction_table = dict()  # translation table for torch verified 20.06.2016. 20:51
-    direction_table[(1, 0)] = (1, 2, 4, 3, 5)  # looking east
-    direction_table[(-1, 0)] = (2, 1, 3, 4, 5)  # looking west
-    direction_table[(0, 1)] = (3, 4, 1, 2, 5)  # looking south
-    direction_table[(0, -1)] = (4, 3, 2, 1, 5)  # looking north
-
-    anchored_to_list = ["to_me", "from_me", "right", "left", "down"]  # on which wall
+    element = 76  # minecraft code of redstone torch
 
     def __init__(self, element_position_from, element_position_to, anchored_to="down"):
         # type: (Position, Position, string) -> Torch
@@ -43,13 +36,16 @@ if __name__ == "__main__":  # direct call for testing purpose
 
     pos = Position()
 
+    # test anchor orientation
     for counter in ("from_me", "right", "to_me", "left"):
         Cuboid(Position(pos, dx=5, dz=-1), Position(pos, dx=7, dz=1), 1, 0)
-        Torch.one(Position(pos, dx=6), anchored_to=counter)
+        RedstoneTorch.one(Position(pos, dx=6), anchored_to=counter)
         pos.rotate_left()
 
-    Torch(Position(pos, dx=9, dz=-2), Position(pos, dx=19, dz=2), anchored_to="down")
+    # test creation of many elements
+    RedstoneTorch(Position(pos, dx=9, dz=-2), Position(pos, dx=19, dz=2), anchored_to="down")
 
+    # test array of elements creation
     pos.rotate_left()
     for br in range(1, 10, 2):
-        Torch.one(Position(pos, dx=6 + br, dz=br), anchored_to="down")
+        RedstoneTorch.one(Position(pos, dx=6 + br, dz=br), anchored_to="down")

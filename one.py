@@ -1,9 +1,4 @@
-from mc import *  # Minecraft api import
-from Position import *  # clas for position
 from cuboid import *
-
-mc = Minecraft()  # initialization
-
 
 class Block(Cuboid):
     # class for creating one block
