@@ -82,8 +82,8 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
                 sto = ('{Item:{id:%s,Count:%s,Damage:%s}}' % (blok, popis[bla], modifikacija))
 
             mc.postToChat("XXX: %s  " % (sto))
-            gdje = rel2abs(orMj, (3, 0, 0), orSm)
-            time.sleep(1)
+            gdje = rel2abs(orMj, (0, 0, 3), orSm)
+            time.sleep(6)
             myId = mc.spawnEntity('Item', int(gdje[0]), int(gdje[1]), int(gdje[2]), sto)
             popis[bla] -= 64
 
@@ -94,5 +94,5 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    stoneCutter(orMj, orSm, dimenzije=6, visina=4)
+    stoneCutter(orMj, orSm, dimenzije=9, visina=5)
     # bakljada (dimenzije = 200 , visina = 80)
