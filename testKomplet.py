@@ -25,12 +25,14 @@ def testKomplet(orMj, orSm, iX=0, iZ=0, iY=0, materijal=98, dv=0, stepenice_mat=
 
     crtaj_hopper(orMj, (76, -14, 2), (76, -21, 2), orSm,
                  "lijevo")  # hopperskupljaci za selektore lijevo zakomentirano zbog buga inicijalizacije
+    crtaj_kvadar(orMj, (76, -14, 3), (76, -21, 3), orSm, 44, 0)     #poklopci na hopperima
     crtaj_hopper(orMj, (76, -21, 2), (76, -21, -3), orSm, "dolje")  # spust dolje
     # crtaj_hopper ( orMj , (  76 , -14 , -3 ) ,  (  76 , -10 , -3 ) , orSm , "desno" ) #4 desno do grane
 
 
 
     crtaj_hopper(orMj, (76, 14, 2), (76, 21, 2), orSm, "desno")  # hopperskupljaci za selektore desno
+    crtaj_kvadar(orMj, (76, 14, 3), (76, 21, 3), orSm, 44, 0)     #poklopci na hopperima
     crtaj_hopper(orMj, (76, 21, 2), (76, 21, -3), orSm, "dolje")  # spust dolje pogodio sam granu ispod
     # crtaj_hopper ( orMj , (  76 , 21 , -3 ) ,  (  76 , 21 , -3 ) , orSm , "desno" )   #2 desno do grane
 
