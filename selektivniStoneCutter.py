@@ -18,6 +18,7 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
     a = 1
     for dY in range(visina, -1, -1):
         mc.postToChat("Level: %s " % dY)
+        time.sleep (4)
         for dZ in range(-dimenzije - dY, dimenzije + dY):
             for dX in range(-dimenzije-1, dimenzije + 1 + dY):
                 a += 1
@@ -72,7 +73,6 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
         if bla[0] == COAL_ORE.id:
             blok = 263
             modifikacija = 0
-
         mc.postToChat("Key: %s %s " % (bla[0], bla[1]))
         mc.postToChat("Value: %s " % popis[bla])
         while popis[bla] > 0:
@@ -82,7 +82,7 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
                 sto = ('{Item:{id:%s,Count:%s,Damage:%s}}' % (blok, popis[bla], modifikacija))
 
             mc.postToChat("XXX: %s  %s " % (sto,popis[bla]))
-            gdje = rel2abs(orMj, (0, 0, 3), orSm)
+            gdje = rel2abs(orMj, (0, 0, 2), orSm)
             
             myId = mc.spawnEntity('Item', int(gdje[0]), int(gdje[1]), int(gdje[2]), sto)
             time.sleep(12)
@@ -95,5 +95,5 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    stoneCutter(orMj, orSm, dimenzije=120, visina=5)
+    stoneCutter(orMj, orSm, dimenzije=60, visina=5)
     # bakljada (dimenzije = 200 , visina = 80)

@@ -10,7 +10,7 @@ def glassFarm ( orMj , orSm , iX=0 , iZ=0 , iY=0 ):
 
    orMj   = premjesti_origin ( orMj ,   iX , iZ , iY    , orSm  )
    # clear the deck
-   crtaj_kvadar ( orMj , [  0 , -20 , 0 ]  , [ 30 , 20 , 20  ] , orSm , 0 , 0 ) 
+   crtaj_kvadar ( orMj , [  0 , -21 , 0 ]  , [ 31 , 21 , 25  ] , orSm , 0 , 0 ) 
    #glowstone kocka
    crtaj_kvadar ( orMj , (  0 , -19 , 0)  , (  29 , 19 , 0 ) , orSm ,  89 , 0 )
    #ograda okolo
