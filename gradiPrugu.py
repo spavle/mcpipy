@@ -3,6 +3,7 @@ import time
 #gradi prugu ali postepeno jump po jump
 
 from mc import * # ajmo probati ovaj import
+from crtanje import *	
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 
@@ -37,7 +38,7 @@ def zachepi (  ) : # pripremi teren 15 polja naprijed
 
    
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dY in range ( 0  ,45 ) :  # kanal
+      for dY in range ( 0  ,10 ) :  # kanal
          #mc.postToChat("Level %f" % dY )
          for dZ in range (  - dY - prosirenje  , dY + prosirenje + 1  ) : 
             for dX in range ( 1 + duzina_kanala + 2 ) :
@@ -57,12 +58,12 @@ def zachepi (  ) : # pripremi teren 15 polja naprijed
                      mc.setBlock(gdjeX , gdjeY + 1 , gdjeZ , STONE.id , 2 )			#postavi blok 
                   # """
                      
-                  if  abs ( dZ ) <  ( dY - 2 + prosirenje  ) : 
-                     if ( abs  ( dZ )  < 11 + prosirenje ) :
-                        if dX in range ( 1 , duzina_kanala  ) :
+                  #if  abs ( dZ ) <  ( dY - 2 + prosirenje  ) : 
+                     #if ( abs  ( dZ )  < 11 + prosirenje ) :
+                        #if dX in range ( 1 , duzina_kanala  ) :
                         ###(abs ( ( dZ )  ) < granica ) and ( ( dY - abs ( dZ )   ) > 3  )  and  ( dX in range ( 1 , duzina_kanala - 2 )): # u uzem dijelu chisti
-                           if kojiBlok in zaMaknuti : 
-                              mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
+                           #if kojiBlok in zaMaknuti : 
+                              #mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR.id)			#postavi blok
       #if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dX in range ( 1 , duzina_kanala ) :   #tunel
          for dZ in range ( -1 , 2 )	:
@@ -139,6 +140,8 @@ def pocetak () :
 
 def segment () :
 
+   orMj = gdjeSam ()
+   orSm = gdjeGledam ()
    radnaPozicija = mc.player.getPos()		#gdje sam
 
    smjerRada = mc.player.getDirection ()	#uzmem kamo gledam
@@ -158,6 +161,7 @@ def segment () :
    
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dX in range ( 1 , 12 ) :
+         crtaj_hopper    ( orMj , ( dX , -2 , -1 ) , ( dX , -2 , -1 ) , orSm ,  "meni" , blok_id = 154 , blok_dv = 0 ) 
          for dY in range ( -1 , 0 )	:
             for dZ in range ( -1 , 2 )  :
                gdjeX , gdjeY , gdjeZ = obradi_trans ( radnaPozicija , dX , dY , dZ , Vx , Vz )                    
@@ -165,6 +169,10 @@ def segment () :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , GLOWSTONE_BLOCK)
                else :
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , STONE.id , 4 )			#postavi blok podloge - polished diorite
+            
+               
+               
+                  
                
 
    dX = 1
@@ -259,7 +267,7 @@ def kraj () :
 zachepi ()
 pocetak ()
 jump ()
-for br in range (500) :
+for br in range (27) :
    zachepi ()
    segment ()
    jump ()

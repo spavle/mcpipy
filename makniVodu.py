@@ -3,8 +3,7 @@ import time
 from crtanje import *  # tu je funkcija koju zovem
 from mc import *  # import api-ja
 
-zaObradu = [GRASS.id,  SAND.id, GRAVEL.id, COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
-            IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
+zaObradu = [DIAMOND_ORE.id,
             129]  # 129 emerald vreti SANDSTONE.id,
 
 popis = dict()
@@ -41,7 +40,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                 a += 1
                 gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY), orSm)
                 myBlock = mc.getBlockWithData(int(gdje[0]), int(gdje[1]), int(gdje[2]))
-                if myBlock.id in (1, 3,              8, 9, 10, 11):  # makni lavu
+                if myBlock.id in (             8, 9, 10, 11):  # makni lavu
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)
                 if myBlock.id in zaObradu:
                     a = a + 1

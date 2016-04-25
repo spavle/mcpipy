@@ -37,7 +37,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
         mc.postToChat("Level: %s " % dY)
         time.sleep(1)
         for dZ in range(-3 - dY, 4 + dY):
-            for dX in range(1, dimenzije  + dY):
+            for dX in range(0, dimenzije  + dY):
                 a += 1
                 gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY), orSm)
                 myBlock = mc.getBlockWithData(int(gdje[0]), int(gdje[1]), int(gdje[2]))
@@ -112,4 +112,4 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    puniKutije(orMj, orSm, dimenzije=16, visina=5)
+    puniKutije(orMj, orSm, dimenzije=21, visina=5)

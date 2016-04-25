@@ -12,7 +12,7 @@ def farm (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
    
    for dZ in ( -10 , 0 , 10 ) :
       crtaj_stepenice ( orMj , ( -1 , dZ , 0 )  , ( -1 , dZ , 0 ) , orSm , blok_id = 109 , rel_smjer  = "meni" , gore_dolje = "ne"  ) #stairs
-      crtaj_kvadar ( orMj , ( -2 , dZ , -1 )  , ( -2 , dZ , -1 ) , orSm , 89 , blok_dv = 0 )
+      crtaj_kvadar ( orMj , ( -2 , dZ , 0 )  , ( -2 , dZ , 0 ) , orSm , 89 , blok_dv = 0 )
    crtaj_kvadar ( orMj , ( 0 , -10 , 0 )  , ( 9 , 10 , 0 ) , orSm , 98 , blok_dv = 2 ) #fondation
    crtaj_kvadar ( orMj , ( 2 , -8 , 0 )  , ( 8 , 8 , 0 ) , orSm , 60 , blok_dv = 0 ) #farmland
    crtaj_kvadar ( orMj , ( 2 , -8 , 1 )  , ( 8 , 8 , 1 ) , orSm , 59 , 7 )
@@ -26,9 +26,9 @@ def farm (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
    
    crtaj_kutiju ( orMj , ( 1 , 0 , 0 ) , ( 1 , 0 , 0 ) , orSm , rel_smjer  = "meni" , blok_id = 54 )
    crtaj_hopper    ( orMj , ( 1 , 1 , 0 ) , ( 1 , 8 , 0 ) , orSm ,  "lijevo" , blok_id = 154 , blok_dv = 0 )
-   crtaj_kvadar ( orMj , ( 1 , 1 , 1 ) , ( 1 , 8 , 1 ) , orSm , 44 , blok_dv = 5 ) #slabstone over hopper
+   crtaj_kvadar ( orMj , ( 0 , 1 , 1 ) , ( 0 , 8 , 1 ) , orSm , 44 , blok_dv = 5 ) #slabstone over hopper
    crtaj_hopper    ( orMj , ( 1 , -1 , 0 ) , ( 1 , -8 , 0 ) , orSm ,  "desno" , blok_id = 154 , blok_dv = 0 )
-   crtaj_kvadar ( orMj , ( 1 , -1 , 1 ) , ( 1 , -8 , 1 ) , orSm , 44 , blok_dv = 5 ) #slabstone over hopper
+   crtaj_kvadar ( orMj , ( 0 , -1 , 1 ) , ( 0 , -8 , 1 ) , orSm , 44 , blok_dv = 5 ) #slabstone over hopper
    
    orMj2 = premjesti_origin ( orMj , 9 , 0 , 1 ,  orSm )
 
@@ -37,7 +37,7 @@ def farm (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
       crtaj_kvadar ( orMj2 , ( -2 , dZ , -1 )  , ( -2 , dZ , -1 ) , orSm , 89 , blok_dv = 0 )
    crtaj_kvadar ( orMj2 , ( 0 , -10 , -1 )  , ( 6 , 10 , 0 ) , orSm , 98 , blok_dv = 2 ) #fondation
    crtaj_kvadar ( orMj2 , ( 0 , -8 , 0 )  , ( 6 , 8 , 0 ) , orSm , 60 , blok_dv = 0 ) #farmland
-   crtaj_kvadar ( orMj2 , ( 0 , -8 , 1 )  , ( 6 , 8 , 1 ) , orSm , 59 , 7 )
+   crtaj_kvadar ( orMj2 , ( 0 , -8 , 1 )  , ( 6 , 8 , 1 ) , orSm , 141 , 7 )
    for dZ in ( -9 , 0 , 9 ):
       crtaj_kvadar ( orMj2 , ( 2 , dZ , -1 )  , ( 4 , dZ , -1 ) , orSm , 89 , blok_dv = 0 ) #glowstone under water
       crtaj_kvadar ( orMj2 , ( 2 , dZ , 0 )  , ( 4 , dZ , 0 ) , orSm , 9 , blok_dv = 0 ) #water    44:5
@@ -50,7 +50,7 @@ def farm (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 ):
       crtaj_kvadar ( orMj2 , ( -2 , dZ , -1 )  , ( -2 , dZ , -1 ) , orSm , 89 , blok_dv = 0 )
    crtaj_kvadar ( orMj2 , ( 0 , -10 , -2 )  , ( 6 , 10 , 0 ) , orSm , 98 , blok_dv = 2 ) #fondation
    crtaj_kvadar ( orMj2 , ( 0 , -8 , 0 )  , ( 6 , 8 , 0 ) , orSm , 60 , blok_dv = 0 ) #farmland
-   crtaj_kvadar ( orMj2 , ( 0 , -8 , 1 )  , ( 6 , 8 , 1 ) , orSm , 59 , 7 )
+   crtaj_kvadar ( orMj2 , ( 0 , -8 , 1 )  , ( 6 , 8 , 1 ) , orSm , 142 , 7 )
    
    for dZ in ( -9 , 0 , 9 ):
       crtaj_kvadar ( orMj2 , ( 2 , dZ , -1 )  , ( 4 , dZ , -1 ) , orSm , 89 , blok_dv = 0 ) #glowstone under water
