@@ -7,9 +7,9 @@ from crtanje import *  # tu je funkcija koju zovem
 mc = Minecraft()  # inicijalizacija sustava za rad sa Minecraftom
 import time
 
-zaObradu = [GRASS.id, SANDSTONE.id, SAND.id,   GRAVEL.id, COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
+zaObradu = [GRASS.id,    GRAVEL.id, COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
             IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
-            129]  # 129 emerald
+            129]  # 129 emerald SANDSTONE.id, SAND.id,
 
 popis = dict()
 
