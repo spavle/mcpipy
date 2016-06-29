@@ -23,13 +23,13 @@ def gasi ():
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
       for dZ in  range( -60 , 60 ) :    		# prodji chep
-         for dY  in  range( -20 , 20 ) : 
+         for dY  in  range( -3 , 3 ) : 
             for dX in range ( -60 , 61 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                koji = mc.getBlock ( gdjeX , gdjeY , gdjeZ )
-               if  koji == 76 :	#ako je torch
+               if  koji == 50 :	#ako je torch
                   mc.setBlock(gdjeX , gdjeY , gdjeZ , AIR)					#postavi blok zraka
 
          mc.postToChat("dZ: %f " % dZ )            

@@ -13,18 +13,19 @@ sadrzaj = list ()
 
 brojKutija = 0
 
-
 def obradi_kutiju ( uJednaKutija,uBrojKutija):
     #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
     
     sadrzaj=""
-    sadrzaj += '{Items:[' 
+    sadrzaj += '{TransferCooldown:0,Items:[' 
     sadrzaj += uJednaKutija
-    sadrzaj += '],id:"Hopper",Lock:"",}'
+    sadrzaj += '],id:"Chest",Lock:"",}'
     orMj = gdjeSam()
     orSm = gdjeGledam()
     polozaj = rel2abs ( orMj , ( -2 - 2 * uBrojKutija , 0 , 0  ) , orSm )
-    
+    sto = '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}'
+    #mc.postToChat("%s " % (sto))
+    #mc.postToChat("%s " % (sadrzaj))
     mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
     
 
@@ -92,7 +93,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                 
             popis[bla] -= 64
             #ovo trebamo dobiti '2:{Slot:2b,id:3,Count:64b,Damage:0s,},',
-            mali_string = "'%s:{Slot:%sb,id:%s,Count:%sb,Damage:%ss,},'," % ( brojalica, brojalica,blok, count, modifikacija )
+            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
             #mc.postToChat("Mali string: %s " % mali_string )
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
@@ -107,7 +108,6 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
 
 
     # crta kutije
-
 
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
