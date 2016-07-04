@@ -88,10 +88,10 @@ dv = 0
 """
 
 #sandstonestoneslab
-"""
+
 materijal = 43
 dv = 1
-"""
+
 
 #stonebrick
 """
@@ -101,12 +101,14 @@ dv = 0
 
 #moss stonebrick
 
+"""
 materijal = 98
 dv = 1
 """
 
 #cracked stonebrick
 
+"""
 materijal = 98
 dv = 2
 """

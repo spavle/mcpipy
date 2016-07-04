@@ -23,9 +23,9 @@ def chep ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range( -35  , 36 ) :    		# -2 , -3
-         for dY  in  range ( 0 , 10 ) :       # 0 , 1, ,2
-            for dX in range ( 1 , 71 ) :  # 1 , 21
+      for dZ in  range( -3   , 4 ) :    		# -2 , -3
+         for dY  in  range ( 0 , 3 ) :       # 0 , 1, ,2
+            for dX in range ( 1 , 11 ) :  # 1 , 21
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z

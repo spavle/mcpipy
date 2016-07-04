@@ -35,7 +35,7 @@ crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AI
 
 #zakomentirano za testiranje kao heavy element
 
-mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
+#mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
 
 #2 kocke ravno
 crtaj_kvadar ( orMj , (1,-2,0)  , (2,2,1) , orSm , AIR.id , blok_dv = 0 )
