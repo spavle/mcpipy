@@ -67,7 +67,7 @@ def hodnik_portala (  orMj  ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 3 ,  materija
       time.sleep ( 1 )
    
    orSm = ortUlijevo (orSm)
-   soba_portal ( orMj , orSm ,  iX=4 , iZ=-16 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109)
+   soba_portal ( orMj , orSm ,  iX=4 , iZ=-16 , iY=0 ,  materijal = 24, dv = 2 , stepenice_mat = 128)
          
    return 1
  
@@ -77,7 +77,7 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    
    
-   hodnik_portala (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 4 ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
+   hodnik_portala (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 4 ,  materijal = 24, dv = 2 , stepenice_mat = 128 )
    orMj = premjesti_origin ( orMj , 64 , 0 , 0 ,  orSm )
-   hodnik_portala (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 4 ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
+   hodnik_portala (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 4 ,  materijal = 24, dv = 2 , stepenice_mat = 128 )
    

@@ -31,5 +31,5 @@ def miniBakljada (  orMj , orSm ,  dimenzije = 30 , visina = 10 ):
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   miniBakljada ( orMj , orSm ,  dimenzije = 60 , visina = 20)   
+   miniBakljada ( orMj , orSm ,  dimenzije = 20 , visina = 20)   
    #bakljada (dimenzije = 200 , visina = 80)   

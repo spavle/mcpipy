@@ -2,7 +2,7 @@
 
 import time
 from crtanje import *		#tu je funkcija koju zovem
-from hodnik_nether import *
+from hodnik_portala import *
 from mc import * #import api-ja
 
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
@@ -150,7 +150,7 @@ if __name__ == "__main__":    #direktan poziv
    
    for dummy in ( 1 , 2 , 3 , 4 ): 
       orSm = ortUdesno ( orSm )
-      hodnik_nether (  orMj  ,  orSm , iX=49  , iZ=0 , iY=0 , duzina= 5 ,  materijal = kula_mat  , stepenice_mat =  kula_stepenice  )
+      hodnik_portala (  orMj  ,  orSm , iX=49  , iZ=0 , iY=0 , duzina= 5 ,  materijal = kula_mat  ,  dv = kula_dv , stepenice_mat =  kula_stepenice  )
       crtaj_kvadar ( orMj , (49,-3,4)  , (50,-4,4) , orSm ,  kula_mat , blok_dv = kula_dv )   #krpanje
       crtaj_kvadar ( orMj , (49,3,4)  , (50,4,4) , orSm ,  kula_mat , blok_dv = kula_dv )   #krpanje
    
