@@ -14,12 +14,30 @@ zaObradu = [GRASS.id, SANDSTONE.id, SAND.id, STONE.id, DIRT.id, GRAVEL.id, COBBL
 popis = dict()
 
 
+sadrzaj = list ()
+
+brojKutija = 0
+
+def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
+    #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
+    
+    sadrzaj=""
+    sadrzaj += '{TransferCooldown:0,Items:[' 
+    sadrzaj += uJednaKutija
+    sadrzaj += '],id:"Chest",Lock:"",}'
+    orMj = gdjeSam()
+    orSm = gdjeGledam()
+    polozaj = rel2abs ( orMj , ( -2 - 2 * uBrojKutija , 0 , 0  ) , orSm )
+    mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
+    
+
+
 def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
     a = 1
     for dY in range(visina, -1, -1):
         mc.postToChat("Level: %s " % dY)
-        for dZ in range(-3 - dY, 3 + dY + 1):
-            for dX in range(1, dimenzije + 1 + dY):
+        for dZ in range(-3 , 4 ):
+            for dX in range(1, dimenzije + 1 ):
                 a += 1
 
                 gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY), orSm)
@@ -28,7 +46,7 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
                 myBlock = mc.getBlockWithData(int(gdje[0]), int(gdje[1]), int(gdje[2]))
                 myBlock = mc.getBlockWithData(int(gdje[0]), int(gdje[1]), int(gdje[2]))
 
-                if myBlock.id in (10, 11):  # makni lavu
+                if myBlock.id in (10, 11,8,9):  # makni lavu i vodu
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)
                 if myBlock.id in zaObradu:
                     a = a + 1
@@ -39,10 +57,6 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
                         popis[(myBlock.id, myBlock.data)] += 1
                     else:
                         popis[(myBlock.id, myBlock.data)] = 1
-
-
-
-
 
                         # time.sleep ( 0.5 )
                         # myId = mc.spawnEntity('Item', int (gdje [0])  ,int (gdje [1]) ,int (gdje [2] ) , sto )
@@ -73,19 +87,23 @@ def stoneCutter(orMj, orSm, dimenzije=5, visina=5):
             blok = 263
             modifikacija = 0
 
-        mc.postToChat("Key: %s %s " % (bla[0], bla[1]))
-        mc.postToChat("Value: %s " % popis[bla])
         while popis[bla] > 0:
             if popis[bla] > 64:
-                sto = ('{Item:{id:%s,Count:%s,Damage:%s}}' % (blok, 64, modifikacija))
+                count = 64
             else:
-                sto = ('{Item:{id:%s,Count:%s,Damage:%s}}' % (blok, popis[bla], modifikacija))
-
-            mc.postToChat("XXX: %s  " % (sto))
-            gdje = rel2abs(orMj, (0, 0, 3), orSm)
-            time.sleep(6)
-            myId = mc.spawnEntity('Item', int(gdje[0]), int(gdje[1]), int(gdje[2]), sto)
+                count = popis[bla]
             popis[bla] -= 64
+
+            #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
+            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
+            nesto = jednaKutija
+            jednaKutija= nesto + mali_string
+            brojalica += 1
+            if brojalica > 25:
+                obradi_kutiju (  jednaKutija, brojKutija, orMj, orSm )
+                brojalica = 0
+                jednaKutija = ""
+                brojKutija += 1
 
     mc.postToChat("Kraj :  XXXXXXXXXXXX")
     return 1

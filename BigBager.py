@@ -5,23 +5,22 @@ from mc import * #import api-ja
 from crtanje import *		#tu je funkcija koju zovem
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def bigBager ( orMj , orSm ,  dimenzije = 50 , visina = 20) :
+def bigBager ( orMj , orSm ,   visina = 45) :
 
-   for dX in  range( -dimenzije , dimenzije + 1 ):
-      for dZ in  range( -dimenzije , dimenzije + 1 ):
+    for dY in  range(  0 + 50 , -visina , -1 ):
+        sirina = visina + dY
+        gdje = rel2abs ( orMj ,  ( sirina + 5, sirina + 20 ,   dY )  , orSm  )
+        gdje2 = rel2abs ( orMj ,  ( -sirina - 5 , -sirina - 20,   dY ) , orSm  ) 
+        mc.setBlocks ( gdje , gdje2 , AIR.id , 0 )
  
-         gdje = rel2abs ( orMj ,  ( dX , dZ ,  0 )  , orSm  )
-         gdje2 = rel2abs ( orMj ,  ( dX , dZ , - visina )  , orSm  )
-         mc.setBlocks(gdje , gdje2 , AIR.id , 0 )
+    mc.postToChat("dy: %f " % dY )
  
-      mc.postToChat("dX: %f " % dX )
- 
-   mc.postToChat("Kraj !!!" )
-   return 1
+    mc.postToChat("Kraj !!!" )
+    return 1
 
    
  
 if __name__ == "__main__":    #direktan poziv
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   bigBager ( orMj , orSm ,  dimenzije = 280 , visina = 70)   
+   bigBager ( orMj , orSm ,  visina = 50)   
