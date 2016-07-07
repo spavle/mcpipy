@@ -107,13 +107,13 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    polumjer = 15
    
-   kula_mat = 24
-   kula_dv = 2
+   kula_mat = 95
+   kula_dv = 0
    kula_stepenice = 128
    
-   for aX in ( -34 , 0 , 34 ):
-      for aZ in ( -34 , 0 , 34 ):
-         if abs ( aX ) != abs ( aZ ) :
+   for aX in (  -34 , 0 , 34 ):
+      for aZ in (  -34 , 0 , 34 ):
+         if abs ( aX ) != abs ( aZ  ) :
             kula ( orMj ,orSm , iX=aX , iZ=aZ , iY=0  , radius = polumjer +1 ,  visina = 6 ,  materijal = kula_mat , dv = kula_dv )
             kula ( orMj ,orSm , iX=aX , iZ=aZ , iY=0  , radius = polumjer  ,  visina = 6 ,  materijal = kula_mat , dv = kula_dv )
             #kupola ( orMj , orSm , iX=0 , iZ=0 , iY=6 , radius = polumjer , korekcija = 1 , materijal = 98 , dv = 0)
@@ -150,7 +150,7 @@ if __name__ == "__main__":    #direktan poziv
    
    for dummy in ( 1 , 2 , 3 , 4 ): 
       orSm = ortUdesno ( orSm )
-      hodnik_portala (  orMj  ,  orSm , iX=49  , iZ=0 , iY=0 , duzina= 5 ,  materijal = kula_mat  ,  dv = kula_dv , stepenice_mat =  kula_stepenice  )
+      #hodnik_portala (  orMj  ,  orSm , iX=49  , iZ=0 , iY=0 , duzina= 5 ,  materijal = kula_mat  ,  dv = kula_dv , stepenice_mat =  kula_stepenice  )
       crtaj_kvadar ( orMj , (49,-3,4)  , (50,-4,4) , orSm ,  kula_mat , blok_dv = kula_dv )   #krpanje
       crtaj_kvadar ( orMj , (49,3,4)  , (50,4,4) , orSm ,  kula_mat , blok_dv = kula_dv )   #krpanje
    
