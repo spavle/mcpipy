@@ -22,14 +22,14 @@ def travnjak ():
 
    #crtanje
    if  abs ( Vx )  != abs ( Vz ) :		# ne pod 45
-      for dZ in  range ( -100 , 100 ) :    		# prodji shirinu
+      for dZ in  range ( -1  , 2 ) :    		# prodji shirinu
          for dY  in  range( -2 ,0 ) : 			#samo jedan level ispod
-            for dX in  range ( -100 , 100 ) :
+            for dX in  range ( 1 , 11 ) :
                gdjeX=radnaPozicija.x + Vx*dX + Vz*dZ    		# pomak po x
                gdjeY=radnaPozicija.y + dY						# pomak po y
                gdjeZ=radnaPozicija.z + Vx*dZ + Vz*dX			# pomak po Z
                mc.setBlock(gdjeX , gdjeY , gdjeZ , GRASS )					#postavi zemlju 
-               mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
+               #mc.postToChat("gdjeX: %f gdjeY: %f gdjeZ: %f " % ( gdjeX , gdjeY , gdjeZ  ) )
    #mc.postToChat("X: %f Y: %f Z: %f " % ( radnaPozicija.x , radnaPozicija.y , radnaPozicija.z  ) )
    return 1
    

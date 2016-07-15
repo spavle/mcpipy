@@ -5,7 +5,7 @@ from crtanje import *  # tu je funkcija koju zovem
 
 zaObradu = [STONE.id, DIRT.id, GRASS.id, SANDSTONE.id, 12, GRAVEL.id, COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
             IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
-            129, 179, 172, 159 ]  # 129 emerald
+            129, 179, 172, 159, 5 , 85 , 188, 189, 190, 191, 192, 30 ]  # 129 emerald
 
 popis = dict()
 
@@ -36,10 +36,10 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
     jednaKutija = ''
     brojKutija = 0
     a = 1
-    for dY in range(0,visina):
+    for dY in range(0,3):
         mc.postToChat("Level: %s " % dY)
-        for dZ in range(0 - dY -1 , 1 + dY + 1):
-            for dX in range(0, dimenzije  + 1):
+        for dZ in range(-1 , 2 ):
+            for dX in range(1, 4):
                 a += 1
 
                 gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY), orSm)
@@ -78,10 +78,14 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
         # 129 :  388
         if bla[0] == 129:
             blok = 388
-            # coal COAL_ORE.id  263
+        # coal COAL_ORE.id  263
         if bla[0] == COAL_ORE.id:
             blok = 263
             modifikacija = 0
+        # cobweb
+        if bla[0] == 30:
+            blok = 287
+            modifikacija = 0            
 
 
         while popis[bla] > 0:

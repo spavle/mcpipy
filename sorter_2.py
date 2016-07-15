@@ -28,7 +28,8 @@ def modul_sorter2(orMj, orSm, iX=0, iZ=0, iY=0, materijal=98, dv=0, kutija="kuti
         crtaj_kutiju(orMj, [3, 0, 2], [4, 0, 2], orSm, rel_smjer="desno", blok_id=kmat)
         crtaj_hopper(orMj, [3, 0, 1], [3, 0, 0], orSm, "meni")  # hopper ispod kutije
         crtaj_kutiju(orMj, [1, 0, 0], [2, 0, 1], orSm, rel_smjer="desno", blok_id=kmat)
-        crtaj_stepenice(orMj, (1, 0, 2), (1, 0, 2), orSm, blok_id=109, rel_smjer="odmene", gore_dolje="ne")
+        crtaj_stepenice(orMj, (1, 0, 2), (1, 0, 2), orSm, blok_id=109, rel_smjer="odmene", gore_dolje="da")
+        crtaj_kvadar(orMj, (1, 0 , 3), (1, 0 , 3), orSm, 44, 0) #slabstone iznad stepenice
         crtaj_comparator(orMj, [0, 0, 0], [0, 0, 0], orSm, rel_smjer="meni")  # ima li stvari u kutiji
     crtaj_kvadar(orMj, [8, 0, 0], [8, 0, 0], orSm, materijal, 2)  # doljnji blok
     crtaj_kvadar(orMj, [7, 0, 1], [9, 0, 1], orSm, materijal, 2)  # srednji blokovi
