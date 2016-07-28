@@ -45,7 +45,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)
                 if myBlock.id in zaObradu:
                     a = a + 1
-                    #mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu     
+                    mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu     
                     if popis.has_key((myBlock.id, myBlock.data)):  # puni popis
                         popis[(myBlock.id, myBlock.data)] += 3
                     else:
