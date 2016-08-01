@@ -145,7 +145,7 @@ def filter ( origin , polozaj , smjer ,  visina = 7 ,   sirina = 10 , dubina = 1
    5. dubina terase
    6. sirina terase
    """
-   zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162 ] # 17 , 162 wood
+   zaMaknuti = [ SANDSTONE.id , SAND.id , STONE.id , DIRT.id , GRAVEL.id , GRASS.id , GRASS_TALL.id , COBBLESTONE.id , WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , 17 , 162, 87 ] # 17 , 162 wood , 87 nether rack
    zaMaknutiOpasno = [ WATER_FLOWING.id , WATER_STATIONARY.id , LAVA_FLOWING.id , LAVA_STATIONARY.id , SAND.id , GRAVEL.id ] # Dodani shljunak i pjesak jer padanja sve poremete
    origin = premjesti_origin ( origin , polozaj [0] , polozaj [1], polozaj [2],  smjer ) 
    for dY in range ( visina + 2 , -1 , -1 ) : # ozgora prema dolje

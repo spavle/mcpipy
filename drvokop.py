@@ -3,7 +3,7 @@
 from crtanje import *  # tu je funkcija koju zovem
 #from mc import *  # import api-ja
 
-zaObradu = [17, 162, 83]  # 129 emerald
+zaObradu = [17, 162, 83, 81]  # 129 emerald
 
 popis = dict()
 
@@ -24,7 +24,7 @@ def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
     mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
     
 
-def puniKutije(orMj, orSm, dimenzije=5, visina=5):
+def puniKutije(orMj, orSm, dimenzije=5, visina=25):
     # Ovo kupi rude
     jednaKutija = ''
     brojKutija = 0
@@ -84,5 +84,5 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    puniKutije(orMj, orSm, dimenzije=5, visina=25)
+    puniKutije(orMj, orSm, dimenzije=6, visina=25)
     mc.postToChat("The End")

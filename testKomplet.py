@@ -56,7 +56,7 @@ def testKomplet(orMj, orSm, iX=0, iZ=0, iY=0, materijal=98, dv=0, stepenice_mat=
     orSmL = ortUlijevo(orSm)
     crtaj_lift_2(orMj, orSmL, iX=20, iZ=2, iY=-7, visina=12, materijal=98, dv=0)
     orSmD = ortUdesno(orSm)
-    crtaj_lift_2(orMj, orSmD, iX=-18, iZ=-2, iY=dno, visina=-dno + 5, materijal=98, dv=0)
+    crtaj_lift_2(orMj, orSmD, iX=-18, iZ=-2, iY=dno-2, visina=-dno + 7, materijal=98, dv=0)
 
     crtaj_hopper(orMj, (2, -18, 4), (2, -19, 4), orSm, "lijevo")
 

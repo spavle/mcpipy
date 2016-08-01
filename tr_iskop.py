@@ -1,11 +1,12 @@
-import time
+
+#import time
 
 from crtanje import *  # tu je funkcija koju zovem
-from mc import *  # import api-ja
+#from mc import *  # import api-ja
 
-zaObradu = [GRASS.id,  SAND.id,  COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
+zaObradu = [STONE.id, DIRT.id, GRASS.id, SANDSTONE.id, 12, GRAVEL.id, COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
             IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
-            SANDSTONE.id, 129, 179, 172, 159,  153, 89, 88, 213]  # 129 emerald, vreti GRAVEL.id,
+            129, 179, 172, 159, 87, 153, 89, 88, 213 ]  # 129 emerald
 
 popis = dict()
 
@@ -13,44 +14,56 @@ sadrzaj = list ()
 
 brojKutija = 0
 
-
-def obradi_kutiju ( uJednaKutija,uBrojKutija):
+def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
     #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
     
     sadrzaj=""
-    sadrzaj += '{Items:[' 
+    sadrzaj += '{TransferCooldown:0,Items:[' 
     sadrzaj += uJednaKutija
-    sadrzaj += '],id:"Hopper",Lock:"",}'
+    sadrzaj += '],id:"Chest",Lock:"",}'
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    polozaj = rel2abs ( orMj , ( 2 + 2 * uBrojKutija , 0 , 0  ) , orSm )
-    
+    polozaj = rel2abs ( orMj , ( -1 - 2 * uBrojKutija , 0 , 0  ) , orSm )
     mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
     
 
-def puniKutije(orMj, orSm, dimenzije=5, visina=5):
+def iskop(orMj, orSm, dimenzije=10, visina=5):
     # Ovo kupi rude
+    if orMj[1] < 0:
+        orMj[1] -= 1
+    if orMj[0] < 0:
+        orMj[0] -= 1
+        
     jednaKutija = ''
     brojKutija = 0
     a = 1
-    for dY in range(visina, -1, -1):
+    for dY in range(0,visina):
         mc.postToChat("Level: %s " % dY)
-        time.sleep(1)
-        for dZ in range(-dimenzije - dY, dimenzije + dY):
-            for dX in range(-dimenzije - 1, dimenzije + 1 + dY):
+        for dZ in range( -2 , 3):
+            for dX in range(1, dimenzije  + 1):
                 a += 1
+
                 gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY), orSm)
                 myBlock = mc.getBlockWithData(int(gdje[0]), int(gdje[1]), int(gdje[2]))
-                if myBlock.id in (   8, 9, 10, 11):  # makni lavu
+                if myBlock.id in (8, 9, 10, 11):  # makni lavu i vodu
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)
                 if myBlock.id in zaObradu:
                     a = a + 1
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu     
                     if popis.has_key((myBlock.id, myBlock.data)):  # puni popis
-                        popis[(myBlock.id, myBlock.data)] += 3
+                        popis[(myBlock.id, myBlock.data)] += 1
                     else:
-                        popis[(myBlock.id, myBlock.data)] = 5
+                        popis[(myBlock.id, myBlock.data)] = 1
 
+                if ( dX == 1 or dX == 6 ) and ( dY == 0 ) and ( dZ == 0 ) :   # botom lights
+                    gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY - 1 ), orSm)
+                    mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), 89, 0)
+                
+                if ( dY == 0 ) and ( dZ == -1 ) :   # hoppers
+                    gdje = rel2abs((int(orMj[0]), int(orMj[1]), int(orMj[2])), (dX, dZ, dY - 1 ), orSm)
+                    mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), 154, smjer_hoppera ( orSm ,  "meni"))
+                
+    
     # slaze stringove
     brojalica = 0
     mali_string = "" #jedan element
@@ -79,40 +92,36 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
         if bla[0] == COAL_ORE.id:
             blok = 263
             modifikacija = 0
+
         if bla[0] == 153:   #nether quartz
             blok = 406
             modifikacija = 0
-            
-        #mc.postToChat("Key: %s %s " % (bla[0], bla[1]))
-        #mc.postToChat("Value popis bla: %s " % popis[bla])
 
         while popis[bla] > 0:
-            #mc.postToChat("Value popis bla: %s " % popis[bla])
             if popis[bla] > 64:
                 count = 64
             else:
                 count = popis[bla]
-                
             popis[bla] -= 64
-            #ovo trebamo dobiti '2:{Slot:2b,id:3,Count:64b,Damage:0s,},',
-            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica,blok, count, modifikacija )
-            #mc.postToChat("Mali string: %s " % mali_string )
+
+            #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
+            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
             brojalica += 1
             if brojalica > 25:
-                obradi_kutiju (  jednaKutija ,brojKutija )
+                obradi_kutiju (  jednaKutija, brojKutija, orMj, orSm )
                 brojalica = 0
                 jednaKutija = ""
                 brojKutija += 1
 
-    obradi_kutiju(jednaKutija,brojKutija)
+    obradi_kutiju( jednaKutija, brojKutija, orMj, orSm)
 
 
     # crta kutije
 
-
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    puniKutije(orMj, orSm, dimenzije=125, visina=6)
+    iskop(orMj, orSm)
+    mc.postToChat("The End")

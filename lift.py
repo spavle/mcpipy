@@ -7,7 +7,7 @@ from mc import *
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
 
-def crtaj_lift_2 ( orMj , orSm , iX  , iZ ,  iY  , visina = 4 , materijal = 24 , dv = 2 ):
+def crtaj_lift_2 ( orMj , orSm , iX  , iZ ,  iY  , visina = 4 , materijal = 98 , dv = 2 ):
 
    orMj   = premjesti_origin ( orMj , iX  , iZ , iY ,  orSm )
    #minimalna visina je 4, broji se od reda sa chestom
@@ -151,7 +151,8 @@ def lift2 (orMj , orSm ):
    orSm2 = ortUlijevo ( ortUlijevo ( orSm ))
    crtaj_lift_2 ( orMj ,  orSm2 ,  iX=-5, iZ=0 , iY=0  , visina = 3 ) # 
    """
-   crtaj_lift_2 ( orMj ,  orSm ,  iX=1, iZ=0 , iY=0  , visina = 93 )
+   crtaj_lift_2 ( orMj ,  orSm ,  iX=1, iZ=0 , iY=-1
+   , visina = 3 )
 
 if __name__ == "__main__":    #direktan poziv
    
