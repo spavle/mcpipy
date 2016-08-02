@@ -5,7 +5,7 @@ from mc import *  # import api-ja
 
 zaObradu = [GRASS.id,  SAND.id,  COBBLESTONE.id, CLAY.id, GOLD_ORE.id,
             IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
-            SANDSTONE.id, 129, 179, 172, 159,  153, 89, 88, 213]  # 129 emerald, vreti GRAVEL.id,
+            SANDSTONE.id, 129, 179, 172, 159,  153,  88, 213]  # 129 emerald, vreti GRAVEL.id,
 
 popis = dict()
 
