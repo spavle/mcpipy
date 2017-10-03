@@ -12,34 +12,34 @@ mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    djelovi = (
    '{Items:' ,
-   '[0:{Slot:0b,id:"minecraft:diamond_pickaxe",Count:64b,Damage:0s,},',
-   '1:{Slot:1b,id:"minecraft:diamond_shovel",Count:64b,Damage:0s,},'
-   '2:{Slot:2b,id:"minecraft:diamond_axe",Count:64b,Damage:0s,},',
-   '3:{Slot:3b,id:"minecraft:diamond_svord",Count:64b,Damage:0s,},'
-   '4:{Slot:4b,id:"minecraft:diamond",Count:64b,Damage:0s,},',
-   '5:{Slot:5b,id:"minecraft:diamond_hoe",Count:64b,Damage:0s,},',
-   '6:{Slot:6b,id:"minecraft:diamond_sword",Count:64b,Damage:0s,},',
-   '7:{Slot:7b,id:"minecraft:diamond_helmet",Count:64b,Damage:0s,},',
-   '8:{Slot:8b,id:"minecraft:diamond_chestplate",Count:64b,Damage:0s,},',
-   '9:{Slot:9b,id:"minecraft:diamond_leggings",Count:64b,Damage:0s,},',
-   '10:{Slot:10b,id:"minecraft:log",Count:64b,Damage:0s,},',
-   '11:{Slot:11b,id:"minecraft:diamond_boots",Count:64b,Damage:0s,},'
-   '12:{Slot:12b,id:"minecraft:stone_brick_stairs",Count:64b,Damage:0s,},'
-   '13:{Slot:13b,id:"minecraft:stonebrick",Count:64b,Damage:0s,},'
-   '14:{Slot:14b,id:"minecraft:bed",Count:64b,Damage:0s,},'
-   '15:{Slot:15b,id:"minecraft:iron_ingot",Count:64b,Damage:0s,},'
-   '16:{Slot:16b,id:"minecraft:gold_ingot",Count:64b,Damage:0s,},'
-   '17:{Slot:17b,id:"minecraft:cobblestone",Count:64b,Damage:0s,},'
-   '18:{Slot:18b,id:"minecraft:book",Count:64b,Damage:0s,},'
-   '19:{Slot:19b,id:"minecraft:cooked_porkchop",Count:64b,Damage:0s,},'
-   '20:{Slot:20b,id:"minecraft:apple",Count:64b,Damage:0s,},'
-   '21:{Slot:21b,id:"minecraft:chest",Count:64b,Damage:0s,},'
-   '22:{Slot:22b,id:"minecraft:vine",Count:64b,Damage:0s,},'
-   '23:{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
-   '24:{Slot:24b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
-   '25:{Slot:25b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
-   '26:{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
-   'id:"Hopper",Lock:"",}'
+   '[{Slot:0b,id:"minecraft:diamond_pickaxe",Count:64b,Damage:0s,},',
+   '{Slot:1b,id:"minecraft:diamond_shovel",Count:64b,Damage:0s,},'
+   '{Slot:2b,id:"minecraft:diamond_axe",Count:64b,Damage:0s,},',
+   '{Slot:3b,id:"minecraft:diamond_sword",Count:64b,Damage:0s,},',
+   '{Slot:4b,id:"minecraft:diamond",Count:64b,Damage:0s,},',
+   '{Slot:5b,id:"minecraft:diamond_hoe",Count:64b,Damage:0s,},',
+   '{Slot:6b,id:"minecraft:diamond_sword",Count:64b,Damage:0s,},',
+   '{Slot:7b,id:"minecraft:diamond_helmet",Count:64b,Damage:0s,},',
+   '{Slot:8b,id:"minecraft:diamond_chestplate",Count:64b,Damage:0s,},',
+   '{Slot:9b,id:"minecraft:diamond_leggings",Count:64b,Damage:0s,},',
+   '{Slot:10b,id:"minecraft:log",Count:64b,Damage:0s,},',
+   '{Slot:11b,id:"minecraft:diamond_boots",Count:64b,Damage:0s,},'
+   '{Slot:12b,id:"minecraft:stone_brick_stairs",Count:64b,Damage:0s,},'
+   '{Slot:13b,id:"minecraft:stonebrick",Count:64b,Damage:0s,},'
+   '{Slot:14b,id:"minecraft:bed",Count:64b,Damage:0s,},'
+   '{Slot:15b,id:"minecraft:iron_ingot",Count:64b,Damage:0s,},'
+   '{Slot:16b,id:"minecraft:gold_ingot",Count:64b,Damage:0s,},'
+   '{Slot:17b,id:"minecraft:cobblestone",Count:64b,Damage:0s,},'
+   '{Slot:18b,id:"minecraft:book",Count:64b,Damage:0s,},'
+   '{Slot:19b,id:"minecraft:cooked_porkchop",Count:64b,Damage:0s,},'
+   '{Slot:20b,id:"minecraft:apple",Count:64b,Damage:0s,},'
+   '{Slot:21b,id:"minecraft:chest",Count:64b,Damage:0s,},'
+   '{Slot:22b,id:"minecraft:vine",Count:64b,Damage:0s,},'
+   '{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
+   '{Slot:24b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+   '{Slot:25b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+   '{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
+   'id:"minecraft:chest",Lock:"",}'
 )
 
    sadrzaj=""

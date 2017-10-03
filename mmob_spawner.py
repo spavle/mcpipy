@@ -15,7 +15,8 @@ def modul (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0   ):
    #prvi red
    crtaj_kvadar ( orMj , ( 0  , 0 , 0 )  , (  2 , 0 , 0 ) , orSm ,  materijal , dv ) #tri bloka ispod kao osnova
    #drugi red
-   crtaj_kvadar ( orMj , ( 0  , 0 ,1 )  , (  0 , 0 , 1 ) , orSm ,  70 , 0 ) # pressure plate
+   if ( iX + iZ ) % 2 :
+      crtaj_kvadar ( orMj , ( 0  , 0 ,1 )  , (  0 , 0 , 1 ) , orSm ,  70 , 0 ) # pressure plate
    #crtaj_kvadar ( orMj , ( 0  , 0 ,1 )  , (  0 , 0 , 1 ) , orSm ,  147 , 0 ) # gold pressure plate
    crtaj_comparator   ( orMj  , [ 1 , 0 , 1 ]  , [ 1 , 0 , 1  ] , orSm , rel_smjer  = "odmene"    ) # iza pressure plate comparator
    crtaj_kvadar ( orMj , [ 2 , 0 , 1 ]  , [ 2 , 0 , 1  ] , orSm ,  materijal , dv ) # na kraju kocka
@@ -144,7 +145,7 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    sirina = 7     #dimenzije spawnera
    #visina = 43
    #za testiranje visina je 35
-   visina = 43
+   visina = 32
    razbijalica = 46
    
    time.sleep ( 5 )
@@ -152,7 +153,7 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
    orMj = premjesti_origin ( orMj , iX , iZ , iY ,  orSm ) #mice ishodiste na centar 
    orginalniOrigin = orMj # spremi ??
    
-   crtaj_kvadar ( orMj , (  sirina  + prosirenje  , - sirina - prosirenje , - 4  )  , (   - sirina -prosirenje  ,  sirina + prosirenje ,  21  ) , orSm ,  0 , 0 ) # clear the deck
+   crtaj_kvadar ( orMj , (  sirina  + prosirenje  , - sirina - prosirenje , - 4  )  , (   - sirina -prosirenje  ,  sirina + prosirenje ,  41  ) , orSm ,  0 , 0 ) # clear the deck
    time.sleep ( 10 )
    
 
@@ -207,12 +208,13 @@ def mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=0  ,  materijal = 98, dv = 0
       for br in range ( 0, visina ):
          dX = br
          dY = br * 3
-         for dZ in range ( -sirina , sirina + 1   ):
+         for dZ in range ( -1-br-sirina , sirina + 2 +br   ):
             modul (  orMj ,  orSm , iX=dX + sirina + 1, iZ=dZ , iY=dY  ,  materijal = materijal, dv = dv  )
-         crtaj_kvadar ( orMj , (  sirina + 1  , - sirina - 1, 0 + 3 * br )  , (  2+dX + sirina + 1 , - sirina - 1 ,  3 * br + 2 ) , orSm ,  materijal , dv ) #blokovi sastrane za zamracivanje   
-         crtaj_kvadar ( orMj , (  sirina + 1  , sirina + 1, 0 + 3 * br )  , (  2+dX + sirina + 1 , sirina + 1 ,  3 * br + 2 ) , orSm ,  materijal , dv ) #blokovi sastrane za zamracivanje   
+         
+         crtaj_kvadar ( orMj , (  dX + sirina + 2  , dZ, 0 + 3 * br )  , (  dX + sirina + 3 , dZ+2 ,  3 * br + 2 ) , orSm ,  materijal , dv ) #blokovi sa jedne strane za zamracivanje   - punjenje rupa
+         #crtaj_kvadar ( orMj , (  sirina + 1  , sirina + 1, 0 + 3 * br )  , (  2+dX + sirina + 1 , sirina + 1 ,  3 * br + 2 ) , orSm ,  materijal , dv ) #blokovi sastrane za zamracivanje   
       #crtaj_kvadar ( orMj , (  sirina + 1  , sirina + 1, 0 + 3 * br + 3 )  , (  2+dX + sirina + 2 , - sirina - 1 ,  3 * br + 3 ) , orSm ,  materijal , dv ) # puni protiv svijetla
-      crtaj_kvadar ( orMj , (  sirina + 1  , sirina + 1, 0 + 3 * br + 3 )  , (  2+dX + sirina + 2 , - sirina - 1 ,  3 * br + 3 ) , orSm ,  44 , 0 ) # poklopac na vrhu stepenica half slab anti spawn
+      crtaj_kvadar ( orMj , (  sirina + 1  , sirina + visina + 2, 0 + 3 * br + 3 )  , (  2+dX + sirina + 2 , - sirina - visina - 2 ,  3 * br + 3 ) , orSm ,  44 , 0 ) # poklopac na vrhu stepenica half slab anti spawn
       orSm = ortUlijevo ( orSm )  # okret za 90
       time.sleep ( 35 )
    # poklopac na sredini
@@ -228,7 +230,7 @@ if __name__ == "__main__":    #direktan poziv
    #polukrugTunel (   iX=2 , iZ=0 , iY=0 , radius = 8 , duzina = 70 , korekcija = 0 , uspon = 0  )
    orMj = gdjeSam ()
    orSm = gdjeGledam ()
-   orMj = tvrdja (  orMj ,  orSm , iX=27 , iZ=0 , iY=0  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
+   #orMj = tvrdja (  orMj ,  orSm , iX=27 , iZ=0 , iY=0  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
    mmob_spawner (  orMj ,  orSm , iX=0 , iZ=0 , iY=33  ,  materijal = 98, dv = 1 , stepenice_mat = 109 )
    
    #tvrdja (  orMj ,  orSm , iX=14 , iZ=0 , iY=0  ,  materijal = 98, dv = 0 , stepenice_mat = 109 )

@@ -22,7 +22,7 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '7:{Slot:7b,id:"minecraft:diamond_helmet",Count:64b,Damage:0s,},',
    '8:{Slot:8b,id:"minecraft:diamond_chestplate",Count:64b,Damage:0s,},',
    '9:{Slot:9b,id:"minecraft:diamond_leggings",Count:64b,Damage:0s,},',
-   '10:{Slot:10b,id:"minecraft:log",Count:64b,Damage:0s,},',
+   '10:{Slot:10b,id:"minecraft:ender_pearl",Count:64b,Damage:0s,},',
    '11:{Slot:11b,id:"minecraft:diamond_boots",Count:64b,Damage:0s,},'
    '12:{Slot:12b,id:"minecraft:stone_brick_stairs",Count:64b,Damage:0s,},'
    '13:{Slot:13b,id:"minecraft:stonebrick",Count:64b,Damage:0s,},'
@@ -36,7 +36,7 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '21:{Slot:21b,id:"minecraft:chest",Count:64b,Damage:0s,},'
    '22:{Slot:22b,id:"minecraft:vine",Count:64b,Damage:0s,},'
    '23:{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
-   '24:{Slot:24b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+   '24:{Slot:24b,id:"minecraft:ender_pearl",Count:64b,Damage:0s,},'   
    '25:{Slot:25b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
    '26:{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
    'id:"Hopper",Lock:"",}'
