@@ -46,7 +46,7 @@ def modul_sorter2(orMj, orSm, iX=0, iZ=0, iY=0, materijal=98, dv=0, kutija="kuti
     crtaj_hopper(orMj, [5, 0, 4], [5, 0, 4], orSm, "desno")  # gornji
     crtaj_kvadar(orMj, (5, 0, 5), (5, 0, 5), orSm, 44, 0)
 
-    sto = '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}'
+    sto = '{Items:[{Slot:0b,id:"minecraft:item_frame",Count:4b,Damage:0s,},{Slot:1b,id:"minecraft:flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},{Slot:2b,id:"minecraft:flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},{Slot:3b,id:"minecraft:flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},{Slot:4b,id:"minecraft:flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"minecraft:hopper",Lock:"",}'
     bla = rel2abs(orMj, (5, 0, 3), orSm)
     time.sleep(0.1)
     mc.setBlockWithNBT(bla, 154, smjer_hoppera(orSm, "meni"), sto)  # hopper gleda meni
