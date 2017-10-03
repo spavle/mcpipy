@@ -974,3 +974,90 @@ def makeBlacksmith (orMj , dX , dZ , dY ,  orSm ,  Profession = 3 , Career = 1):
 
 def makeButcher (orMj , dX , dZ , dY ,  orSm ,  Profession = 4 , Career = 1):
    makeVillager (orMj , dX , dZ , dY ,  orSm ,  Profession = Profession , Career = Career) 
+
+
+   
+   
+# punjenje kutija za iskop programe
+
+def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
+    #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
+    sadrzaj = list ()
+    sadrzaj=""
+    sadrzaj += '{Items:[' 
+    sadrzaj += uJednaKutija
+    sadrzaj += '],id:"minecraft:chest",Lock:"",}'
+    orMj = gdjeSam()
+    orSm = gdjeGledam()
+    polozaj = rel2abs ( orMj , ( -2 - 2 * uBrojKutija , 0 , 0  ) , orSm )
+    mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
+    
+    
+#pripremaju se NBT-i za generiranje kutija        
+    
+def slozi_NBT_za_kutije ( orMj, orSm , popis )    : 
+
+    # slaze stringove
+    jednaKutija = ''
+    brojKutija = 0
+    brojalica = 0
+    mali_string = "" #jedan element
+    for bla in popis.keys():
+        blok = bla[0]
+        modifikacija = bla[1]
+        # prijevodi:
+        # diamond
+        # 56 : 264,
+        if bla[0] == 56:
+            blok = 264
+        # redstone
+        # 73 : 331 ,
+        if bla[0] == 73:
+            blok = 331
+        # lapis
+        # 21 : 351 , 4
+        if bla[0] == 21:
+            blok = 351
+            modifikacija = 4
+        # emerald
+        # 129 :  388
+        if bla[0] == 129:
+            blok = 388
+            # coal COAL_ORE.id  263
+        if bla[0] == COAL_ORE.id:
+            blok = 263
+            modifikacija = 0
+
+        if bla[0] == 153:   #nether quartz
+            blok = 406
+            modifikacija = 0
+        # cobweb
+        if bla[0] == 30:
+            blok = 287
+            modifikacija = 0            
+        # rail
+        if bla[0] == 66:
+            blok = 66
+            modifikacija = 0   
+            
+        while popis[bla] > 0:
+            if popis[bla] > 64:
+                count = 64
+            else:
+                count = popis[bla]
+            popis[bla] -= 64
+
+            #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
+            mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, blok, count, modifikacija )
+            nesto = jednaKutija
+            jednaKutija= nesto + mali_string
+            brojalica += 1
+            if brojalica > 25:
+                obradi_kutiju (  jednaKutija, brojKutija, orMj, orSm ) 
+                brojalica = 0
+                jednaKutija = ""
+                brojKutija += 1
+
+    obradi_kutiju( jednaKutija, brojKutija, orMj, orSm) 
+
+ 

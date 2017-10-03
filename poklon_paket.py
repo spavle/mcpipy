@@ -49,7 +49,7 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    bla = rel2abs ( orMjL , ( iX , iZ , iY  ) , orSm )
 
    # GENERIRA PUNU KUTIJU
-   mc.setBlockWithNBT(bla,54,1, sadrzaj )
+   mc.setBlockWithNBT(bla,54,1, sadrzaj )  #pozicija, kod , modifikacija, tekst NBT-a
 
 def mining_komplet ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    orMjL = premjesti_origin ( orMj ,  iX , iZ , iY   , orSm )
