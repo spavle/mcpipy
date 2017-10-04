@@ -7,8 +7,8 @@ zaObradu = [STONE.id, DIRT.id, GRASS.id, SANDSTONE.id, SAND.id, GRAVEL.id, COBBL
             IRON_ORE.id, COAL_ORE.id, DIAMOND_ORE.id, OBSIDIAN.id, REDSTONE_ORE.id, LAPIS_LAZULI_ORE.id,
             129]  # 129 emerald
 
-popis = dict()
 
+<<<<<<< HEAD
 sadrzaj = list ()
 
 brojKutija = 0
@@ -32,6 +32,11 @@ def obradi_kutiju ( uJednaKutija,uBrojKutija):
 
 def puniKutije(orMj, orSm, dimenzije=5, visina=5):
     # Ovo kupi rude
+=======
+def puniKutije(orMj, orSm, dimenzije=55, visina=5):
+    # Ovo kupi rude i kopa definirani oblik
+    popis = dict()
+>>>>>>> origin/master
     jednaKutija = ''
     brojKutija = 0
     a = 1
@@ -48,11 +53,17 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                 if myBlock.id in zaObradu:
                     a = a + 1
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu     
+<<<<<<< HEAD
                     if ((myBlock.id, myBlock.data)) in popis :  # puni popis
+=======
+                    if ((myBlock.id, myBlock.data)) in popis:  # puni popis
+>>>>>>> origin/master
                         popis[(myBlock.id, myBlock.data)] += 1
                     else:
                         popis[(myBlock.id, myBlock.data)] = 1
+    slozi_NBT_za_kutije ( orMj, orSm , popis )
 
+<<<<<<< HEAD
     # slaze stringove
     brojalica = 0
     mali_string = "" #jedan element
@@ -110,8 +121,11 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
 
 
     # crta kutije
+=======
+    # kopa ispred V iskop visine 'visina' dubine 'dimenzije'
+>>>>>>> origin/master
 
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
-    puniKutije(orMj, orSm, dimenzije=21, visina=5)
+    puniKutije(orMj, orSm, dimenzije=221, visina=5)

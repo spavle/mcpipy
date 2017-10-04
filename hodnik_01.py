@@ -60,5 +60,5 @@ if __name__ == "__main__":    #direktan poziv
    orSm = gdjeGledam ()
    
    
-   hodnik_01 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 5 ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
+   hodnik_01 (  orMj ,  orSm , iX=0 , iZ=0 , iY=0 , duzina= 6 ,  materijal = 98, dv = 0 , stepenice_mat = 109 )
    

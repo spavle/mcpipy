@@ -15,7 +15,11 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '[{Slot:0b,id:"minecraft:diamond_pickaxe",Count:64b,Damage:0s,},',
    '{Slot:1b,id:"minecraft:diamond_shovel",Count:64b,Damage:0s,},'
    '{Slot:2b,id:"minecraft:diamond_axe",Count:64b,Damage:0s,},',
+<<<<<<< HEAD
    '{Slot:3b,id:"minecraft:diamond_sword",Count:62b,Damage:0s,},',
+=======
+   '{Slot:3b,id:"minecraft:diamond_sword",Count:64b,Damage:0s,},',
+>>>>>>> origin/master
    '{Slot:4b,id:"minecraft:diamond",Count:64b,Damage:0s,},',
    '{Slot:5b,id:"minecraft:diamond_hoe",Count:64b,Damage:0s,},',
    '{Slot:6b,id:"minecraft:diamond_sword",Count:64b,Damage:0s,},',
@@ -38,7 +42,11 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    '{Slot:23b,id:"minecraft:shears",Count:64b,Damage:0s,},'
    '{Slot:24b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
    '{Slot:25b,id:"minecraft:torch",Count:64b,Damage:0s,},'   
+<<<<<<< HEAD
    '{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,}],'  
+=======
+   '{Slot:26b,id:"minecraft:glowstone",Count:64b,Damage:0s,},],'  
+>>>>>>> origin/master
    'id:"minecraft:chest",Lock:"",}'
 )
 
@@ -49,7 +57,11 @@ def paket_opreme ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    bla = rel2abs ( orMjL , ( iX , iZ , iY  ) , orSm )
 
    # GENERIRA PUNU KUTIJU
+<<<<<<< HEAD
    mc.setBlockWithNBT(bla,54,0, sadrzaj )
+=======
+   mc.setBlockWithNBT(bla,54,1, sadrzaj )  #pozicija, kod , modifikacija, tekst NBT-a
+>>>>>>> origin/master
 
 def mining_komplet ( orMjL ,  orSm ,  iX=0 , iZ=0 , iY=0 ):
    orMjL = premjesti_origin ( orMj ,  iX , iZ , iY   , orSm )

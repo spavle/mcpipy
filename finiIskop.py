@@ -18,7 +18,7 @@ def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
     #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
     
     sadrzaj=""
-    sadrzaj += '{TransferCooldown:0,Items:[' 
+    sadrzaj += '{Items:[' 
     sadrzaj += uJednaKutija
     sadrzaj += '],id:"minecraft:chest",Lock:"",}'
     orMj = gdjeSam()
@@ -110,7 +110,11 @@ def iskop(orMj, orSm, dimenzije=30, visina=4):
             popis[bla] -= 64
 
             #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
+<<<<<<< HEAD
             mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % (  brojalica, blok, count, modifikacija )
+=======
+            mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, blok, count, modifikacija )
+>>>>>>> origin/master
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
             brojalica += 1

@@ -4,7 +4,7 @@ from crtanje import *		#tu je funkcija koju zovem
 from mc import * #import api-ja
 mc = Minecraft() #inicijalizacija sustava za rad sa Minecraftom
 
-def soba_portal ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , stepenice_mat = 109):
+def soba_portal ( orMj , orSm ,  iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 1 , stepenice_mat = 109):
    """
    ispred lika soba 10 x 10
    iX, - relativni pomak po X
