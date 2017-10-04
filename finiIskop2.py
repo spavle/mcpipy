@@ -11,7 +11,7 @@ zaObradu = [STONE.id, DIRT.id, GRASS.id, SANDSTONE.id, 12, GRAVEL.id, COBBLESTON
 
 
 
-def iskop(orMj, orSm, dimenzije=230, visina=4):      #ovdje se definira oblik iskopa
+def iskop(orMj, orSm, dimenzije=30, visina=8):      #ovdje se definira oblik iskopa
     popis = dict()
     brojKutija = 0
     # Ovo kupi rude
@@ -44,11 +44,11 @@ def iskop(orMj, orSm, dimenzije=230, visina=4):      #ovdje se definira oblik is
                         popis[(myBlock.id, myBlock.data)] += 1
                     else:
                         popis[(myBlock.id, myBlock.data)] = 1
-    slozi_NBT_za_kutije ( orMj, orSm , popis )
+    slozi_NBT_za_kutije ( orMj, orSm , popis ) # poziva pravljenje i punjenje kutija sa materijalom koji je iskopao
 
 
 
-    # crta kutije
+ 
 
     
 # iskop fazoniranog tunela ispred i puni kutije iza    
