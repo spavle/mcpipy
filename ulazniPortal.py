@@ -33,9 +33,9 @@ crtaj_kvadar ( orMj , (13,-sirina - 1,-5)  , (11+4+dubina,sirina +1,-5) , orSm ,
 
 crtaj_kvadar ( orMj , (11+3,-sirina ,-15)  , (11+3+dubina,sirina ,0) , orSm , AIR.id ,  0 )     #centralna rupa
 
-#zakomentirano za testiranje kao heavy element
+#napravljen novi mob spawner ovaj je add acta
 
-#mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
+#     mmob_spawner (  orMj ,  orSm , iX=11+3+dubina/2+4 , iZ=0 , iY=-11  ,  materijal = 98, dv = 0 , stepenice_mat = 109 , prosirenje = 0 )
 
 #2 kocke ravno
 crtaj_kvadar ( orMj , (1,-2,0)  , (2,2,1) , orSm , AIR.id , blok_dv = 0 )
@@ -306,7 +306,8 @@ crtaj_hopper    (   pomOrigin ,  ( -13 , -20 , -3 ) , ( 9 , -20 , -3 ) , pomSm ,
 
 
 #bakljada
-bakljada ( originBaklje , orSm ,  dimenzije = 250 , visina = 120)
+bakljada ( originBaklje , orSm ,  dimenzije = 200 , visina = 120) #200 je max
+
 
 
 

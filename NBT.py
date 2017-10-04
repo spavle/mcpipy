@@ -36,8 +36,9 @@ playerPos = mc.player.getPos()
 #bla = rel2abs ( orMj , ( 2  , 0 ,  0  ) , orSm )
 
 # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA KONJA
-#id = mc.spawnEntity('EntityHorse', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
+#id = mc.spawnEntity('Item', int ( playerPos.x + 3 ) ,int ( playerPos.y + 2 ), int ( playerPos.z ), '{Item:{id:389,Count:25}}')
 
+#mc.spawnEntity('Item', int ( playerPos.x + 3 ) ,int ( playerPos.y + 2 ), int ( playerPos.z ), '{Item:{id:283,Count:25}}')
 
 #XPOrb
 """
@@ -45,10 +46,11 @@ for br in range ( 6 ):
    id = mc.spawnEntity('XPOrb', int ( playerPos.x + br ) ,int ( playerPos.y ), int ( playerPos.z ), "{Value:307}")
 print id
 
-
-id = mc.spawnEntity('XPOrb', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), "{Value:1237}")
-
 """
+
+id = mc.spawnEntity('XPOrb', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Value:1237}')
+
+
 #bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
 
 
@@ -58,15 +60,32 @@ id = mc.spawnEntity('XPOrb', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), i
 
 #crtaj_kvadar ( orMj , ( 1  , -1 , -1 ) , ( 3 , 1 , -1 ) , orSm , materijal , dv ) # zrak iznad stepenica
 
-#bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
+bla = rel2abs ( orMj , ( 5  , 0 ,  0  ) , orSm )
 
 # +++++++++++++++++++++++++++++++++++++ GENERIRA ISPISANI SIGN
 #mc.setBlockWithNBT(bla,63,5,"{id:\"Sign\",Text1:\"Line1\",Text2:\"Pablo\",Text3:\"Line3\",Text4:\"Line4\"}")
 
 # GENERIRA PUNU KUTIJU
 #mc.setBlockWithNBT(bla,54,1,'{Items:[0:{Slot:0b,id:"minecraft:stone",Count:2b,Damage:4s,},1:{Slot:1b,id:"minecraft:dirt",Count:5b,Damage:0s,},2:{Slot:2b,id:"minecraft:diamond_axe",Count:55b,Damage:0s,},3:{Slot:3b,id:"minecraft:dirt",Count:5b,Damage:0s,},4:{Slot:4b,id:"minecraft:dirt",Count:5b,Damage:0s,},],id:"Hopper",Lock:"",}' )
-#bla = rel2abs ( orMj , ( 1  , 0 ,  0  ) , orSm )
+bla = rel2abs ( orMj , ( 1  , 0 ,  0  ) , orSm )
 #print ( mc.getBlockWithNBT (bla) )
+
+
+"""
+Block(54, 2, '{Items:[{Slot:0b,id:"minecraft:red_flower",Count:5b,Damage:0s},{Slot:1b,id:"minecraft:wheat_seeds",Count:6b,Damage:0s},{Slot:2b,id:"minecraft:double_plant",Count:4b,Damage:0s}],id:"minecraft:chest",Lock:""}')
+
+"""
+"""
+sto='{Items:[{Slot:0b,id:"minecraft:red_flower",Count:5b,Damage:0s},{Slot:1b,id:"minecraft:wheat_seeds",Count:6b,Damage:0s},{Slot:2b,id:"minecraft:double_plant",Count:4b,Damage:0s}],id:"minecraft:chest",Lock:""}'
+
+"""
+sto='{Items:[{Slot:0b,id:"1",Count:5b,Damage:5s},{Slot:1b,id:"minecraft:wheat_seeds",Count:6b,Damage:0s},{Slot:2b,id:"minecraft:double_plant",Count:4b,Damage:0s}],id:"minecraft:chest",Lock:""}'
+
+
+mc.setBlockWithNBT(bla,54,0,sto)
+
+
+
 #print mc.getHeight (bla[0] , bla[1] )
 #[12:09:39] [Thread-248/INFO]: [CHAT] Block(54, 2, '{Items:[0:{Slot:1b,id:"minecraft:diamond_axe",Count:1b,Damage:0s,},1:{Slot:13b,id:"minecraft:dirt",Count:22b,Damage:0s,},],id:"Chest",Lock:"",}')
 #[12:32:40] [Thread-322/INFO]: [CHAT] Block(154, 0, '{TransferCooldown:0,Items:[0:{Slot:0b,id:"minecraft:dirt",Count:2b,Damage:0s,},1:{Slot:1b,id:"minecraft:dirt",Count:5b,Damage:0s,},2:{Slot:2b,id:"minecraft:dirt",Count:5b,Damage:0s,},3:{Slot:3b,id:"minecraft:dirt",Count:5b,Damage:0s,},4:{Slot:4b,id:"minecraft:dirt",Count:5b,Damage:0s,},],id:"Hopper",Lock:"",}')
@@ -121,7 +140,7 @@ mc.conn.send("world.setBlocks",1,4,0,1,0,0,63,4,"{id:\"Sign\",Text1:\"AAAAAAPabl
 [0:{id:1,Count:52b,Damage:4s,},1:{id:1,Count:55b,Damage:0s,},2:{id:2,Count:55b,Damage:0s,},3:{id:2,Count:55b,Damage:0s,},4:{id:2,Count:55b,Damage:0s,},5:{id:1,Count:52b,Damage:4s,},6:{id:1,Count:55b,Damage:0s,},7:{id:7,Count:55b,Damage:0s,},8:{id:2,Count:55b,Damage:0s,},]
 """
 
-id = mc.spawnEntity('Item', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:1,Count:64,Damage:2}}')
+#id = mc.spawnEntity('Item', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:1,Count:64,Damage:2}}')
 #id = mc.spawnEntity('Item', int ( playerPos.x + 4 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:3,Count:64}}')
 #id = mc.spawnEntity('Item', int ( playerPos.x + 3 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:14,Count:64}}')
 #id = mc.spawnEntity('Item', int ( playerPos.x + 2 ) ,int ( playerPos.y + 1 ), int ( playerPos.z ), '{Item:{id:15,Count:64}}')

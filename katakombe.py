@@ -25,19 +25,24 @@ def katakombe ( orMjL ,  orSm ,iX=0 , iZ=0 , iY=0 ,  materijal = 98, dv = 0 , st
    crtaj_stepenice ( orMjL , (0,1,5) , (0,1,5) , orSm , blok_id = stepenice_mat , rel_smjer  = "desno" , gore_dolje = "da"  ) 
    
    #stropne lampe
-   crtaj_kvadar ( orMjL , (-9,0,6)  , (-9,0,6) , orSm , 89 , 0 )
-   crtaj_kvadar ( orMjL , (9,0,6)  , (9,0,6) , orSm , 89 , 0 )
-   crtaj_kvadar ( orMjL , (0,-9,6)  , (0,-9,6) , orSm , 89 , 0 )
-   crtaj_kvadar ( orMjL , (0,9,6)  , (0,9,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (-6,0,6)  , (-6,0,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (-6,-6,6)  , (-6,-6,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (6,0,6)  , (6,0,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (6,6,6)  , (5,6,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (0,-6,6)  , (0,-6,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (6,-6,6)  , (6,-6,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (0,6,6)  , (0,6,6) , orSm , 89 , 0 )
+   crtaj_kvadar ( orMjL , (-6,5,6)  , (0,6,6) , orSm , 89 , 0 )
    
-   #baklje na podu
+   #baklje na podu - maknuto
+   """
    for dX in ( -9, -6, -3 , 0 ,3 , 6 ,9  ):
       for dZ in ( -9, -6, -3 , 0 ,3 , 6 ,9  ):
          gdje = rel2abs ( orMjL ,  ( dX , dZ , 0 )  , orSm  )
          kojiBlok = mc.getBlock ( gdje ) 
          if kojiBlok == AIR.id :
             mc.setBlock(gdje , TORCH.id , 5 )
-   
+   """
  
 if __name__ == "__main__":    #direktan poziv
    

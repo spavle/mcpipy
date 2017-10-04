@@ -49,8 +49,8 @@ def modul_sorter2(orMj, orSm, iX=0, iZ=0, iY=0, materijal=98, dv=0, kutija="kuti
     sto = '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}'
     bla = rel2abs(orMj, (5, 0, 3), orSm)
     time.sleep(0.1)
-    mc.setBlockWithNBT(bla, 154, smjer_hoppera(orSm, "meni"), sto)  # hopper gleda meni
-
+    mc.setBlockWithNBT(bla, 154, smjer_hoppera(orSm, "meni"), sto)  # hopper gleda meni puko NBT proba novi forge
+    # crtaj_hopper(orMj, [5, 0, 3], [5, 0, 3], orSm, "meni")  # smrdani selektor
     crtaj_hopper(orMj, [5, 0, 2], [5, 0, 2], orSm, "meni")  # doljnji
 
 
@@ -119,4 +119,6 @@ def sorter2(orMj, orSm, iX=0, iZ=0, iY=0):
 if __name__ == "__main__":  # direktan poziv
     orMj = gdjeSam()
     orSm = gdjeGledam()
+    mc.postToChat("Pocetak !!!" )
     sorter2(orMj, orSm, iX=10)
+    mc.postToChat("Kraj !!!" )

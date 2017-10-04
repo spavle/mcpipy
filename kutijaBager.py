@@ -17,16 +17,17 @@ def obradi_kutiju ( uJednaKutija,uBrojKutija):
     #mc.postToChat("%s . kutija: %s " % (uBrojKutija, uJednaKutija))
     
     sadrzaj=""
-    sadrzaj += '{TransferCooldown:0,Items:[' 
+    sadrzaj += '{id:"Chest",Items:[' 
     sadrzaj += uJednaKutija
-    sadrzaj += '],id:"Chest",Lock:"",}'
+    sadrzaj += '],Lock:,}'
     orMj = gdjeSam()
     orSm = gdjeGledam()
     polozaj = rel2abs ( orMj , ( -2 - 2 * uBrojKutija , 0 , 0  ) , orSm )
-    sto = '{TransferCooldown:0,Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,},1:{Slot:1b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},2:{Slot:2b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},3:{Slot:3b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},4:{Slot:4b,id:"flower_pot",Count:1b,Damage:0s,tag:{display:{Name:"Bla Filler"}}},],id:"Hopper",Lock:"",}'
-    #mc.postToChat("%s " % (sto))
+    sto = '{id:"Chest",Items:[0:{Slot:0b,id:"item_frame",Count:1b,Damage:0s,}],Lock:""}'
+    mc.postToChat("%s " % (sto))
     #mc.postToChat("%s " % (sadrzaj))
-    mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
+    #mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
+    mc.setBlockWithNBT(polozaj,54,1, sto )
     
 
 def puniKutije(orMj, orSm, dimenzije=5, visina=5):
@@ -47,7 +48,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                 if myBlock.id in zaObradu:
                     a = a + 1
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu     
-                    if popis.has_key((myBlock.id, myBlock.data)):  # puni popis
+                    if ((myBlock.id, myBlock.data)) in popis :  # puni popis
                         popis[(myBlock.id, myBlock.data)] += 1
                     else:
                         popis[(myBlock.id, myBlock.data)] = 1
@@ -93,7 +94,8 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=5):
                 
             popis[bla] -= 64
             #ovo trebamo dobiti '2:{Slot:2b,id:3,Count:64b,Damage:0s,},',
-            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
+            # mali_string = '%s:{Slot:%sb,id:%s,Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
+            mali_string = '%s:{Slot:%sb,id:"coal",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica,  count, modifikacija )
             #mc.postToChat("Mali string: %s " % mali_string )
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
