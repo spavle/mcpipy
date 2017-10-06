@@ -40,7 +40,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=25):
                     a = a + 1
                     mc.setBlock(int(gdje[0]), int(gdje[1]), int(gdje[2]), AIR.id, 0)  # stavlja rupu    
                     myBlock.data = myBlock.data & 3
-                    if popis.has_key((myBlock.id, myBlock.data)):  # puni popis
+                    if ((myBlock.id, myBlock.data)) in popis:  # puni popis
                         popis[(myBlock.id, myBlock.data)] += 1
                     else:
                         popis[(myBlock.id, myBlock.data)] = 1
@@ -66,7 +66,7 @@ def puniKutije(orMj, orSm, dimenzije=5, visina=25):
             popis[bla] -= 64
 
             #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
-            mali_string = '%s:{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, brojalica, blok, count, modifikacija )
+            mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % (  brojalica, blok, count, modifikacija )
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
             brojalica += 1

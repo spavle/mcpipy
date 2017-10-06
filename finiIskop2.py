@@ -11,7 +11,7 @@ zaObradu = [STONE.id, DIRT.id, GRASS.id, SANDSTONE.id, 12, GRAVEL.id, COBBLESTON
 
 
 
-def iskop(orMj, orSm, dimenzije=30, visina=8):      #ovdje se definira oblik iskopa
+def iskop(orMj, orSm, dimenzije=30, visina=5):      #ovdje se definira oblik iskopa
     popis = dict()
     brojKutija = 0
     # Ovo kupi rude
