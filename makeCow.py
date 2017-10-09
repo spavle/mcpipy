@@ -27,6 +27,6 @@ playerPos = mc.player.getPos()
 
 # +++++++++++++++++++++++++++++++++++++++++++++ GENERIRA Kravu
 
-id = mc.spawnEntity('Cow', int ( playerPos.x + 1 ) ,int ( playerPos.y ), int ( playerPos.z ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
+id = mc.spawnEntity('Cow', int ( playerPos.x + 2 ) ,int ( playerPos.y ), int ( playerPos.z + 2 ), "{NoAI:0,Type:2,Variant:3,Tame:1}")
 
 
