@@ -27,7 +27,7 @@ def obradi_kutiju ( uJednaKutija, uBrojKutija, orMj, orSm):
     mc.setBlockWithNBT(polozaj,54,1, sadrzaj )
     
 
-def iskop(orMj, orSm, dimenzije=30, visina=4):
+def iskop(orMj, orSm, dimenzije=15, visina=7):
     # Ovo kupi rude
     if orMj[1] < 0:
         orMj[1] -= 1
@@ -110,11 +110,9 @@ def iskop(orMj, orSm, dimenzije=30, visina=4):
             popis[bla] -= 64
 
             #ovo trebamo dobiti 2:{Slot:2b,id:"3",Count:64b,Damage:0s,},
-<<<<<<< HEAD
-            mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % (  brojalica, blok, count, modifikacija )
-=======
+
             mali_string = '{Slot:%sb,id:"%s",Count:%sb,Damage:%ss,},' % ( brojalica, blok, count, modifikacija )
->>>>>>> origin/master
+
             nesto = jednaKutija
             jednaKutija= nesto + mali_string
             brojalica += 1
